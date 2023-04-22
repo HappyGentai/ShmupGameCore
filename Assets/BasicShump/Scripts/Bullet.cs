@@ -5,6 +5,8 @@ namespace ShumpCore
 {
     public class Bullet : MonoBehaviour, IRecycleable
     {
+        [HideInInspector]
+        public string m_BulletBelong = "";
         [SerializeField]
         private Transform m_MoveTarget = null;
         [SerializeField]
@@ -51,6 +53,10 @@ namespace ShumpCore
         private void OnTriggerEnter2D(Collider2D collision)
         {
             //  Check can deal damage or not
+            if (m_BulletBelong == collision.tag)
+            {
+                return;
+            }
             var damageable = collision.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {

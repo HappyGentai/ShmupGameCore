@@ -14,8 +14,8 @@ namespace ShumpCore
             int poolsCount = bulletPools.Count;
             for (int index = 0; index < poolsCount; ++index)
             {
-                BulletPool bulletPool =  bulletPools[index];
-                Bullet checkBullet = bulletPool.CoreBullet;
+                var bulletPool =  bulletPools[index];
+                var checkBullet = bulletPool.CoreBullet;
                 if (checkBullet == _CoreBullet)
                 {
                     return bulletPool.GetBullet();
@@ -23,9 +23,19 @@ namespace ShumpCore
             }
 
             //  If no bullet pool in list, create one and take
-            BulletPool newBulletPool = new BulletPool(_CoreBullet);
+            var newBulletPool = new BulletPool(_CoreBullet);
             bulletPools.Add(newBulletPool);
             return newBulletPool.GetBullet();
+        }
+
+        public static void ReleaseAll()
+        {
+            int poolsCount = bulletPools.Count;
+            for (int index = 0; index < poolsCount; ++index)
+            {
+                BulletPool bulletPool = bulletPools[index];
+                bulletPool.ReleaseAll();
+            }
         }
 
         public static void DisposeAll()
@@ -48,11 +58,16 @@ namespace ShumpCore
         }
 
         private ObjectPool<Bullet> bulletPool = null;
+        private List<Bullet> aliveObject = new List<Bullet>();
 
         public BulletPool(Bullet _CoreBullet)
         {
             m_CoreBullet = _CoreBullet;
-            bulletPool = new ObjectPool<Bullet>(CreatePoolItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject);
+            /*
+             *  Some time bullet will hit multiple target also call same time release to pool function
+             *  In herem i prefer set ObjectPool's collectionCheck to false to avoid pool thrown exception 
+             */
+            bulletPool = new ObjectPool<Bullet>(CreatePoolItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, false);
         }
 
         public void Dispose()
@@ -62,13 +77,23 @@ namespace ShumpCore
 
         public Bullet GetBullet()
         {
-            Bullet bullet = bulletPool.Get();
+            var bullet = bulletPool.Get();
             return bullet;
+        }
+
+        public void ReleaseAll()
+        {
+            int aliveBulletCount = aliveObject.Count;
+            for (int index = 0; index < aliveBulletCount; index++)
+            {
+                bulletPool.Release(aliveObject[0]);
+            }
+            aliveObject.Clear();
         }
 
         private Bullet CreatePoolItem()
         {
-            Bullet newBullet = GameObject.Instantiate<Bullet>(m_CoreBullet);
+            var newBullet = GameObject.Instantiate<Bullet>(m_CoreBullet);
             newBullet.eventWhenBulletDead += () =>
             {
                 bulletPool.Release(newBullet);
@@ -79,12 +104,14 @@ namespace ShumpCore
         private void OnReturnedToPool(Bullet bullet)
         {
             bullet.gameObject.SetActive(false);
+            aliveObject.Remove(bullet);
         }
 
         private void OnTakeFromPool(Bullet bullet)
         {
             bullet.gameObject.SetActive(true);
             bullet.MoveDir = Vector2.zero;
+            aliveObject.Add(bullet);
         }
 
         private void OnDestroyPoolObject(Bullet bullet)

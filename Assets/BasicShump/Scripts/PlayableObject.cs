@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ShumpCore
 {
-    public class PlayableObject : MonoBehaviour
+    public class PlayableObject : MonoBehaviour, IDamageable
     {
         [SerializeField]
         private Transform m_MoveTarget = null;
@@ -16,6 +17,8 @@ namespace ShumpCore
 
         [SerializeField]
         private Launcher[] m_Launchers = null;
+
+        public UnityAction EventWhenDead = null;
 
         // Update is called once per frame
         void Update()
@@ -52,6 +55,26 @@ namespace ShumpCore
             Move(moveValue.x, moveValue.y, isFocusMode);
         }
 
+        public void GetHit(float dmg)
+        {
+            this.gameObject.SetActive(false);
+            int launcherCount = m_Launchers.Length;
+            for (int index = 0; index < launcherCount; ++index)
+            {
+                Launcher launcher = m_Launchers[index];
+                launcher.StopLauncher();
+            }
+            if (EventWhenDead != null)
+            {
+                EventWhenDead.Invoke();
+            }
+        }
+
+        public void ResetState()
+        {
+            this.gameObject.SetActive(true);
+        }
+
         /// <summary>
         /// Call all launcher fire(if have)
         /// </summary>
@@ -61,6 +84,10 @@ namespace ShumpCore
             for (int index = 0; index < launcherCount; ++index)
             {
                 Launcher launcher = m_Launchers[index];
+                if (!launcher.IsWorking)
+                {
+                    launcher.AwakeLauncher();
+                }
                 launcher.Fire();
             }
         }

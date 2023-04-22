@@ -54,13 +54,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\BasicShump\Scripts\Launcher.cs" />
-    <Compile Include="Assets\BasicShump\Scripts\PlayableObject.cs" />
-    <Compile Include="Assets\BasicShump\Scripts\Bullet.cs" />
-    <Compile Include="Assets\BasicShump\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\BasicShump\Scripts\BulletFactory.cs" />
-    <Compile Include="Assets\BasicShump\Scripts\InterFace\IDamageable.cs" />
+    <Compile Include="Assets\BasicShump\Scripts\PlayableObject.cs" />
+    <Compile Include="Assets\BasicShump\Scripts\EnemyFactory.cs" />
+    <Compile Include="Assets\BasicShump\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\BasicShump\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\BasicShump\Scripts\InterFace\IRecycleable.cs" />
+    <Compile Include="Assets\BasicShump\Scripts\InterFace\IDamageable.cs" />
+    <Compile Include="Assets\BasicShump\Scripts\Bullet.cs" />
     <Compile Include="Assets\BasicShump\Scripts\Enemy.cs" />
+    <Compile Include="Assets\BasicShump\Scripts\Test\TestGameCycle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
