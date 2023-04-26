@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ShumpCore
+namespace ShmupCore
 {
     /// <summary>
     /// Any object which have collider(2D) enter this area will set to disable.

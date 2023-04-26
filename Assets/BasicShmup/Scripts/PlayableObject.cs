@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ShumpCore
+namespace ShmupCore
 {
     public class PlayableObject : MonoBehaviour, IDamageable
     {

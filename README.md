@@ -1,1 +1,1 @@
-# ShunpGameCore
+# ShmupGameCore

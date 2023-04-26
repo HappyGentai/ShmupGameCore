@@ -1,0 +1,1 @@
+{"enemySpawnDatas":[{"m_EnemyID":"Popcorn","m_SetLaneNumber":2,"m_SetTiming":0.0},{"m_EnemyID":"Popcorn","m_SetLaneNumber":1,"m_SetTiming":0.5},{"m_EnemyID":"Popcorn","m_SetLaneNumber":0,"m_SetTiming":1.0},{"m_EnemyID":"Popcorn","m_SetLaneNumber":-1,"m_SetTiming":1.5},{"m_EnemyID":"Popcorn","m_SetLaneNumber":-2,"m_SetTiming":2.0}]}

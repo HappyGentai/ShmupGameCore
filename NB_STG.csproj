@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9FF6939E-C085-063F-ECEA-34129080A535}</ProjectGuid>
+    <ProjectGuid>{D1B67C1F-94F7-D779-837B-C0AC542C7263}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>NB_STG</AssemblyName>

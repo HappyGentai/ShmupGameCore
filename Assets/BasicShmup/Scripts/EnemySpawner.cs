@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ShumpCore
+namespace ShmupCore
 {
     public class EnemySpawner : MonoBehaviour
     {
@@ -16,8 +16,6 @@ namespace ShumpCore
         private float m_LaneDistance = 0;
         [SerializeField]
         private LaneExpandDirectionm m_LaneExpandDir = LaneExpandDirectionm.Horizontal;
-        [SerializeField]
-        private Enemy m_SpawnCoreEnemy = null;
 
         public Enemy SpawnEnemy(Enemy enemyPrefab, int laneIndex)
         {

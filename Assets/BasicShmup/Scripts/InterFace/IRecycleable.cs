@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ShumpCore
+namespace ShmupCore
 {
     public interface IRecycleable
     {

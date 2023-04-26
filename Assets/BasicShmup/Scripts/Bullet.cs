@@ -1,14 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ShumpCore
+namespace ShmupCore
 {
     public class Bullet : MonoBehaviour, IRecycleable
     {
         [HideInInspector]
         public string m_BulletBelong = "";
-        [SerializeField]
-        private Transform m_MoveTarget = null;
         [SerializeField]
         private Transform m_RotateTarget = null;
         [SerializeField]

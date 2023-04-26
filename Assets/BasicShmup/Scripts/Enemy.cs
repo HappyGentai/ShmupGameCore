@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using System;
 
-namespace ShumpCore
+namespace ShmupCore
 {
     public class Enemy : MonoBehaviour, IDamageable, IRecycleable
     {

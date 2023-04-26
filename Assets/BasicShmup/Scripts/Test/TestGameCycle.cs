@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ShumpCore.Test
+namespace ShmupCore.Test
 {
     public class TestGameCycle : MonoBehaviour
     {
@@ -18,7 +18,6 @@ namespace ShumpCore.Test
         [SerializeField]
         private GameObject m_GameOverUI = null;
 
-        // Start is called before the first frame update
         void Start()
         {
             m_Player.EventWhenDead = PlayerDead;

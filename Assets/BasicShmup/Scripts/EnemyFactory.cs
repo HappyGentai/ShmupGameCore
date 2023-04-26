@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace ShumpCore
+namespace ShmupCore
 {
     public class EnemyFactory
     {

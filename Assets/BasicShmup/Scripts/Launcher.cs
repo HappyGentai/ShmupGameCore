@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using ShumpCore.Laumcher;
+using ShmupCore.Laumcher;
 
-namespace ShumpCore
+namespace ShmupCore
 {
     public class Launcher : MonoBehaviour
     {

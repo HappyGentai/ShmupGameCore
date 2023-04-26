@@ -1,5 +1,5 @@
 
-namespace ShumpCore
+namespace ShmupCore
 {
     public interface IDamageable
     {
