@@ -4,7 +4,7 @@ using System;
 
 namespace ShmupCore
 {
-    public class Enemy : MonoBehaviour, IDamageable, IRecycleable
+    public class Enemy : MonoBehaviour, IDamageable, IRecycleable, IInvincible
     {
         [SerializeField]
         private SpriteRenderer m_RenderTarget = null;
@@ -19,11 +19,20 @@ namespace ShmupCore
             get { return hp; }
             set
             {
-                hp = value;
+                if (!isInvincible)
+                {
+                    hp = value;
+                }
+                
                 if (hp <= 0)
                 {
                     EnemyDead();
                 } else
+                {
+                    showDamageFlash();
+                }
+
+                void showDamageFlash()
                 {
                     if (damagedFlash == null)
                     {
@@ -32,6 +41,8 @@ namespace ShmupCore
                 }
             }
         }
+        [SerializeField]
+        private bool isInvincible = false;
 
         public Vector2 m_MoveDirection = Vector2.left;
         [SerializeField]
@@ -71,9 +82,10 @@ namespace ShmupCore
             StopFire();
             attackRoutine = StartCoroutine(Attacking());
             m_HitBox.enabled = true;
+            isInvincible = false;
         }
 
-        public  void EnemyDead()
+        public void EnemyDead()
         {
             if (eventWhenEnemyDead != null)
             {
@@ -102,6 +114,11 @@ namespace ShmupCore
                 Launcher launcher = m_Launchers[index];
                 launcher.StopLauncher();
             }
+        }
+
+        public void SetInvincible(bool _isInvincible)
+        {
+            isInvincible = _isInvincible;
         }
 
         IEnumerator Attacking()

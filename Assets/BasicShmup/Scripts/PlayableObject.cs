@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace ShmupCore
 {
@@ -14,44 +15,52 @@ namespace ShmupCore
         [SerializeField]
         [Range(0, 1f)]
         private float m_FocusModeScaleRate = 0.6f;
+        private bool isFocusMode = false;
+
+        [SerializeField]
+        private InputAction m_MoveAction;
+        [SerializeField]
+        private InputAction m_FocusModeAction;
+        [SerializeField]
+        private InputAction m_FireAction;
 
         [SerializeField]
         private Launcher[] m_Launchers = null;
 
         public UnityAction EventWhenDead = null;
 
-        // Update is called once per frame
+        public void OnEnable()
+        {
+            m_MoveAction.Enable();
+            m_FocusModeAction.Enable();
+            m_FireAction.Enable();
+        }
+
+        public void OnDisable()
+        {
+            m_MoveAction.Disable();
+            m_FocusModeAction.Disable();
+            m_FireAction.Disable();
+        }
+
+        private void Start()
+        {
+            m_FocusModeAction.started += (ctx) => {
+                isFocusMode = true;
+            };
+            m_FocusModeAction.canceled += (ctx) => {
+                isFocusMode = false;
+            };
+        }
+
         void Update()
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (m_FireAction.IsPressed())
             {
                 Fire();
             }
 
-            Vector2 moveValue = Vector2.zero;
-            if (Input.GetKey(KeyCode.W))
-            {
-                moveValue.y = 1;
-            } else if (Input.GetKey(KeyCode.S))
-            {
-                moveValue.y = -1;
-            }
-
-            if (Input.GetKey(KeyCode.A))
-            {
-                moveValue.x = -1;
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                moveValue.x = 1;
-            }
-
-            bool isFocusMode = false;
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                isFocusMode = true;
-            }
-
+            Vector2 moveValue = m_MoveAction.ReadValue<Vector2>();
             Move(moveValue.x, moveValue.y, isFocusMode);
         }
 
@@ -106,7 +115,6 @@ namespace ShmupCore
 
             //  Normalize move value
             moveValue = moveValue.normalized;
-
             moveValue *= m_MoveSpeed;
             if (focusMode)
             {

@@ -1,12 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Events;
 
 namespace ShmupCore
 {
     public class EnemyFactory
     {
         private static List<EnemyPool> enemyPools = new List<EnemyPool>();
+
+        /// <summary>
+        /// If want know enemy class get by some script, can subscribe this event to get enemy class. 
+        /// That will trigger when some script call Function-EnemyFactory.GetEnemy.
+        /// </summary>
+        public static UnityAction<Enemy> onEnemyGet = null;
+
+        /// <summary>
+        /// If want know enemy class when return to pool, can subscribe this event to get enemy class. 
+        /// </summary>
+        public static UnityAction<Enemy> onEnemyReturnToPool = null;
 
         public static Enemy GetEnemy(Enemy _CoreEnemy)
         {
@@ -18,14 +30,23 @@ namespace ShmupCore
                 var checkEnemy = enemyPool.CoreEnemy;
                 if (checkEnemy == _CoreEnemy)
                 {
-                    return enemyPool.GetEnemy();
+                    return SetOnEnemyGetInvoke(enemyPool.GetEnemy());
                 }
             }
 
             //  If no enemy pool in list, create one and take
             var newEnemyPool = new EnemyPool(_CoreEnemy);
             enemyPools.Add(newEnemyPool);
-            return newEnemyPool.GetEnemy();
+            return SetOnEnemyGetInvoke(newEnemyPool.GetEnemy());
+
+            Enemy SetOnEnemyGetInvoke(Enemy enemy)
+            {
+                if (onEnemyGet != null)
+                {
+                    onEnemyGet.Invoke(enemy);
+                }
+                return enemy;
+            }
         }
 
         public static void ReleaseAll()
@@ -102,6 +123,10 @@ namespace ShmupCore
             enemy.Recycle();
             enemy.gameObject.SetActive(false);
             aliveObject.Remove(enemy);
+            if (EnemyFactory.onEnemyReturnToPool != null)
+            {
+                EnemyFactory.onEnemyReturnToPool.Invoke(enemy);
+            }
         }
 
         private void OnTakeFromPool(Enemy enemy)

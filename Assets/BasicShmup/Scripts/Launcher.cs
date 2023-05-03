@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using ShmupCore.Laumcher;
+using UnityEngine.Events;
 
 namespace ShmupCore
 {
@@ -15,6 +16,8 @@ namespace ShmupCore
         private FireSpot[] m_FireSpots = null;
         [SerializeField]
         private float m_FireRecall = 0.1f;
+        [SerializeField]
+        private UnityEvent m_OnFiring = null;
 
         private float fireCounter = 0;
         private Coroutine workingRoutine = null;
@@ -47,6 +50,10 @@ namespace ShmupCore
         {
             if (fireCounter >= m_FireRecall)
             {
+                if (m_OnFiring != null)
+                {
+                    m_OnFiring.Invoke();
+                }
                 fireCounter = 0;
                 int spotCount = m_FireSpots.Length;
                 var selfPos = this.transform.position;

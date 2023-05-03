@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ShmupCore.Editor
+namespace ShmupCore.Level
 {
     public class LevelMaker : MonoBehaviour
     {
