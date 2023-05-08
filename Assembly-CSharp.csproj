@@ -59,19 +59,31 @@
     <Compile Include="Assets\BasicShmup\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InvincibleArea.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IRecycleable.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IRecycleable.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\PlayableObject.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Launcher.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\BulletFactory.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IDamageable.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\BulletFactory.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Test\TestGameLevelByLevelMaker.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyFactory.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Test\TestGameCycle.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\ShmupObserver.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyLibrary.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Launcher.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyData.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IDamageable.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Bullet.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Enemy.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\BasicState.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\StateController.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\EnemyStateAdiotMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BasicShmup\Resources\LevelData.txt" />
@@ -877,10 +889,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NB_STG.csproj">
-      <Project>{D1B67C1F-94F7-D779-837B-C0AC542C7263}</Project>
-      <Name>NB_STG</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

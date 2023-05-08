@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using ShmupCore.GameElement;
+using ShmupCore.Factory;
 
 namespace ShmupCore.Test
 {

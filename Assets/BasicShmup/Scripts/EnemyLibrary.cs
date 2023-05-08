@@ -1,6 +1,7 @@
 using UnityEngine;
+using ShmupCore.GameElement;
 
-namespace ShmupCore
+namespace ShmupCore.Data
 {
     [CreateAssetMenu(fileName = "EnemyLibrary", menuName = "ShmupCore/Stagge/EnemyLibrary")]
     public class EnemyLibrary : ScriptableObject

@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using System;
+using UnityEngine.Events;
 
-namespace ShmupCore
+namespace ShmupCore.GameElement
 {
     public class Enemy : MonoBehaviour, IDamageable, IRecycleable, IInvincible
     {
@@ -50,12 +50,17 @@ namespace ShmupCore
 
         [SerializeField]
         private Launcher[] m_Launchers = null;
+        /// <summary>
+        /// Delay sec
+        /// </summary>
         [SerializeField]
         private float m_AttackDelay = 0;
         private Coroutine attackRoutine = null;
         private Coroutine damagedFlash = null;
+        [SerializeField]
+        private UnityEvent m_OnPlayerDead = null;
         [HideInInspector]
-        public Action eventWhenEnemyDead = null;
+        public UnityAction eventWhenEnemyDead = null;
 
         // Update is called once per frame
         void Update()
@@ -87,6 +92,10 @@ namespace ShmupCore
 
         public void EnemyDead()
         {
+            if (m_OnPlayerDead != null)
+            {
+                m_OnPlayerDead.Invoke();
+            }
             if (eventWhenEnemyDead != null)
             {
                 eventWhenEnemyDead();

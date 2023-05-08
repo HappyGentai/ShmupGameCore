@@ -908,10 +908,6 @@
       <Project>{24A83F98-CE8C-B40A-6929-55348458C3E7}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="NB_STG.csproj">
-      <Project>{D1B67C1F-94F7-D779-837B-C0AC542C7263}</Project>
-      <Name>NB_STG</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

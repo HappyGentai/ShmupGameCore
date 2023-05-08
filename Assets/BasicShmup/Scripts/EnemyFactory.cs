@@ -1,9 +1,10 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.Events;
+using ShmupCore.GameElement;
+using UnityEngine;
 
-namespace ShmupCore
+namespace ShmupCore.Factory
 {
     public class EnemyFactory
     {

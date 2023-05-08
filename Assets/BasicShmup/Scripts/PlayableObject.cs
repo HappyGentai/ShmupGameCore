@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace ShmupCore
+namespace ShmupCore.GameElement
 {
     public class PlayableObject : MonoBehaviour, IDamageable
     {
@@ -26,6 +26,9 @@ namespace ShmupCore
 
         [SerializeField]
         private Launcher[] m_Launchers = null;
+
+        [SerializeField]
+        private UnityEvent m_OnPlayerDead = null;
 
         public UnityAction EventWhenDead = null;
 
@@ -73,6 +76,12 @@ namespace ShmupCore
                 Launcher launcher = m_Launchers[index];
                 launcher.StopLauncher();
             }
+
+            if (m_OnPlayerDead != null)
+            {
+                m_OnPlayerDead.Invoke();
+            }
+
             if (EventWhenDead != null)
             {
                 EventWhenDead.Invoke();

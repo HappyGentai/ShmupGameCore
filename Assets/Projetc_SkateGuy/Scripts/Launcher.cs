@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using ShmupCore.Factory;
+using SkateGuy.Factories;
 
-namespace ShmupCore.GameElement
+namespace SkateGuy.GameElements
 {
     public class Launcher : MonoBehaviour
     {
@@ -61,7 +61,7 @@ namespace ShmupCore.GameElement
                 {
                     var fireSpot = m_FireSpots[index];
                     var firDir = Quaternion.AngleAxis(fireSpot.FireAngle, Vector3.forward) * m_BaseFireDirection;
-                    Bullet bullet = BulletFactory.GetBullet(m_FireBullet);
+                    var bullet = BulletFactory.GetBullet(m_FireBullet);
                     bullet.m_BulletBelong = m_LauncherBelong;
                     bullet.MoveDir = firDir;
                     bullet.transform.position = this.transform.position + (Vector3)fireSpot.FirePoint;
@@ -71,7 +71,7 @@ namespace ShmupCore.GameElement
 
         private IEnumerator LauncherWorking()
         {
-            while(true)
+            while (true)
             {
                 yield return null;
 
@@ -85,7 +85,7 @@ namespace ShmupCore.GameElement
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = new Color(1, 0, 0, 0.25f);
-            Gizmos.DrawSphere(this.transform.position, 0.5f);
+            Gizmos.DrawSphere(this.transform.position, 0.25f);
 
             //  Draw fire spot(If have)
             var selfPos = this.transform.position;

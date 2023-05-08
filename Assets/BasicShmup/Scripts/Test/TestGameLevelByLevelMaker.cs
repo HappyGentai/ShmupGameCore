@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using ShmupCore.Level;
+using ShmupCore.Factory;
+using ShmupCore.GameElement;
+using ShmupCore.Data;
 
 namespace ShmupCore.Test
 {
@@ -19,7 +22,7 @@ namespace ShmupCore.Test
         private Coroutine m_EnemySpawnRoutine = null;
         private float gameTime = 0;
         [SerializeField]
-        private GameObject m_GameOverUI = null;
+        private UnityEngine.GameObject m_GameOverUI = null;
         private ShmupObserver shmupObserver = null;
 
         void Start()

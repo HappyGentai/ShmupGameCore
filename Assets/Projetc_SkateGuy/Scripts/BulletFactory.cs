@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
-using ShmupCore.GameElement;
+using SkateGuy.GameElements;
 
-namespace ShmupCore.Factory
+namespace SkateGuy.Factories
 {
-    public class BulletFactory
+    public class BulletFactory : MonoBehaviour
     {
         private static List<BulletPool> bulletPools = new List<BulletPool>();
 
@@ -15,7 +15,7 @@ namespace ShmupCore.Factory
             int poolsCount = bulletPools.Count;
             for (int index = 0; index < poolsCount; ++index)
             {
-                var bulletPool =  bulletPools[index];
+                var bulletPool = bulletPools[index];
                 var checkBullet = bulletPool.CoreBullet;
                 if (checkBullet == _CoreBullet)
                 {

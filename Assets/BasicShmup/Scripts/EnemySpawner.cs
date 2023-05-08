@@ -1,4 +1,6 @@
 using UnityEngine;
+using ShmupCore.GameElement;
+using ShmupCore.Factory;
 
 namespace ShmupCore
 {
@@ -19,14 +21,14 @@ namespace ShmupCore
 
         public Enemy SpawnEnemy(Enemy enemyPrefab, int laneIndex)
         {
-            Enemy enemy = EnemyFactory.GetEnemy(enemyPrefab);
+            var enemy = EnemyFactory.GetEnemy(enemyPrefab);
             enemy.transform.localPosition = GetLanePosition(laneIndex);
             return enemy;
         }
 
         private Vector2 GetLanePosition(int laneIndex)
         {
-            Vector2 centerPos = m_CenterPos;
+            var centerPos = m_CenterPos;
             if (laneIndex == 0)
             {
                 return centerPos;
@@ -37,7 +39,7 @@ namespace ShmupCore
                     return Vector2.zero;
                 }
 
-                Vector2 expandDir = centerPos;
+                var expandDir = centerPos;
                 if (m_LaneExpandDir == LaneExpandDirectionm.Horizontal)
                 {
                     expandDir.y = 0;
@@ -60,7 +62,7 @@ namespace ShmupCore
             Gizmos.color = Color.green;
             for (int index = 0; index < totalLanes; ++index)
             {
-                Vector2 pos = Vector2.zero;
+                var pos = Vector2.zero;
                 if (index == 0)
                 {
                     pos = GetLanePosition(index);

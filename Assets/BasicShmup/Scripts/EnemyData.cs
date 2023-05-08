@@ -1,6 +1,7 @@
 using UnityEngine;
+using ShmupCore.GameElement;
 
-namespace ShmupCore
+namespace ShmupCore.Data
 {
     [System.Serializable]
     public class EnemyData

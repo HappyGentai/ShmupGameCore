@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ShmupCore.GameElement
+namespace SkateGuy.GameElements
 {
     public class Bullet : MonoBehaviour, IRecycleable
     {

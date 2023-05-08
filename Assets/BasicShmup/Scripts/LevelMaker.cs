@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ShmupCore.Factory;
+using ShmupCore.Data;
 
 namespace ShmupCore.Level
 {
