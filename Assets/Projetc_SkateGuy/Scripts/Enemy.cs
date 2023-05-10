@@ -1,59 +1,92 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using SkateGuy.Staties;
-using SkateGuy.Staties.EnemyState;
+using SkateGuy.States;
+using UnityEngine.Events;
 
 namespace SkateGuy.GameElements
 {
-    [RequireComponent(typeof(CircleCollider2D))]
-    public class Enemy : MonoBehaviour, IRecycleable
+    public abstract class Enemy : MonoBehaviour, IRecycleable, IDamageable
     {
         [SerializeField]
-        private Transform m_MoveTarget = null;
-        public Transform MoveTarget
-        {
-            get { return m_MoveTarget; }
-        }
+        protected Transform m_MoveTarget = null;
+        public abstract Transform MoveTarget { get; protected set; }
         [SerializeField]
-        private CircleCollider2D m_HitBox = null; 
+        protected CircleCollider2D m_HitBox = null; 
+        public abstract CircleCollider2D HitBox { get; protected set; }
         [Header("State")]
         [SerializeField]
-        private float m_MoveSpeed = 1f;
-        public float MoveSpeed
+        protected float m_MaxHP = 100;
+        public abstract float MaxHP { get; protected set; }
+        [SerializeField]
+        protected float m_HP = 0;
+        public virtual float HP
         {
-            get
+            get { return m_HP; }
+            set
             {
-                return m_MoveSpeed;
+                m_HP = value;
+                if (m_HP >= m_MaxHP)
+                {
+                    m_HP = m_MaxHP;
+                }
+                else if (m_HP < 0)
+                {
+                    m_HP = 0;
+                }
+                _OnHPChange.Invoke(m_HP);
+                if (m_HP <= 0)
+                {
+                    Die();
+                    _OnPlayerDie.Invoke();
+                }
             }
         }
+        [SerializeField]
+        protected float m_MoveSpeed = 1f;
+        public abstract float MoveSpeed { get; protected set; }
         [Header("Launcher")]
         [SerializeField]
-        private Launcher[] m_Launchers = null;
-        public Launcher[] Launchers
+        protected Launcher[] m_Launchers = null;
+        public abstract Launcher[] Launchers { get; set; }
+
+        protected StateController StateController = null;
+
+        protected UnityEvent<float> _OnHPChange = new UnityEvent<float>();
+        public abstract UnityEvent<float> OnHPChange { get; protected set; }
+        protected UnityEvent _OnPlayerDie = new UnityEvent();
+        public abstract UnityEvent OnPlayerDie { get; protected set; }
+
+        public virtual void WakeUpObject()
         {
-            get { return m_Launchers; }
+            HP = MaxHP;
         }
 
-        private StateController stateController = null;
-
-        private void Start()
+        public virtual void SleepObject()
         {
-            //  Create state controller and set basic state
-            stateController = new StateController();
-            var adiotState = new EnemyStateAdiotMove(stateController, this, null, Vector2.left);
-            stateController.SetState(adiotState);
+
         }
 
-        private void Update()
+        protected virtual void Start()
         {
-            stateController.Track();
+            WakeUpObject();
+            StateController = new StateController();
         }
 
-        public void Recycle()
+        protected virtual void Update()
+        {
+            StateController.Track();
+        }
+
+        public virtual void Recycle()
         {
             m_HitBox.enabled = false;
-            stateController.SetState(null);
+            StateController.SetState(null);
         }
+
+        public virtual void GetHit(float dmg)
+        {
+            HP -= dmg;
+        }
+
+        protected abstract void Die();
     }
 }

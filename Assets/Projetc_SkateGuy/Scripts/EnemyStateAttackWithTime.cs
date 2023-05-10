@@ -1,22 +1,26 @@
+using System.Collections;
 using UnityEngine;
 using SkateGuy.GameElements;
 
 namespace SkateGuy.States.EnemyStates
 {
-    public class EnemyStateAdiotMove: BasicState
+    public class EnemyStateAttackWithTime : BasicState
     {
         private Enemy enemy = null;
-        private Transform enemyMoveTarget = null;
-        private Vector2 moveDir = Vector2.zero;
         private Launcher[] launchers = null;
+        private float fireTotalTime = 0;
+        private Coroutine fireCoroutine = null;
 
-        public EnemyStateAdiotMove(StateController _stateController, Enemy _enemy, Vector2 _moveDir) : base(_stateController)
+        public EnemyStateAttackWithTime(StateController _stateController, Enemy _enemy, float _fireTime) : base(_stateController)
         {
             stateController = _stateController;
             enemy = _enemy;
-            enemyMoveTarget = enemy.MoveTarget;
-            moveDir = _moveDir;
             launchers = enemy.Launchers;
+            fireTotalTime = _fireTime;
+        }
+
+        public override void OnEnter()
+        {
             //  Awake all launcher
             var launcherCount = launchers.Length;
             for (int index = 0; index < launcherCount; ++index)
@@ -24,11 +28,7 @@ namespace SkateGuy.States.EnemyStates
                 var launcher = launchers[index];
                 launcher.AwakeLauncher();
             }
-        }
-
-        public override void OnEnter()
-        {
-            
+            fireCoroutine = enemy.StartCoroutine(Firing());
         }
 
         public override void OnExit()
@@ -39,23 +39,29 @@ namespace SkateGuy.States.EnemyStates
                 var launcher = launchers[index];
                 launcher.StopLauncher();
             }
+            enemy.StopCoroutine(fireCoroutine);
         }
 
         public override void Track()
         {
-            var enemySpeed = enemy.MoveSpeed;
-            enemyMoveTarget.localPosition += (Vector3)(Time.deltaTime * moveDir * enemySpeed);
-            Fire();
+            
         }
 
-        private void Fire()
+        private IEnumerator Firing()
         {
+            var timecounter = 0f;
             var launcherCount = launchers.Length;
-            for (int index = 0; index < launcherCount; ++index)
+            while (timecounter < fireTotalTime)
             {
-                var launcher = launchers[index];
-                launcher.Fire();
+                yield return null;
+                timecounter += Time.deltaTime;
+                for (int index = 0; index < launcherCount; ++index)
+                {
+                    var launcher = launchers[index];
+                    launcher.Fire();
+                }
             }
+            this.SetToNextState();
         }
     }
 }

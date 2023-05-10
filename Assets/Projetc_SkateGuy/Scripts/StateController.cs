@@ -1,4 +1,4 @@
-namespace SkateGuy.Staties
+namespace SkateGuy.States
 {
     public class StateController
     {

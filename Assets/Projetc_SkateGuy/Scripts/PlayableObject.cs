@@ -1,96 +1,144 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System.Collections.Generic;
+using SkateGuy.States;
+using UnityEngine.Events;
 
 namespace SkateGuy.GameElements
 {
-    public class PlayableObject : MonoBehaviour
+    public abstract class PlayableObject : MonoBehaviour, IDamageable
     {
         [SerializeField]
-        private Transform m_MoveTarget = null;
+        protected Transform m_MoveTarget = null;
+        public abstract Transform MoveTarget { get; protected set; }
 
         [Header("State")]
         [SerializeField]
-        private float m_MaxGrazeCounter = 100;
+        protected float m_MaxHP = 100;
+        public abstract float MaxHP { get; protected set; }
         [SerializeField]
-        private float grazeCounter = 0;
-        public float GrazeCounter
+        protected float m_HP = 0;
+        public virtual float HP {
+            get { return m_HP; }
+            set
+            {
+                m_HP = value;
+                if (m_HP >= m_MaxHP)
+                {
+                    m_HP = m_MaxHP;
+                } else if (m_HP < 0)
+                {
+                    m_HP = 0;
+                }
+                _OnHPChange.Invoke(m_HP);
+                if (m_HP <= 0)
+                {
+                    Die();
+                    _OnPlayerDie.Invoke();
+                }
+            }
+        }
+        [SerializeField]
+        protected float m_MaxGrazeCounter = 100;
+        public abstract float MaxGrazeCounter { get; protected set; }
+        [SerializeField]
+        protected float grazeCounter = 0;
+        public virtual float GrazeCounter
         {
             get { return grazeCounter; }
-            private set
+            set
             {
                 grazeCounter = value;
-                if (grazeCounter > m_MaxGrazeCounter)
+                if (grazeCounter >= m_MaxGrazeCounter)
                 {
-                    grazeCounter  = m_MaxGrazeCounter;
-                } else if (grazeCounter < 0)
+                    grazeCounter = m_MaxGrazeCounter;
+                }
+                else if (grazeCounter < 0)
                 {
                     grazeCounter = 0;
                 }
+                _OnGrazeCounterChange.Invoke(grazeCounter);
             }
         }
 
         [Header("Move")]
         [SerializeField]
-        private float m_MoveSpeed = 3f;
+        protected float m_MoveSpeed = 3f;
+        public abstract float MoveSpeed { get; protected set; }
 
         [SerializeField]
         [Range(0, 1f)]
-        private float m_FocusModeScaleRate = 0.6f;
-        private bool isFocusMode = false;
+        protected float m_FocusModeScaleRate = 0.6f;
+        public abstract float FocusModeScaleRate { get; protected set; }
+        protected bool isFocusMode = false;
+        public abstract bool IsFocusMode { get; set; }
 
         [SerializeField]
-        private LayerMask m_BorderLayer = 0;
+        protected LayerMask m_BorderLayer = 0;
         [SerializeField]
-        private float m_BorderCheckUp = 1;
+        protected float m_BorderCheckUp = 1;
         [SerializeField]
-        private float m_BorderCheckDown = 1;
+        protected float m_BorderCheckDown = 1;
         [SerializeField]
-        private float m_BorderCheckLeft = 1;
+        protected float m_BorderCheckLeft = 1;
         [SerializeField]
-        private float m_BorderCheckRight = 1;
+        protected float m_BorderCheckRight = 1;
 
         [Header("Control")]
         [SerializeField]
-        private InputAction m_MoveAction;
+        protected InputAction m_MoveAction;
+        public InputAction MoveAction { get {return m_MoveAction;} set { m_MoveAction = value; } }
         [SerializeField]
-        private InputAction m_FocusModeAction;
+        protected InputAction m_FocusModeAction;
+        public InputAction FocusModeAction { get { return m_FocusModeAction; } set { m_FocusModeAction = value; } }
         [SerializeField]
-        private InputAction m_FireAction;
+        protected InputAction m_FireAction;
+        public InputAction FireAction { get { return m_FireAction; } set { m_FireAction = value; } }
 
         [Header("Launcher")]
         [SerializeField]
-        private Launcher[] m_Launchers = null;
+        protected Launcher[] m_Launchers = null;
+        public abstract Launcher[] Launchers { get; set; }
 
         [Header("GrazeCheck")]
         [SerializeField]
-        private float m_EngryAddPerGraze = 0.1f;
+        protected float m_EngryAddPerGraze = 0.1f;
         [SerializeField]
-        private float m_GrazeCheckTiming = 0.1f;
+        protected float m_GrazeCheckTiming = 0.1f;
         [SerializeField]
-        private float m_GrazeCheckRadius = 2f;
+        protected float m_GrazeCheckRadius = 2f;
         [SerializeField]
-        private LayerMask m_GrazeCheckLayer = 0;
+        protected LayerMask m_GrazeCheckLayer = 0;
 
-        #region Coroutine Value
-        private Coroutine grazeCheckRoutine = null;
-        #endregion
+        protected StateController StateController = null;
 
-        public void OnEnable()
+        protected UnityEvent<float> _OnHPChange = new UnityEvent<float>();
+        public abstract UnityEvent<float> OnHPChange { get; protected set; }
+        protected UnityEvent<float> _OnGrazeCounterChange = new UnityEvent<float>();
+        public abstract UnityEvent<float> OnGrazeCounterChange { get; protected set; }
+        protected UnityEvent<Collider2D[]> _OnGraze = new UnityEvent<Collider2D[]>();
+        public abstract UnityEvent<Collider2D[]> OnGraze { get; protected set; }
+        protected UnityEvent _OnPlayerDie = new UnityEvent();
+        public abstract UnityEvent OnPlayerDie { get; protected set; }
+
+        public virtual void WakeUpObject()
         {
             m_MoveAction.Enable();
             m_FocusModeAction.Enable();
             m_FireAction.Enable();
+            HP = MaxHP;
+            GrazeCounter = 0;
         }
 
-        public void OnDisable()
+        public virtual void SleepObject()
         {
             m_MoveAction.Disable();
             m_FocusModeAction.Disable();
             m_FireAction.Disable();
         }
 
-        private void Start()
+        protected virtual void Initialization()
         {
             m_FocusModeAction.started += (ctx) => {
                 isFocusMode = true;
@@ -98,60 +146,15 @@ namespace SkateGuy.GameElements
             m_FocusModeAction.canceled += (ctx) => {
                 isFocusMode = false;
             };
-
-            //  Start graze check
-            grazeCheckRoutine = StartCoroutine(GrazeChecking());
+            StateController = new StateController();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
-            if (m_FireAction.IsPressed())
-            {
-                Fire();
-            }
-
-            var moveValue = m_MoveAction.ReadValue<Vector2>();
-            Move(moveValue.x, moveValue.y, isFocusMode);
+            StateController.Track();
         }
 
-        /// <summary>
-        /// Call all launcher fire(if have)
-        /// </summary>
-        private void Fire()
-        {
-            int launcherCount = m_Launchers.Length;
-            for (int index = 0; index < launcherCount; ++index)
-            {
-                var launcher = m_Launchers[index];
-                if (!launcher.IsWorking)
-                {
-                    launcher.AwakeLauncher();
-                }
-                launcher.Fire();
-            }
-        }
-
-        private void Move(float hValue, float vValue, bool focusMode)
-        {
-            var moveValue = Vector2.zero;
-            moveValue.x = hValue;
-            moveValue.y = vValue;
-
-            //  Normalize move value
-            moveValue = moveValue.normalized;
-            moveValue *= m_MoveSpeed;
-            if (focusMode)
-            {
-                moveValue *= m_FocusModeScaleRate;
-            }
-
-            m_MoveTarget.transform.localPosition += (Vector3)moveValue * Time.deltaTime;
-
-            //  Boder Check
-            BoderCheck(m_MoveTarget.transform.localPosition);
-        }
-
-        private void BoderCheck(Vector3 currentPos)
+        public virtual void BoderCheck(Vector3 currentPos)
         {
             var adjustPos = currentPos;
             var upHit = Physics2D.Raycast(currentPos,this.transform.up, m_BorderCheckUp, m_BorderLayer);
@@ -185,10 +188,10 @@ namespace SkateGuy.GameElements
             }
 
             // Final pos
-            m_MoveTarget.transform.localPosition = adjustPos;
+            m_MoveTarget.localPosition = adjustPos;
         }
 
-        private IEnumerator GrazeChecking()
+        public virtual IEnumerator GrazeChecking()
         {
             var checkDistence = new WaitForSeconds(m_GrazeCheckTiming);
 
@@ -197,14 +200,42 @@ namespace SkateGuy.GameElements
                 yield return checkDistence;
                 var currentPos = this.transform.localPosition;
                 var checkTargets = Physics2D.OverlapCircleAll(currentPos, m_GrazeCheckRadius, m_GrazeCheckLayer);
-                var findCount = checkTargets.Length;
+                //  Filter player's bullet
+                var findTargets = new List<Collider2D>();
+                var checkCount = checkTargets.Length;
+                for (int index = 0; index < checkCount; ++index)
+                {
+                    var target = checkTargets[index];
+                    var bullet = target.GetComponent<Bullet>();
+                    if (bullet != null)
+                    {
+                        if (bullet.m_BulletBelong != this.tag)
+                        {
+                            findTargets.Add(target);
+                        }
+                    }
+                }
+
+                var findCount = findTargets.Count;
                 GrazeCounter += findCount * m_EngryAddPerGraze;
+                OnGraze.Invoke(findTargets.ToArray());
             }
         }
 
-        private void OnDrawGizmos()
+        public virtual void GetHit(float dmg)
+        {
+            HP -= dmg;
+        }
+
+        protected abstract void Die();
+
+        protected virtual void OnDrawGizmos()
         {
             var centerPos = this.transform.localPosition;
+            //  Draw graze field
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(centerPos, m_GrazeCheckRadius);
+
             Gizmos.color = Color.green;
             //  Border check Up
             Gizmos.DrawLine(centerPos, centerPos + Vector3.up * m_BorderCheckUp);
@@ -214,10 +245,6 @@ namespace SkateGuy.GameElements
             Gizmos.DrawLine(centerPos, centerPos + Vector3.left * m_BorderCheckLeft);
             //  Border check Right
             Gizmos.DrawLine(centerPos, centerPos + Vector3.right * m_BorderCheckRight);
-
-            //  Draw graze field
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(centerPos, m_GrazeCheckRadius);
         }
     }
 }

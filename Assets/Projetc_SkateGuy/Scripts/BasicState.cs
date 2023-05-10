@@ -1,8 +1,8 @@
-namespace SkateGuy.Staties
+namespace SkateGuy.States
 {
     public abstract class BasicState
     {
-        protected BasicState nextState = null;
+        public BasicState nextState = null;
 
         protected StateController stateController = null;
 
@@ -19,10 +19,6 @@ namespace SkateGuy.Staties
 
         public virtual void SetToNextState()
         {
-            if (nextState == null)
-            {
-                return;
-            }
             stateController.SetState(nextState);
         }
     }

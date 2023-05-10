@@ -6,7 +6,7 @@ namespace SkateGuy.GameElements
     public class Bullet : MonoBehaviour, IRecycleable
     {
         /// <summary>
-        /// To define fire owner, if bullet collide with owner,
+        /// To define fire owner, if bullet collide with owner(Tag),
         /// will not trigger hit event.
         /// </summary>
         [HideInInspector]
@@ -15,14 +15,14 @@ namespace SkateGuy.GameElements
         /// If bullet need to rotate, set to this.
         /// </summary>
         [SerializeField]
-        private Transform m_RotateTarget = null;
+        protected Transform m_RotateTarget = null;
         [SerializeField]
-        private float m_MoveSpeed = 5f;
+        protected float m_MoveSpeed = 5f;
         [SerializeField]
-        private float m_Damage = 1;
+        protected float m_Damage = 1;
 
-        private Vector2 _MoveDir = Vector2.right;
-        public Vector2 MoveDir
+        protected Vector2 _MoveDir = Vector2.right;
+        public virtual Vector2 MoveDir
         {
             get { return _MoveDir; }
             set
@@ -38,22 +38,22 @@ namespace SkateGuy.GameElements
         }
 
         [SerializeField]
-        private UnityEvent m_OnBulletHit = null;
+        protected UnityEvent m_OnBulletHit = null;
 
         public UnityAction eventWhenBulletDead = null;
 
-        void Update()
+        protected virtual void Update()
         {
             MoveDir = MoveDir.normalized;
             this.transform.localPosition += (Vector3)(MoveDir * m_MoveSpeed) * Time.deltaTime;
         }
 
-        public void Recycle()
+        public virtual void Recycle()
         {
             BulletDead();
         }
 
-        private void BulletDead()
+        protected virtual void BulletDead()
         {
             if (eventWhenBulletDead != null)
             {
@@ -61,7 +61,7 @@ namespace SkateGuy.GameElements
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
             //  Check can deal damage or not
             if (m_BulletBelong == collision.tag)
