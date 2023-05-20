@@ -20,8 +20,7 @@ namespace SkateGuy.Test {
         [SerializeField]
         private Color m_SkillWhenUsing = Color.red;
 
-        // Start is called before the first frame update
-        void Start()
+        public void Initialization()
         {
             var maxHP = m_Player.MaxHP;
             m_PlayerHP.fillAmount = m_Player.HP / maxHP; ;
@@ -38,10 +37,12 @@ namespace SkateGuy.Test {
                 if (skillUsing)
                 {
                     m_SkillImage.color = m_SkillWhenUsing;
-                } else if (m_Player.GrazeCounter >= skillData.GrazeEnergyCost)
+                }
+                else if (m_Player.GrazeCounter >= skillData.GrazeEnergyCost)
                 {
                     m_SkillImage.color = m_SkillWhenCanUse;
-                } else
+                }
+                else
                 {
                     m_SkillImage.color = m_SkillWhenCantUse;
                 }

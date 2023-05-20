@@ -75,9 +75,21 @@ namespace SkateGuy.GameElements
             private set { }
         }
 
+        [Header("Option")]
+        [SerializeField]
+        private bool m_PlayOnAwake = false;
+
         protected void Awake()
         {
-            Initialization();
+            if (m_PlayOnAwake)
+            {
+                Initialization();
+            }  
+        }
+
+        public override void Initialization()
+        {
+            base.Initialization();
             WakeUpObject();
             var basicPlayerControl = new PlayerStateBasicControl(StateController, this);
             StateController.SetState(basicPlayerControl);

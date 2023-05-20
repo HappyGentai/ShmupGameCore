@@ -12,11 +12,16 @@ namespace SkateGuy.GameElements
         private LayerMask m_TargetLayer = 0;
         [SerializeField]
         private float m_SearchRadius = 50f;
+        [SerializeField]
         private Transform seekTarget = null;
         [SerializeField]
         private bool m_DelaySeek = false;
         [SerializeField]
         private float m_DelayTime = 0.5f;
+        [SerializeField]
+        private bool m_HaveSeekTime = false;
+        [SerializeField]
+        private float m_SeekTime = 2f;
 
         protected void OnEnable()
         {
@@ -24,6 +29,7 @@ namespace SkateGuy.GameElements
             if (!m_DelaySeek)
             {
                 SeekTarget();
+                HaveSeekTimeCheck();
             }
             else
             {
@@ -36,8 +42,8 @@ namespace SkateGuy.GameElements
             var moveVel = MoveDir;
             if (seekTarget == null)
             {
-                moveVel *= m_MoveSpeed;
-            } else
+                moveVel = MoveDir.normalized * m_MoveSpeed;
+            } else if (seekTarget.gameObject.activeInHierarchy)
             {
                 var selfPos = this.transform.localPosition;
                 var targetPos = seekTarget.localPosition;
@@ -63,10 +69,25 @@ namespace SkateGuy.GameElements
             }
         }
 
+        protected void HaveSeekTimeCheck()
+        {
+            if (m_HaveSeekTime)
+            {
+                StartCoroutine(SeekTimeCountDowning());
+            }
+        }
+
         protected IEnumerator DelaySeeking()
         {
             yield return new WaitForSeconds(m_DelayTime);
             SeekTarget();
+            HaveSeekTimeCheck();
+        }
+
+        protected IEnumerator SeekTimeCountDowning()
+        {
+            yield return new WaitForSeconds(m_SeekTime);
+            seekTarget = null;
         }
     }
 }

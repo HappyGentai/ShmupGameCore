@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BulletBelong: 
   m_RotateTarget: {fileID: 1734572286337892100}
-  m_MoveSpeed: 1.5
+  m_MoveSpeed: 3
   m_Damage: 1
   m_OnBulletHit:
     m_PersistentCalls:
@@ -168,5 +168,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   m_SearchRadius: 100
+  seekTarget: {fileID: 0}
   m_DelaySeek: 0
   m_DelayTime: 0
+  m_HaveSeekTime: 1
+  m_SeekTime: 2

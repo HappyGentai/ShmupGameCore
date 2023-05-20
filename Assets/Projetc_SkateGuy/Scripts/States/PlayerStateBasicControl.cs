@@ -30,10 +30,7 @@ namespace SkateGuy.States.PlayerStates
             for (int index = 0; index < launcherCount; ++index)
             {
                 var launcher = launchers[index];
-                if (!launcher.IsWorking)
-                {
-                    launcher.AwakeLauncher();
-                }
+                launcher.AwakeLauncher();
             }
             //  Start graze check
             grazeCheckRoutine = player.StartCoroutine(player.GrazeChecking());

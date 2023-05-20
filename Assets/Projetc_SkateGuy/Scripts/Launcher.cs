@@ -28,12 +28,22 @@ namespace SkateGuy.GameElements
             get { return isWorking; }
         }
 
+        private bool launcherLock = false;
+        public bool LauncherLock
+        {
+            set
+            {
+                launcherLock = value;
+            }
+        }
+
         public void AwakeLauncher()
         {
             StopLauncher();
             fireCounter = m_FireRecall;
             workingRoutine = StartCoroutine(LauncherWorking());
             isWorking = true;
+            launcherLock = false;
         }
 
         public void StopLauncher()
@@ -48,7 +58,7 @@ namespace SkateGuy.GameElements
 
         public void Fire()
         {
-            if (fireCounter >= m_FireRecall)
+            if (fireCounter >= m_FireRecall && !launcherLock)
             {
                 if (m_OnFiring != null)
                 {

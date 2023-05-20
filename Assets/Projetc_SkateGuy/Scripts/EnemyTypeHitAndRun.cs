@@ -36,9 +36,9 @@ namespace SkateGuy.GameElements {
             protected set { }
         }
 
-        public override UnityEvent OnPlayerDie
+        public override UnityEvent OnEnemyDie
         {
-            get { return _OnPlayerDie; }
+            get { return _OnEnemyDie; }
             protected set { }
         }
 
@@ -50,15 +50,32 @@ namespace SkateGuy.GameElements {
         [SerializeField]
         private Vector2 m_FleeDir = Vector2.right;
 
-        protected override void Start()
+        [Header("Option")]
+        [SerializeField]
+        private bool m_PlayWhenStart = false;
+
+        protected void Start()
         {
-            base.Start();
+            if (m_PlayWhenStart)
+            {
+                Initialization();
+                StartAction();
+            }
+        }
+
+        public override void StartAction()
+        {
             var moveToPointState = new EnemyStateMoveToPoint(StateController, this, m_MoveTargetPoint);
             var attackWithTimeState = new EnemyStateAttackWithTime(StateController, this, m_FireTime);
             var fleeState = new EnemyStateMove(StateController, this, m_FleeDir);
             moveToPointState.nextState = attackWithTimeState;
             attackWithTimeState.nextState = fleeState;
             StateController.SetState(moveToPointState);
+        }
+
+        public override void ReSetData()
+        {
+
         }
 
         protected override void Die()

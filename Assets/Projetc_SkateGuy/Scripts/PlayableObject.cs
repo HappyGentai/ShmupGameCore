@@ -138,7 +138,7 @@ namespace SkateGuy.GameElements
             m_FireAction.Disable();
         }
 
-        protected virtual void Initialization()
+        public virtual void Initialization()
         {
             m_FocusModeAction.started += (ctx) => {
                 isFocusMode = true;
@@ -151,7 +151,10 @@ namespace SkateGuy.GameElements
 
         protected virtual void Update()
         {
-            StateController.Track();
+            if (StateController != null)
+            {
+                StateController.Track();
+            }
         }
 
         public virtual void BoderCheck(Vector3 currentPos)
