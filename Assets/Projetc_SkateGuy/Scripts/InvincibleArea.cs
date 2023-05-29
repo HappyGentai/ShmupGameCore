@@ -11,6 +11,8 @@ namespace SkateGuy.Fields
     {
         [SerializeField]
         private LayerMask m_TargetMask = 0;
+        [SerializeField]
+        private bool m_Reverse = false;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -21,7 +23,8 @@ namespace SkateGuy.Fields
             var invincibleObject = collision.gameObject.GetComponent<IInvincible>();
             if (invincibleObject != null)
             {
-                invincibleObject.SetInvincible(true);
+                var setInvincible = !m_Reverse;
+                invincibleObject.SetInvincible(setInvincible);
             }
         }
 
@@ -34,7 +37,8 @@ namespace SkateGuy.Fields
             var invincibleObject = collision.gameObject.GetComponent<IInvincible>();
             if (invincibleObject != null)
             {
-                invincibleObject.SetInvincible(false);
+                var setInvincible = !m_Reverse;
+                invincibleObject.SetInvincible(setInvincible);
             }
         }
     }

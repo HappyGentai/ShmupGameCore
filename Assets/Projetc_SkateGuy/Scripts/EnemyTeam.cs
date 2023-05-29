@@ -8,6 +8,14 @@ namespace SkateGuy.GameElements.EnemyGroup
     {
         [SerializeField]
         private EnemyTeamMemberData[] m_MemberDatas = null;
+        public EnemyTeamMemberData[] MemberDatas
+        {
+            get { return m_MemberDatas; }
+            set
+            {
+                m_MemberDatas = value;
+            }
+        }
         [SerializeField]
         private bool m_SummonWhenStart = false;
         private int memberLiveCount = 0;
@@ -35,6 +43,8 @@ namespace SkateGuy.GameElements.EnemyGroup
                 var getEnemy =  EnemyFactory.GetEnemy(memberData.EnemyPrefab);
                 getEnemy.MoveTarget.localPosition = memberData.SetPosition;
                 getEnemy.StartAction();
+                getEnemy.CanShoot(false);
+                getEnemy.SetInvincible(true);
                 getEnemy.OnRecycle.AddListener(OnTeamMemberRelease);
             }
         }

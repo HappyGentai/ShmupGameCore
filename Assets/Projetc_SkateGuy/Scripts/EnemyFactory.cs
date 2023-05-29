@@ -129,7 +129,7 @@ namespace SkateGuy.GameElements.Factory
 
         private void OnReturnedToPool(Enemy enemy)
         {
-            enemy.Recycle();
+            enemy.SleepObject();
             enemy.gameObject.SetActive(false);
             aliveObject.Remove(enemy);
             EnemyFactory.OnEnemyReturnToPool.Invoke(enemy);

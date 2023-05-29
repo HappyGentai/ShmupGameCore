@@ -65,6 +65,7 @@ namespace SkateGuy.GameElements {
 
         public override void StartAction()
         {
+            WakeUpObject();
             var moveToPointState = new EnemyStateMoveToPoint(StateController, this, m_MoveTargetPoint);
             var attackWithTimeState = new EnemyStateAttackWithTime(StateController, this, m_FireTime);
             var fleeState = new EnemyStateMove(StateController, this, m_FleeDir);

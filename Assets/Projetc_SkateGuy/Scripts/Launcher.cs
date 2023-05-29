@@ -7,11 +7,10 @@ namespace SkateGuy.GameElements
 {
     public class Launcher : MonoBehaviour
     {
-        public Bullet m_FireBullet = null;
         [SerializeField]
         private string m_LauncherBelong = "";
         [SerializeField]
-        private Vector3 m_BaseFireDirection = Vector3.right;
+        protected Vector3 m_BaseFireDirection = Vector3.right;
         [SerializeField]
         private FireSpot[] m_FireSpots = null;
         [SerializeField]
@@ -28,6 +27,7 @@ namespace SkateGuy.GameElements
             get { return isWorking; }
         }
 
+        [SerializeField]
         private bool launcherLock = false;
         public bool LauncherLock
         {
@@ -43,7 +43,7 @@ namespace SkateGuy.GameElements
             fireCounter = m_FireRecall;
             workingRoutine = StartCoroutine(LauncherWorking());
             isWorking = true;
-            launcherLock = false;
+            LauncherLock = false;
         }
 
         public void StopLauncher()
@@ -56,7 +56,7 @@ namespace SkateGuy.GameElements
             isWorking = false;
         }
 
-        public void Fire()
+        public virtual void Fire()
         {
             if (fireCounter >= m_FireRecall && !launcherLock)
             {
@@ -71,10 +71,11 @@ namespace SkateGuy.GameElements
                 {
                     var fireSpot = m_FireSpots[index];
                     var firDir = Quaternion.AngleAxis(fireSpot.FireAngle, Vector3.forward) * m_BaseFireDirection;
-                    var bullet = BulletFactory.GetBullet(m_FireBullet);
+                    var bullet = BulletFactory.GetBullet(fireSpot.FireBullet);
                     bullet.m_BulletBelong = m_LauncherBelong;
                     bullet.MoveDir = firDir;
                     bullet.transform.position = this.transform.position + (Vector3)fireSpot.FirePoint;
+                    bullet.WakeUpBullet();
                 }
             }
         }
@@ -85,7 +86,7 @@ namespace SkateGuy.GameElements
             {
                 yield return null;
 
-                if (fireCounter < m_FireRecall)
+                if (fireCounter < m_FireRecall && !launcherLock)
                 {
                     fireCounter += Time.deltaTime;
                 }
@@ -114,6 +115,12 @@ namespace SkateGuy.GameElements
     [System.Serializable]
     public class FireSpot
     {
+        [SerializeField]
+        private Bullet m_FireBullet = null;
+        public Bullet FireBullet
+        {
+            get { return m_FireBullet; }
+        }
         [SerializeField]
         private Vector2 m_FirePoint = Vector2.zero;
         public Vector2 FirePoint

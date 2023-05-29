@@ -55,6 +55,7 @@ namespace SkateGuy.GameElements
 
         public override void StartAction()
         {
+            WakeUpObject();
             var adiotEnemyState = new EnemyStateAdiotMove(StateController, this, Vector2.left);
             StateController.SetState(adiotEnemyState);
         }

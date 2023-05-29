@@ -65,11 +65,13 @@ namespace SkateGuy.GameElements
         public virtual void WakeUpObject()
         {
             HP = MaxHP;
+            m_HitBox.enabled = true;
         }
 
         public virtual void SleepObject()
         {
-
+            m_HitBox.enabled = false;
+            StateController.SetState(null);
         }
 
         public virtual void Initialization()
@@ -89,9 +91,8 @@ namespace SkateGuy.GameElements
 
         public virtual void Recycle()
         {
-            m_HitBox.enabled = false;
-            StateController.SetState(null);
             OnRecycle.Invoke(this);
+            OnEnemyDie.Invoke();
         }
 
         public virtual void SetInvincible(bool _isInvincible)

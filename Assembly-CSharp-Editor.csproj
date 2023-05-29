@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\BasicShmup\Scripts\Editor\LevelMakerEditor.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Editor\EnemyTeamEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

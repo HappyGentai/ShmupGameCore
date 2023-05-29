@@ -53,6 +53,14 @@ namespace SkateGuy.GameElements
             BulletDead();
         }
 
+        /// <summary>
+        /// PreWork when bullet fired.
+        /// </summary>
+        public virtual void WakeUpBullet()
+        {
+
+        }
+
         protected virtual void BulletDead()
         {
             if (eventWhenBulletDead != null)

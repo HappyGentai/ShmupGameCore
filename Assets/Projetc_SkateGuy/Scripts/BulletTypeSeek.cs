@@ -11,7 +11,7 @@ namespace SkateGuy.GameElements
         [SerializeField]
         private LayerMask m_TargetLayer = 0;
         [SerializeField]
-        private float m_SearchRadius = 50f;
+        private Vector2 m_SeekRange = Vector2.one;
         [SerializeField]
         private Transform seekTarget = null;
         [SerializeField]
@@ -23,7 +23,7 @@ namespace SkateGuy.GameElements
         [SerializeField]
         private float m_SeekTime = 2f;
 
-        protected void OnEnable()
+        public override void WakeUpBullet()
         {
             //  Search target
             if (!m_DelaySeek)
@@ -49,6 +49,10 @@ namespace SkateGuy.GameElements
                 var targetPos = seekTarget.localPosition;
                 MoveDir = SteeringBehaviors.Seek(selfPos, targetPos, MoveDir, m_MoveSpeed, m_MaxSeekForce);
                 moveVel = MoveDir;
+            } else
+            {
+                moveVel = moveVel.normalized;
+                moveVel *= m_MoveSpeed;
             }
             this.transform.localPosition += (Vector3)moveVel * Time.deltaTime;
         }
@@ -62,7 +66,7 @@ namespace SkateGuy.GameElements
         protected void SeekTarget()
         {
             var selfPos = this.transform.localPosition;
-            var findTarget = Physics2D.OverlapCircle(selfPos, m_SearchRadius, m_TargetLayer);
+            var findTarget = Physics2D.OverlapBox(Vector2.zero, m_SeekRange, 0, m_TargetLayer);
             if (findTarget != null)
             {
                 seekTarget = findTarget.transform;
@@ -88,6 +92,12 @@ namespace SkateGuy.GameElements
         {
             yield return new WaitForSeconds(m_SeekTime);
             seekTarget = null;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = new Color(1, 0, 0, 0.25f);
+            Gizmos.DrawCube(Vector3.zero, m_SeekRange);
         }
     }
 }

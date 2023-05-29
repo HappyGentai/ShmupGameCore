@@ -8,10 +8,14 @@ namespace SkateGuy.Fields
         private LayerMask m_TargetMask = 0;
         [SerializeField]
         private bool m_Reverse = false;
+        [SerializeField]
+        private bool m_LockEnter = false;
+        [SerializeField]
+        private bool m_LockExit = false;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (((1 << collision.gameObject.layer) & m_TargetMask) == 0)
+            if (((1 << collision.gameObject.layer) & m_TargetMask) == 0 || m_LockEnter)
             {
                 return;
             }
@@ -25,7 +29,7 @@ namespace SkateGuy.Fields
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (((1 << collision.gameObject.layer) & m_TargetMask) == 0)
+            if (((1 << collision.gameObject.layer) & m_TargetMask) == 0 || m_LockExit)
             {
                 return;
             }

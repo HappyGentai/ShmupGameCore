@@ -83,7 +83,7 @@ MonoBehaviour:
   m_TargetLayer:
     serializedVersion: 2
     m_Bits: 256
-  m_SearchRadius: 100
+  m_SeekRange: {x: 17.8, y: 10}
   seekTarget: {fileID: 0}
   m_DelaySeek: 1
   m_DelayTime: 0.25

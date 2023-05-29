@@ -67,6 +67,7 @@ namespace SkateGuy.GameElements
 
         public override void StartAction()
         {
+            WakeUpObject();
             var sinMoveState = new EnemyStateSinMove(StateController, this, m_MoveDirection, m_SinHalfHeigh, m_AttackWhenMove);
             StateController.SetState(sinMoveState);
         }

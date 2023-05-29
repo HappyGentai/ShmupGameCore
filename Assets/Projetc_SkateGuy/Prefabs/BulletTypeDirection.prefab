@@ -82,6 +82,7 @@ MonoBehaviour:
   m_TargetLayer:
     serializedVersion: 2
     m_Bits: 256
+  m_SeekRange: {x: 17.8, y: 10}
   m_SearchRadius: 50
 --- !u!1 &8148509743808141825
 GameObject:

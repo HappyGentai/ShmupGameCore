@@ -7,19 +7,24 @@ namespace SkateGuy.GameElements
         [SerializeField]
         private LayerMask m_TargetLayer = 0;
         [SerializeField]
-        private float m_SearchRadius = 50f;
+        private Vector2 m_SeekRange = Vector2.one;
         private Transform seekTarget = null;
 
-        protected override void Update()
+        public override void WakeUpBullet()
         {
+            SearchTarget();
+        }
+
+        protected override void Update()
+        {  
             if (seekTarget == null)
             {
-                SearchTarget();
+                MoveDir = this.transform.right;
             } else
             {
                 MoveDir = MoveDir.normalized;
-                this.transform.localPosition += (Vector3)(MoveDir * m_MoveSpeed) * Time.deltaTime;
             }
+            this.transform.localPosition += (Vector3)(MoveDir * m_MoveSpeed) * Time.deltaTime;
         }
 
         protected override void BulletDead()
@@ -31,12 +36,18 @@ namespace SkateGuy.GameElements
         private void SearchTarget()
         {
             var selfPos = this.transform.localPosition;
-            var findTarget = Physics2D.OverlapCircle(selfPos, m_SearchRadius, m_TargetLayer);
+            var findTarget = Physics2D.OverlapBox(Vector2.zero, m_SeekRange, 0, m_TargetLayer);
             if (findTarget != null)
             {
                 seekTarget = findTarget.transform;
                 MoveDir = (seekTarget.localPosition - selfPos).normalized;
             }
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = new Color(1, 0, 0, 0.25f);
+            Gizmos.DrawCube(Vector3.zero, m_SeekRange);
         }
     }
 }

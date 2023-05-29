@@ -64,6 +64,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\EnemyFactory.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateCurveMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\EnemyTypeCurveMove.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\EnemyTeamFactory.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Enemy.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestGameCore.cs" />
@@ -75,10 +76,12 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IRecycleable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\BasicEnemy.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\BulletTypeDirection.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\LauncherTypeAim.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\LineLerp.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillGrazeCounter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\PlayableObject.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\EnemyTeamMemberData.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\EnemyTeamData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\BasicPlayer.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IInvincible.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Launcher.cs" />

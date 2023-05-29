@@ -44,15 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692d590141e51794da87971bcda58e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FireBullet: {fileID: 1270898345230319570, guid: 67cf7b15dd0e37d47b6ef4f5233104af, type: 3}
   m_LauncherBelong: Player
   m_BaseFireDirection: {x: 1, y: 0, z: 0}
   m_FireSpots:
-  - m_FirePoint: {x: 0, y: 0}
+  - m_FireBullet: {fileID: 1270898345230319570, guid: 67cf7b15dd0e37d47b6ef4f5233104af, type: 3}
+    m_FirePoint: {x: 0, y: 0}
     m_FireAngle: -150
-  - m_FirePoint: {x: 0, y: 0}
+  - m_FireBullet: {fileID: 1270898345230319570, guid: 67cf7b15dd0e37d47b6ef4f5233104af, type: 3}
+    m_FirePoint: {x: 0, y: 0}
     m_FireAngle: -180
-  - m_FirePoint: {x: 0, y: 0}
+  - m_FireBullet: {fileID: 1270898345230319570, guid: 67cf7b15dd0e37d47b6ef4f5233104af, type: 3}
+    m_FirePoint: {x: 0, y: 0}
     m_FireAngle: -210
   m_FireRecall: 0.1
   m_OnFiring:

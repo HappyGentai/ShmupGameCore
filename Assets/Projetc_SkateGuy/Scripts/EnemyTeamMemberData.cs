@@ -17,5 +17,11 @@ namespace SkateGuy.GameElements.EnemyGroup
         {
             get { return m_SetPosition; }
         }
+
+        public EnemyTeamMemberData(Enemy enemyPrefab, Vector2 setPos)
+        {
+            m_EnemyPrefab = enemyPrefab;
+            m_SetPosition = setPos;
+        }
     }
 }
