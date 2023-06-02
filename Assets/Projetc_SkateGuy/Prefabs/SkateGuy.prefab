@@ -84,8 +84,8 @@ Transform:
   m_GameObject: {fileID: 485469004478680679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.7, y: 0.21, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 485469003720688388}
   m_Father: {fileID: 0}
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17ee02514e6ca23418059101cdb66e45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c55e6b5ccf5a1e4e9d8606363841885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,7 +179,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.05
 --- !u!114 &485469004478680681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_MoveTarget: {fileID: 485469004478680677}
   m_MaxHP: 10
   m_HP: 0
+  m_Invincible: 0
   m_MaxGrazeCounter: 100
   grazeCounter: 0
   m_MoveSpeed: 5
@@ -293,7 +294,7 @@ MonoBehaviour:
   - {fileID: 485469003720688389}
   m_EngryAddPerGraze: 0.5
   m_GrazeCheckTiming: 0.1
-  m_GrazeCheckRadius: 1.04
+  m_GrazeCheckRadius: 0.8
   m_GrazeCheckLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -316,5 +317,24 @@ MonoBehaviour:
         m_Flags: 0
       m_Flags: 0
     m_StorgeSkill: {fileID: 11400000, guid: c6c9634cd67c151488a82cedb78b8f2b, type: 2}
+    m_Caster: {fileID: 485469004478680681}
+  - m_TriggerInput:
+      m_Name: Trigger Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 14add3fc-f65f-470a-a986-2972880776d0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: c8f32636-b834-44ac-8748-780fb0020731
+        m_Path: <Keyboard>/w
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Trigger Input
+        m_Flags: 0
+      m_Flags: 0
+    m_StorgeSkill: {fileID: 11400000, guid: 4131e2507853b6348a144709cc971bc4, type: 2}
     m_Caster: {fileID: 485469004478680681}
   m_PlayOnAwake: 0

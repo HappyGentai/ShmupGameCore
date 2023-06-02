@@ -1,5 +1,6 @@
 using UnityEngine;
 using SkateGuy.GameElements;
+using SkateGuy.GameElements.PlayerPlus;
 using SkateGuy.GameElements.EnemyGroup;
 using SkateGuy.GameElements.Factory;
 using System.Collections;
@@ -20,10 +21,29 @@ namespace SkateGuy.Test
         private int waveIndex = 0;
         private Coroutine waveCoroutine = null;
 
+        [Header("Player plug-in")]
+        [SerializeField]
+        private DamageResponesType m_DamageResponesType = DamageResponesType.ClearBullet;
+        [SerializeField]
+        private DamageResponseTypeClear m_DamageResponseTypeClear = null;
+        [SerializeField]
+        private DamageResponseTypeProtect DamageResponseTypeProtect = null;
+
         void Start()
         {
             m_Player.Initialization();
             m_PlayerUI.Initialization();
+
+            //  Set player damaged plug-in
+            switch(m_DamageResponesType)
+            {
+                case DamageResponesType.ClearBullet:
+                    m_DamageResponseTypeClear.Install(m_Player);
+                    break;
+                case DamageResponesType.ProtectHitBox:
+                    DamageResponseTypeProtect.Install(m_Player);
+                    break;
+            }
 
             //  StartGame
             CallWave();

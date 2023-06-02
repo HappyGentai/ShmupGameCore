@@ -16,7 +16,7 @@ namespace SkateGuy.GameElements
         {
             var selfPos = this.transform.position;
             var findTarget = Physics2D.OverlapCircle(selfPos, m_AimRadius, m_AimMask);
-            aimTarget = findTarget.transform;
+            aimTarget = findTarget?.transform;
             if (aimTarget != null)
             {
                 var subtraction = aimTarget.transform.position - this.transform.position;

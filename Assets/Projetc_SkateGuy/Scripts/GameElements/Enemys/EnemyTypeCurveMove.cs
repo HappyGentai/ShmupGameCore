@@ -79,6 +79,8 @@ namespace SkateGuy.GameElements
             var curveMoveState = new EnemyStateCurveMove(StateController,
                 this, startPos, endPos, m_CurveAidPosA,
                 m_CurveAidPosB, m_SpeedScale, m_FireWhenMove);
+            var selfDestructionState = new EnemyStateSelfDestruction(StateController, this);
+            curveMoveState.nextState = selfDestructionState;
             StateController.SetState(curveMoveState);
         }
 

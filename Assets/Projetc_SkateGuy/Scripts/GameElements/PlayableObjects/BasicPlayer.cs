@@ -66,6 +66,12 @@ namespace SkateGuy.GameElements
             protected set { }
         }
 
+        public override UnityEvent<PlayableObject, float> OnGetDamage
+        {
+            get { return _OnGetDamage; }
+            protected set { }
+        }
+
         [Header("Skills")]
         [SerializeField]
         private SkillTrigger[] m_SkillTriggers = null;
@@ -121,7 +127,10 @@ namespace SkateGuy.GameElements
 
         protected override void Die()
         {
+            base.Die();
             //  Do die event, can call WakeUpObject to re set data
+            OnPlayerDie?.Invoke();
+            this.gameObject.SetActive(false);
         }
     }
 }

@@ -10,7 +10,6 @@ namespace SkateGuy.States.PlayerStates
         private Transform moveTarget = null;
         private InputAction FireAction = null;
         private InputAction MoveAction = null;
-        private Launcher[] launchers = null;
         private Coroutine grazeCheckRoutine = null;
 
         public PlayerStateBasicControl(StateController _stateController, PlayableObject _Player) : base(_stateController)
@@ -20,16 +19,16 @@ namespace SkateGuy.States.PlayerStates
             moveTarget = player.transform;
             FireAction = player.FireAction;
             MoveAction = player.MoveAction;
-            launchers = player.Launchers;
         }
 
         public override void OnEnter()
         {
             //  Call launches awake
-            int launcherCount = launchers.Length;
+            var Launchers = player.Launchers;
+            int launcherCount = Launchers.Length;
             for (int index = 0; index < launcherCount; ++index)
             {
-                var launcher = launchers[index];
+                var launcher = Launchers[index];
                 launcher.AwakeLauncher();
             }
             //  Start graze check
@@ -39,10 +38,11 @@ namespace SkateGuy.States.PlayerStates
         public override void OnExit()
         {
             //  Call launches stop
-            int launcherCount = launchers.Length;
+            var Launchers = player.Launchers;
+            int launcherCount = Launchers.Length;
             for (int index = 0; index < launcherCount; ++index)
             {
-                var launcher = launchers[index];
+                var launcher = Launchers[index];
                 launcher.StopLauncher();
             }
             //  Stop graze check
@@ -66,10 +66,11 @@ namespace SkateGuy.States.PlayerStates
         /// </summary>
         private void Fire()
         {
-            int launcherCount = launchers.Length;
+            var Launchers = player.Launchers;
+            int launcherCount = Launchers.Length;
             for (int index = 0; index < launcherCount; ++index)
             {
-                var launcher = launchers[index];
+                var launcher = Launchers[index];
                 if (!launcher.IsWorking)
                 {
                     launcher.AwakeLauncher();

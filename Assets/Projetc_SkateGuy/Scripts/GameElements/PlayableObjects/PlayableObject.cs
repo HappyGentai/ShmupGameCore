@@ -40,6 +40,16 @@ namespace SkateGuy.GameElements
             }
         }
         [SerializeField]
+        protected bool m_Invincible = false;
+        public bool Invincible
+        {
+            get { return m_Invincible; }
+            set
+            {
+                m_Invincible = value;
+            }
+        }
+        [SerializeField]
         protected float m_MaxGrazeCounter = 100;
         public abstract float MaxGrazeCounter { get; protected set; }
         [SerializeField]
@@ -121,6 +131,12 @@ namespace SkateGuy.GameElements
         public abstract UnityEvent<Collider2D[]> OnGraze { get; protected set; }
         protected UnityEvent _OnPlayerDie = new UnityEvent();
         public abstract UnityEvent OnPlayerDie { get; protected set; }
+        protected UnityEvent<PlayableObject, float> _OnGetDamage = new UnityEvent<PlayableObject, float>();
+        public abstract UnityEvent<PlayableObject, float> OnGetDamage { get; protected set; }
+        protected UnityEvent _OnPlayerWakeUp = new UnityEvent();
+        public virtual UnityEvent OnPlayerWakeUp { get { return _OnPlayerWakeUp; } protected set { } }
+        protected UnityEvent _OnPlayerSleep = new UnityEvent();
+        public virtual UnityEvent OnPlayerSleep { get { return _OnPlayerSleep; } protected set { } }
 
         public virtual void WakeUpObject()
         {
@@ -129,6 +145,7 @@ namespace SkateGuy.GameElements
             m_FireAction.Enable();
             HP = MaxHP;
             GrazeCounter = 0;
+            OnPlayerWakeUp?.Invoke();
         }
 
         public virtual void SleepObject()
@@ -136,6 +153,7 @@ namespace SkateGuy.GameElements
             m_MoveAction.Disable();
             m_FocusModeAction.Disable();
             m_FireAction.Disable();
+            OnPlayerSleep?.Invoke();
         }
 
         public virtual void Initialization()
@@ -227,10 +245,18 @@ namespace SkateGuy.GameElements
 
         public virtual void GetHit(float dmg)
         {
+            if (Invincible)
+            {
+                return;
+            }
             HP -= dmg;
+            OnGetDamage?.Invoke (this, dmg);
         }
 
-        protected abstract void Die();
+        protected virtual void Die()
+        {
+            SleepObject();
+        }
 
         protected virtual void OnDrawGizmos()
         {

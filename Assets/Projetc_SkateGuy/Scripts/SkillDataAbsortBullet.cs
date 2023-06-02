@@ -1,0 +1,41 @@
+using UnityEngine;
+using SkateGuy.GameElements;
+
+namespace SkateGuy.Datas
+{
+    [CreateAssetMenu(fileName = "SkillDataAbsortBullet", menuName = "SkateGuy/SkillDatas/AbsortBullet")]
+    public class SkillDataAbsortBullet : SkillData<PlayableObject>
+    {
+        [SerializeField]
+        private Bullet m_Bullet = null;
+        [SerializeField]
+        private string m_Belong = "";
+        [SerializeField]
+        private Vector2 m_FireAdjustPos = Vector2.zero;
+
+        protected override void SkillInitialization()
+        {
+            m_Skill = new Skills.SkillAbsortBullet(CasterData, m_Bullet, m_Belong, m_FireAdjustPos);
+        }
+
+        public override bool TryCastSkill()
+        {
+            if (!UseConditionCheck())
+            {
+                return false;
+            }
+            m_Skill.SkillAwake();
+            CasterData.GrazeCounter -= GrazeEnergyCost;
+            return true;
+        }
+
+        protected override bool UseConditionCheck()
+        {
+            if (CasterData.GrazeCounter >= GrazeEnergyCost)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+}

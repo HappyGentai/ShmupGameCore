@@ -47,13 +47,13 @@ MonoBehaviour:
   m_LauncherBelong: Enemy
   m_BaseFireDirection: {x: -1, y: 0, z: 0}
   m_FireSpots:
-  - m_FireBullet: {fileID: 4006189671389258621, guid: 175b5df56ff3f1c4292432e7db6d33ae, type: 3}
+  - m_FireBullet: {fileID: 5383064634642226716, guid: 23e8803db5b19ae4aaa3d9b763698a82, type: 3}
     m_FirePoint: {x: 0, y: 0}
     m_FireAngle: 0
-  - m_FireBullet: {fileID: 4006189671389258621, guid: 175b5df56ff3f1c4292432e7db6d33ae, type: 3}
+  - m_FireBullet: {fileID: 5383064634642226716, guid: 23e8803db5b19ae4aaa3d9b763698a82, type: 3}
     m_FirePoint: {x: 0, y: 0}
     m_FireAngle: 22.5
-  - m_FireBullet: {fileID: 4006189671389258621, guid: 175b5df56ff3f1c4292432e7db6d33ae, type: 3}
+  - m_FireBullet: {fileID: 5383064634642226716, guid: 23e8803db5b19ae4aaa3d9b763698a82, type: 3}
     m_FirePoint: {x: 0, y: 0}
     m_FireAngle: -22.5
   m_FireRecall: 0.5
@@ -203,6 +203,10 @@ MonoBehaviour:
   m_MaxHP: 20
   m_HP: 0
   m_MoveSpeed: 3
+  m_CloseDamage: 1
+  m_CloseDamageTarget:
+    serializedVersion: 2
+    m_Bits: 512
   m_Launchers:
   - {fileID: 7957957793453566421}
   m_MoveTargetPoint: {x: 6.1, y: 2.97}

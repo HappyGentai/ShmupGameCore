@@ -43,6 +43,10 @@ namespace SkateGuy.GameElements
         [SerializeField]
         protected float m_MoveSpeed = 1f;
         public abstract float MoveSpeed { get; protected set; }
+        [SerializeField]
+        protected float m_CloseDamage = 1;
+        [SerializeField]
+        protected LayerMask m_CloseDamageTarget = 0;
         [Header("Launcher")]
         [SerializeField]
         protected Launcher[] m_Launchers = null;
@@ -122,5 +126,17 @@ namespace SkateGuy.GameElements
         public abstract void ReSetData();
 
         protected abstract void Die();
+
+        protected virtual void OnTriggerEnter2D(Collider2D collision)
+        {
+            var targetGO = collision.gameObject;
+            if (((1 << targetGO.layer) & m_CloseDamageTarget) == 0)
+            {
+                return;
+            }
+
+            var damageable = targetGO.GetComponent<IDamageable>();
+            damageable?.GetHit(m_CloseDamage);
+        }
     }
 }

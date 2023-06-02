@@ -203,6 +203,10 @@ MonoBehaviour:
   m_MaxHP: 3
   m_HP: 0
   m_MoveSpeed: 1
+  m_CloseDamage: 1
+  m_CloseDamageTarget:
+    serializedVersion: 2
+    m_Bits: 512
   m_Launchers:
   - {fileID: 4612963386285720053}
   m_CurveEndPos: {x: -16.7, y: -15.6}

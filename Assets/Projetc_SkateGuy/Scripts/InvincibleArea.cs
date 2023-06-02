@@ -21,11 +21,8 @@ namespace SkateGuy.Fields
                 return;
             }
             var invincibleObject = collision.gameObject.GetComponent<IInvincible>();
-            if (invincibleObject != null)
-            {
-                var setInvincible = !m_Reverse;
-                invincibleObject.SetInvincible(setInvincible);
-            }
+            var setInvincible = !m_Reverse;
+            invincibleObject?.SetInvincible(setInvincible);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
@@ -35,11 +32,8 @@ namespace SkateGuy.Fields
                 return;
             }
             var invincibleObject = collision.gameObject.GetComponent<IInvincible>();
-            if (invincibleObject != null)
-            {
-                var setInvincible = !m_Reverse;
-                invincibleObject.SetInvincible(setInvincible);
-            }
+            var setInvincible = !m_Reverse;
+            invincibleObject?.SetInvincible(setInvincible);
         }
     }
 }
