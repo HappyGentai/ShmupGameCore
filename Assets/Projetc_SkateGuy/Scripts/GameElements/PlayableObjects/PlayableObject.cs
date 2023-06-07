@@ -138,6 +138,9 @@ namespace SkateGuy.GameElements
         protected UnityEvent _OnPlayerSleep = new UnityEvent();
         public virtual UnityEvent OnPlayerSleep { get { return _OnPlayerSleep; } protected set { } }
 
+        /// <summary>
+        /// Set player basic state data
+        /// </summary>
         public virtual void WakeUpObject()
         {
             m_MoveAction.Enable();

@@ -90,15 +90,13 @@ namespace SkateGuy.GameElements
             if (m_PlayOnAwake)
             {
                 Initialization();
+                WakeUpObject();
             }  
         }
 
         public override void Initialization()
         {
             base.Initialization();
-            WakeUpObject();
-            var basicPlayerControl = new PlayerStateBasicControl(StateController, this);
-            StateController.SetState(basicPlayerControl);
         }
 
         public override void WakeUpObject()
@@ -111,6 +109,8 @@ namespace SkateGuy.GameElements
                 var skilltrigger = m_SkillTriggers[index];
                 skilltrigger.AwakeTrigger();
             }
+            var basicPlayerControl = new PlayerStateBasicControl(StateController, this);
+            StateController.SetState(basicPlayerControl);
         }
 
         public override void SleepObject()

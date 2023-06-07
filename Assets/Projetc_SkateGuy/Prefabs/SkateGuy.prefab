@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485469003720688391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21, y: 0, z: 0}
+  m_LocalPosition: {x: 0.581, y: 0.077, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,7 +50,7 @@ MonoBehaviour:
   - m_FireBullet: {fileID: 5296267407069024894, guid: 3962adc4538f0b74896a9ae51609beba, type: 3}
     m_FirePoint: {x: 0, y: 0}
     m_FireAngle: 0
-  m_FireRecall: 0.2
+  m_FireRecall: 0.05
   m_OnFiring:
     m_PersistentCalls:
       m_Calls: []
@@ -84,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 485469004478680679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.7, y: 0.21, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 485469003720688388}
@@ -131,13 +131,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9c55e6b5ccf5a1e4e9d8606363841885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -203,8 +203,8 @@ MonoBehaviour:
   m_BorderLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_BorderCheckUp: 1
-  m_BorderCheckDown: 1
+  m_BorderCheckUp: 0.65
+  m_BorderCheckDown: 0.3
   m_BorderCheckLeft: 0.46
   m_BorderCheckRight: 0.39
   m_MoveAction:
@@ -292,7 +292,7 @@ MonoBehaviour:
     m_Flags: 0
   m_Launchers:
   - {fileID: 485469003720688389}
-  m_EngryAddPerGraze: 0.5
+  m_EngryAddPerGraze: 1.5
   m_GrazeCheckTiming: 0.1
   m_GrazeCheckRadius: 0.8
   m_GrazeCheckLayer:
@@ -336,5 +336,24 @@ MonoBehaviour:
         m_Flags: 0
       m_Flags: 0
     m_StorgeSkill: {fileID: 11400000, guid: 4131e2507853b6348a144709cc971bc4, type: 2}
+    m_Caster: {fileID: 485469004478680681}
+  - m_TriggerInput:
+      m_Name: Trigger Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 14add3fc-f65f-470a-a986-2972880776d0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: c8f32636-b834-44ac-8748-780fb0020731
+        m_Path: <Keyboard>/e
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Trigger Input
+        m_Flags: 0
+      m_Flags: 0
+    m_StorgeSkill: {fileID: 11400000, guid: 6f23d79a4b1f54d4ba1653cd63c29e6a, type: 2}
     m_Caster: {fileID: 485469004478680681}
   m_PlayOnAwake: 0

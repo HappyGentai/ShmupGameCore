@@ -31,7 +31,7 @@ namespace SkateGuy.GameElements.Factory
         public static Enemy GetEnemy(Enemy _CoreEnemy)
         {
             //  Search in list
-            int poolCount = enemyPools.Count;
+            var poolCount = enemyPools.Count;
             for (int index = 0; index < poolCount; ++index)
             {
                 var enemyPool = enemyPools[index];
@@ -59,20 +59,20 @@ namespace SkateGuy.GameElements.Factory
 
         public static void ReleaseAll()
         {
-            int poolsCount = enemyPools.Count;
+            var poolsCount = enemyPools.Count;
             for (int index = 0; index < poolsCount; ++index)
             {
-                EnemyPool enemyPool = enemyPools[index];
+                var enemyPool = enemyPools[index];
                 enemyPool.ReleaseAll();
             }
         }
 
         public static void DisposeAll()
         {
-            int poolsCount = enemyPools.Count;
+            var poolsCount = enemyPools.Count;
             for (int index = 0; index < poolsCount; ++index)
             {
-                EnemyPool enemyPool = enemyPools[index];
+                var enemyPool = enemyPools[index];
                 enemyPool.Dispose();
             }
         }

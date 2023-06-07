@@ -15,4 +15,4 @@ MonoBehaviour:
   m_GrazeEnergyCost: 30
   m_FireLauncher: {fileID: 6418557399559273369, guid: 62bcb49f7540b50449845214bd1d1963, type: 3}
   m_Duration: 15
-  m_FireNeedGrazeTime: 10
+  m_FireNeedGrazeTime: 3

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 198883971307347680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4684526600749993173}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_BulletBelong: 
   m_RotateTarget: {fileID: 4684526600749993173}
   m_MoveSpeed: 15
-  m_Damage: 10
+  m_Damage: 0.5
   m_OnBulletHit:
     m_PersistentCalls:
       m_Calls: []
@@ -161,8 +161,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 143379042, guid: f2f5a6827ea1861499ce43b787ccfc1d, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -816667381, guid: b3b683f8fddef124889bc3b7850e1054, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

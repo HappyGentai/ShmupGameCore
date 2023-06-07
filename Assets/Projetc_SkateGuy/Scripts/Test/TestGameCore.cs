@@ -3,6 +3,7 @@ using SkateGuy.GameElements;
 using SkateGuy.GameElements.PlayerPlus;
 using SkateGuy.GameElements.EnemyGroup;
 using SkateGuy.GameElements.Factory;
+using SkateGuy.Factories;
 using System.Collections;
 
 namespace SkateGuy.Test
@@ -14,16 +15,24 @@ namespace SkateGuy.Test
         [SerializeField]
         private PlayableObject m_Player = null;
         [SerializeField]
+        private Vector2 m_BirthPoint = Vector2.zero;
+        [SerializeField]
         private TestPlayerUI m_PlayerUI = null;
 
         [SerializeField]
         private EnemyTeamData[] m_EnemyTeamDatas = null;
+        [SerializeField]
         private int waveIndex = 0;
+        private int enemyTeamCount = 0;
         private Coroutine waveCoroutine = null;
+
+        [SerializeField]
+        private StageBackGround m_BackGround = null;
 
         [Header("Player plug-in")]
         [SerializeField]
         private DamageResponesType m_DamageResponesType = DamageResponesType.ClearBullet;
+        private DamageResponse currentDamageResponse = null;
         [SerializeField]
         private DamageResponseTypeClear m_DamageResponseTypeClear = null;
         [SerializeField]
@@ -32,20 +41,39 @@ namespace SkateGuy.Test
         void Start()
         {
             m_Player.Initialization();
-            m_PlayerUI.Initialization();
+            m_Player.OnPlayerDie.AddListener(GameOver);
 
+            StartGame();
+        }
+
+        protected void StartGame()
+        {
+            ClearOldGameStage();
             //  Set player damaged plug-in
-            switch(m_DamageResponesType)
+            switch (m_DamageResponesType)
             {
                 case DamageResponesType.ClearBullet:
+                    currentDamageResponse = m_DamageResponseTypeClear;
                     m_DamageResponseTypeClear.Install(m_Player);
                     break;
                 case DamageResponesType.ProtectHitBox:
+                    currentDamageResponse = DamageResponseTypeProtect;
                     DamageResponseTypeProtect.Install(m_Player);
                     break;
             }
 
+            enemyTeamCount = m_EnemyTeamDatas.Length;
+
+            m_Player.WakeUpObject();
+            //  ReSet UI
+            if (!m_PlayerUI.IsInitialization)
+            {
+                m_PlayerUI.Initialization();
+            }
+
             //  StartGame
+            m_BackGround.MoveBackGround();
+            m_Player.MoveTarget.localPosition = m_BirthPoint;
             CallWave();
         }
 
@@ -66,12 +94,53 @@ namespace SkateGuy.Test
             waveIndex++;
         }
 
+        private void GameOver()
+        {
+            Debug.Log("GameOver :(");
+            //  Show game over UI
+        }
+
+        private void GameClearCheck()
+        {
+            enemyTeamCount--;
+            Debug.Log(enemyTeamCount);
+            if (enemyTeamCount <= 0)
+            {
+                //  Stop player move
+                m_Player.SleepObject();
+                //  Call game clear UI
+                Debug.Log("GameClear :D");
+            }
+        }
+
+        private void ClearOldGameStage()
+        {
+            //  Uninstall old damage response
+            if (currentDamageResponse != null)
+            {
+                currentDamageResponse.UnInstall();
+            }
+            //  Recycle all old bullet 
+            BulletFactory.ReleaseAll();
+            //  Recycle all old enemy
+            EnemyFactory.ReleaseAll();
+            //  Recycle all old team
+            EnemyTeamFactory.ReleaseAll();
+        }
+
         IEnumerator WaveCalling(EnemyTeamData teamData)
         {
             yield return new WaitForSeconds(teamData.WaveWaitTime);
             var team = EnemyTeamFactory.GetEnemyTeam(teamData);
+            team.OnAllMemberGone.AddListener(GameClearCheck);
             team.SummonMember();
             CallWave();
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(m_BirthPoint, 0.5f);
         }
     }
 }

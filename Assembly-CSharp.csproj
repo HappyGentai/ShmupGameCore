@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IShootable.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataAbsortBullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateSinMove.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Tool\TextSaveLoad.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\LevelMaker.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillGrazeCounter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PlayableObjects\PlayableObject.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillPowerUp.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeAbsort.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamMemberData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PlayableObjects\BasicPlayer.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponseTypeProtect.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Launcher.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\BulletFactory.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillAbsortBullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\Bullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IDamageable.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\BulletFactory.cs" />
@@ -117,6 +120,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skill.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Enemy.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponse.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\StageBackGround.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestEnemySpawner.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillTrigger.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillData.cs" />
@@ -125,9 +129,6 @@
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeAbsort.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillAbsortBullet.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataAbsortBullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BasicShmup\Resources\LevelData.txt" />

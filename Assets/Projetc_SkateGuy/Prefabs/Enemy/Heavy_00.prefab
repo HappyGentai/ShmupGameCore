@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305976982731075735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0, z: 0}
+  m_LocalPosition: {x: -0.551, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ MonoBehaviour:
   - m_FireBullet: {fileID: 5383064634642226716, guid: 23e8803db5b19ae4aaa3d9b763698a82, type: 3}
     m_FirePoint: {x: 0, y: 0}
     m_FireAngle: -22.5
-  m_FireRecall: 0.5
+  m_FireRecall: 0.8
   m_OnFiring:
     m_PersistentCalls:
       m_Calls: []
@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 305976982962139502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.24, y: 2.97, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 305976982731075729}
@@ -137,9 +137,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 1937023809, guid: 7acbc484482664b44be8a38c266d5849, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -183,9 +183,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.19, y: -0.015143275}
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 0.9787302
 --- !u!114 &6884478154795479454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveTarget: {fileID: 305976982962139497}
   m_HitBox: {fileID: 305976982962139499}
-  m_MaxHP: 20
+  m_MaxHP: 40
   m_HP: 0
   m_MoveSpeed: 3
   m_CloseDamage: 1
@@ -209,7 +209,7 @@ MonoBehaviour:
     m_Bits: 512
   m_Launchers:
   - {fileID: 7957957793453566421}
-  m_MoveTargetPoint: {x: 6.1, y: 2.97}
+  m_MoveTargetPoint: {x: 6.21, y: 1.84}
   m_FireTime: 10
   m_FleeDir: {x: -1, y: 0}
   m_PlayWhenStart: 0

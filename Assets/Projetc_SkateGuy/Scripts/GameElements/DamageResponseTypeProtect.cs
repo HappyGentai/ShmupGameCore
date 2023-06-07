@@ -13,13 +13,13 @@ namespace SkateGuy.GameElements.PlayerPlus
         public override void Install(PlayableObject player)
         {
             base.Install(player);
-            targetPlayer.OnPlayerDie.AddListener(OnPlayerDie);
+            targetPlayer.OnPlayerSleep.AddListener(DisableEffect);
         }
 
         public override void UnInstall()
         {
             base.UnInstall();
-            targetPlayer.OnPlayerDie.RemoveListener(OnPlayerDie);
+            targetPlayer.OnPlayerSleep.RemoveListener(DisableEffect);
         }
 
         public override void OnDamaged(PlayableObject player, float dmg)
@@ -38,7 +38,7 @@ namespace SkateGuy.GameElements.PlayerPlus
             targetPlayer.Invincible = false;
         }
 
-        private void OnPlayerDie()
+        private void DisableEffect()
         {
             if (protectRoutine != null)
             {

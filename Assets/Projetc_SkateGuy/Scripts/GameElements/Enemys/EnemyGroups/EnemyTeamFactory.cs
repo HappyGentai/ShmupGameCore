@@ -7,51 +7,114 @@ namespace SkateGuy.GameElements.Factory
 {
     public class EnemyTeamFactory
     {
-        private static Dictionary<EnemyTeamData, ObjectPool<EnemyTeam>> enemyTeamPools 
-            = new Dictionary<EnemyTeamData, ObjectPool<EnemyTeam>>();
+        private static List<EnemyTeamPool> enemyTeamPools = new List<EnemyTeamPool>();
 
         public static EnemyTeam GetEnemyTeam(EnemyTeamData teamDataPrefab)
         {
-            return CheckPoolExist(teamDataPrefab);
+            //  Search in list
+            var poolsCount = enemyTeamPools.Count;
+            for (int index = 0; index < poolsCount; ++index)
+            {
+                var enemyTeamPool = enemyTeamPools[index];
+                var checkTeamData = enemyTeamPool.CoreEnemyTeamData;
+                if (checkTeamData == teamDataPrefab)
+                {
+                    return enemyTeamPool.GetEnemyTeam();
+                }
+            }
+
+            // If no enemyTeam pool in list, create one and take
+            var newPool = new EnemyTeamPool(teamDataPrefab);
+            enemyTeamPools.Add(newPool);
+            return newPool.GetEnemyTeam();
         }
 
-        private static EnemyTeam CheckPoolExist(EnemyTeamData teamDataPrefab)
+        public static void ReleaseAll()
         {
-            if (enemyTeamPools.ContainsKey(teamDataPrefab))
+            var poolsCount = enemyTeamPools.Count;
+            for (int index = 0; index < poolsCount; ++index)
             {
-                var targetPool = enemyTeamPools[teamDataPrefab];
-                return targetPool.Get();
-            } else
-            {
-                //  Not  exist, create one
-                var newPool = new ObjectPool<EnemyTeam>(CreatePoolItem, OnTakeFormPool,
-                    OnReturnToPool, OnDestroyPoolObject, false);
-                enemyTeamPools.Add(teamDataPrefab, newPool);
-                return newPool.Get();
+                var enemyTeamPool = enemyTeamPools[index];
+                enemyTeamPool.ReleaseAll();
             }
-
-            #region About pool event
-            EnemyTeam CreatePoolItem()
-            {
-                var newEnemyTeam = GameObject.Instantiate<EnemyTeam>(teamDataPrefab.EnemyTeam);
-                return newEnemyTeam;
-            }
-
-            void OnTakeFormPool(EnemyTeam enemyTeam)
-            {
-                enemyTeam.gameObject.SetActive(true);
-            }
-
-            void OnReturnToPool(EnemyTeam enemyTeam)
-            {
-                enemyTeam.gameObject.SetActive(false);
-            }
-
-            void OnDestroyPoolObject(EnemyTeam enemyTeam)
-            {
-                GameObject.Destroy(enemyTeam.gameObject);
-            }
-            #endregion
         }
+
+        public static void DisposeAll()
+        {
+            var poolsCount = enemyTeamPools.Count;
+            for (int index = 0; index < poolsCount; ++index)
+            {
+                var enemyTeamPool = enemyTeamPools[index];
+                enemyTeamPool.Dispose();
+            }
+        }
+    }
+
+    public class EnemyTeamPool
+    {
+        private EnemyTeamData m_CoreEnemyTeamData = null;
+        public EnemyTeamData CoreEnemyTeamData
+        {
+            get { return m_CoreEnemyTeamData; }
+        }
+
+        private ObjectPool<EnemyTeam> enemyTeamPool = null;
+
+        private List<EnemyTeam> aliveObject = new List<EnemyTeam>();
+
+        public EnemyTeamPool(EnemyTeamData _CoreEnemyTeamData)
+        {
+            m_CoreEnemyTeamData = _CoreEnemyTeamData;
+            enemyTeamPool = new ObjectPool<EnemyTeam>(CreatePoolItem, OnTakeFormPool,
+                    OnReturnToPool, OnDestroyPoolObject, false);
+        }
+
+        public void Dispose()
+        {
+            enemyTeamPool.Dispose();
+        }
+
+        public EnemyTeam GetEnemyTeam()
+        {
+            var enemyTeam = enemyTeamPool.Get();
+            return enemyTeam;
+        }
+
+        public void ReleaseAll()
+        {
+            int aliveEnemyCount = aliveObject.Count;
+            for (int index = 0; index < aliveEnemyCount; index++)
+            {
+                enemyTeamPool.Release(aliveObject[0]);
+            }
+            aliveObject.Clear();
+        }
+
+        #region About pool event
+        EnemyTeam CreatePoolItem()
+        {
+            var newEnemyTeam = GameObject.Instantiate<EnemyTeam>(m_CoreEnemyTeamData.EnemyTeam);
+            return newEnemyTeam;
+        }
+
+        void OnTakeFormPool(EnemyTeam enemyTeam)
+        {
+            enemyTeam.gameObject.SetActive(true);
+            aliveObject.Add(enemyTeam);
+        }
+
+        void OnReturnToPool(EnemyTeam enemyTeam)
+        {
+            enemyTeam.StopSummon();
+            enemyTeam.OnAllMemberGone.RemoveAllListeners();
+            enemyTeam.gameObject.SetActive(false);
+            aliveObject.Remove(enemyTeam);
+        }
+
+        void OnDestroyPoolObject(EnemyTeam enemyTeam)
+        {
+            GameObject.Destroy(enemyTeam.gameObject);
+        }
+        #endregion
     }
 }

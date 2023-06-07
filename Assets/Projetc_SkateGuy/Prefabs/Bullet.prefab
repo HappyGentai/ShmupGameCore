@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 381161771545259225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 972551607, guid: f2f5a6827ea1861499ce43b787ccfc1d, type: 3}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 1767680877, guid: b3b683f8fddef124889bc3b7850e1054, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,8 +102,8 @@ BoxCollider2D:
   m_Offset: {x: -0.11705466, y: -0.0004798919}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.74905246, y: 0.50154805}
-    oldSize: {x: 0.47, y: 0.31}
+    pivot: {x: 0.7782519, y: 0.5115552}
+    oldSize: {x: 0.33, y: 0.16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_BulletBelong: 
   m_RotateTarget: {fileID: 381161771545259220}
   m_MoveSpeed: 30
-  m_Damage: 1
+  m_Damage: 0.5
   m_OnBulletHit:
     m_PersistentCalls:
       m_Calls: []

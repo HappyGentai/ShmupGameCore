@@ -23,6 +23,7 @@ namespace SkateGuy.Test {
         private Color m_SkillWhenCantUse = Color.gray;
         [SerializeField]
         private Color m_SkillWhenUsing = Color.red;
+        public bool IsInitialization = false;
 
         public void Initialization()
         {
@@ -93,6 +94,7 @@ namespace SkateGuy.Test {
                     m_SkillImage3.color = m_SkillWhenCantUse;
                 }
             });
+            IsInitialization = true;
         }
     }
 }

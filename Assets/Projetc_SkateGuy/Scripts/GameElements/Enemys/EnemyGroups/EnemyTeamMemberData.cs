@@ -17,6 +17,12 @@ namespace SkateGuy.GameElements.EnemyGroup
         {
             get { return m_SetPosition; }
         }
+        [SerializeField]
+        private float m_DelaySpawnTime = 0;
+        public float DelaySpawnTime
+        {
+            get { return m_DelaySpawnTime; }
+        }
 
         public EnemyTeamMemberData(Enemy enemyPrefab, Vector2 setPos)
         {

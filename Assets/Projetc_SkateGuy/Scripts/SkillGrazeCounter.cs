@@ -36,7 +36,7 @@ namespace SkateGuy.Skills
             else { IsCasting = !IsCasting; }
             player.OnGraze.AddListener(OnGraze);
             timeCoroutine = CoroutineAgent.StartEntrustCoroutine(SkillCasting());
-            player.OnPlayerDie.AddListener(StopSkillFromOutSide);
+            player.OnPlayerSleep.AddListener(StopSkillFromOutSide);
             Launcher.gameObject.SetActive(true);
             Launcher.AwakeLauncher();
             Launcher.transform.SetParent(player.transform);
@@ -46,7 +46,7 @@ namespace SkateGuy.Skills
         public override void SKillDone()
         {
             player.OnGraze.RemoveListener(OnGraze);
-            player.OnPlayerDie.RemoveListener(StopSkillFromOutSide);
+            player.OnPlayerSleep.RemoveListener(StopSkillFromOutSide);
             IsCasting = false;
             Launcher.StopLauncher();
             Launcher.gameObject.SetActive(false);

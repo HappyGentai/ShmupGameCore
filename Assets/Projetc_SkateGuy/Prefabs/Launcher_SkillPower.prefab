@@ -48,12 +48,21 @@ MonoBehaviour:
   m_BaseFireDirection: {x: 1, y: 0, z: 0}
   m_FireSpots:
   - m_FireBullet: {fileID: 2091959817357570676, guid: fc14704fd0086f746b91b0bd5fed12e9, type: 3}
-    m_FirePoint: {x: 0.21, y: 0.25}
+    m_FirePoint: {x: 0.791, y: 0.077}
     m_FireAngle: 0
   - m_FireBullet: {fileID: 2091959817357570676, guid: fc14704fd0086f746b91b0bd5fed12e9, type: 3}
-    m_FirePoint: {x: 0.21, y: -0.25}
-    m_FireAngle: 0
-  m_FireRecall: 0.15
+    m_FirePoint: {x: 0.791, y: 0.077}
+    m_FireAngle: 22.5
+  - m_FireBullet: {fileID: 2091959817357570676, guid: fc14704fd0086f746b91b0bd5fed12e9, type: 3}
+    m_FirePoint: {x: 0.791, y: 0.077}
+    m_FireAngle: -22.5
+  - m_FireBullet: {fileID: 2091959817357570676, guid: fc14704fd0086f746b91b0bd5fed12e9, type: 3}
+    m_FirePoint: {x: 0.791, y: 0.077}
+    m_FireAngle: 11
+  - m_FireBullet: {fileID: 2091959817357570676, guid: fc14704fd0086f746b91b0bd5fed12e9, type: 3}
+    m_FirePoint: {x: 0.791, y: 0.077}
+    m_FireAngle: -12
+  m_FireRecall: 0.05
   m_OnFiring:
     m_PersistentCalls:
       m_Calls: []
