@@ -1,6 +1,7 @@
 using UnityEngine;
-using SkateGuy.Datas;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+using SkateGuy.Datas;
 using SkateGuy.GameElements;
 
 namespace SkateGuy.Skills
@@ -23,6 +24,7 @@ namespace SkateGuy.Skills
         [SerializeField]
         private PlayableObject m_Caster = null;
         private bool setInputEvent = false;
+        public UnityEvent OnSkillCast = new UnityEvent();
 
         public void AwakeTrigger()
         {
@@ -30,7 +32,11 @@ namespace SkateGuy.Skills
             if (!setInputEvent)
             {
                 m_TriggerInput.started += (ctx) => {
-                    m_StorgeSkill.TryCastSkill();
+                    var castSuccess =  m_StorgeSkill.TryCastSkill();
+                    if (castSuccess)
+                    {
+                        OnSkillCast?.Invoke();
+                    }
                 };
                 SkillData.CreateSKillEntity(m_Caster);
                 setInputEvent = true;

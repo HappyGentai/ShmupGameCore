@@ -70,7 +70,6 @@ namespace SkateGuy.GameElements.EnemyGroup
         {
             enemy.OnRecycle.RemoveListener(OnTeamMemberRelease);
             memberLiveCount--;
-
             if (memberLiveCount == 0)
             {
                 //  Member all dead or be recycle

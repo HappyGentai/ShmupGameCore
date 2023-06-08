@@ -69,11 +69,14 @@ namespace SkateGuy.Test
             if (!m_PlayerUI.IsInitialization)
             {
                 m_PlayerUI.Initialization();
+                m_PlayerUI.OnReStart.AddListener(StartGame);
             }
+            m_PlayerUI.StartUP();
 
             //  StartGame
             m_BackGround.MoveBackGround();
             m_Player.MoveTarget.localPosition = m_BirthPoint;
+            waveIndex = 0;
             CallWave();
         }
 
@@ -94,22 +97,32 @@ namespace SkateGuy.Test
             waveIndex++;
         }
 
+        private void CloseCallWave()
+        {
+            if (waveCoroutine != null)
+            {
+                StopCoroutine(waveCoroutine);
+            }
+        }
+
         private void GameOver()
         {
-            Debug.Log("GameOver :(");
+            CloseCallWave();
             //  Show game over UI
+            m_PlayerUI.GameOver();
         }
 
         private void GameClearCheck()
         {
             enemyTeamCount--;
-            Debug.Log(enemyTeamCount);
             if (enemyTeamCount <= 0)
             {
+                CloseCallWave();
                 //  Stop player move
                 m_Player.SleepObject();
+                m_Player.Invincible = true;
                 //  Call game clear UI
-                Debug.Log("GameClear :D");
+                m_PlayerUI.GameClear();
             }
         }
 

@@ -56,8 +56,10 @@ namespace SkateGuy.GameElements
 
         protected StateController StateController = null;
 
+        [Header("Events")]
         protected UnityEvent<float> _OnHPChange = new UnityEvent<float>();
         public abstract UnityEvent<float> OnHPChange { get; protected set; }
+        [SerializeField]
         protected UnityEvent _OnEnemyDie = new UnityEvent();
         public abstract UnityEvent OnEnemyDie { get; protected set; }
         protected UnityEvent<Enemy> onRecycle = new UnityEvent<Enemy>();
@@ -125,7 +127,10 @@ namespace SkateGuy.GameElements
 
         public abstract void ReSetData();
 
-        protected abstract void Die();
+        protected virtual void Die()
+        {
+            Recycle();
+        }
 
         protected virtual void OnTriggerEnter2D(Collider2D collision)
         {

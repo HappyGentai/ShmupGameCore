@@ -123,14 +123,17 @@ namespace SkateGuy.GameElements
 
         protected StateController StateController = null;
 
+        [Header("Events")]
         protected UnityEvent<float> _OnHPChange = new UnityEvent<float>();
         public abstract UnityEvent<float> OnHPChange { get; protected set; }
         protected UnityEvent<float> _OnGrazeCounterChange = new UnityEvent<float>();
         public abstract UnityEvent<float> OnGrazeCounterChange { get; protected set; }
+        [SerializeField]
         protected UnityEvent<Collider2D[]> _OnGraze = new UnityEvent<Collider2D[]>();
         public abstract UnityEvent<Collider2D[]> OnGraze { get; protected set; }
         protected UnityEvent _OnPlayerDie = new UnityEvent();
         public abstract UnityEvent OnPlayerDie { get; protected set; }
+        [SerializeField]
         protected UnityEvent<PlayableObject, float> _OnGetDamage = new UnityEvent<PlayableObject, float>();
         public abstract UnityEvent<PlayableObject, float> OnGetDamage { get; protected set; }
         protected UnityEvent _OnPlayerWakeUp = new UnityEvent();
@@ -148,6 +151,7 @@ namespace SkateGuy.GameElements
             m_FireAction.Enable();
             HP = MaxHP;
             GrazeCounter = 0;
+            Invincible = false;
             OnPlayerWakeUp?.Invoke();
         }
 
@@ -242,7 +246,10 @@ namespace SkateGuy.GameElements
 
                 var findCount = findTargets.Count;
                 GrazeCounter += findCount * m_EngryAddPerGraze;
-                OnGraze.Invoke(findTargets.ToArray());
+                if (findCount != 0)
+                {
+                    OnGraze.Invoke(findTargets.ToArray());
+                }
             }
         }
 

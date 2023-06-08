@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfd52893389f6b46be34d3caadc0013, type: 3}
   m_Name: SkillDataAbsortBullet
   m_EditorClassIdentifier: 
-  m_GrazeEnergyCost: 0
+  m_GrazeEnergyCost: 60
   m_Bullet: {fileID: 5702560985215750408, guid: bd61a78482e3764428a136ac13c32dde, type: 3}
   m_Belong: Player
   m_FireAdjustPos: {x: 0.2, y: 0}

@@ -101,6 +101,7 @@ namespace SkateGuy.GameElements
 
         public override void WakeUpObject()
         {
+            this.gameObject.SetActive(true);
             base.WakeUpObject();
             //  Wake up skill triggers
             var skillTriggerCount = m_SkillTriggers.Length;

@@ -77,11 +77,6 @@ namespace SkateGuy.GameElements
 
         }
 
-        protected override void Die()
-        {
-            //  Do die event, can call WakeUpObject to re set data
-        }
-
         private void OnDrawGizmos()
         {
             var selfPos = this.transform.localPosition;

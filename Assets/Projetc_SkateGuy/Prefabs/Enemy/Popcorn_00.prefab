@@ -187,6 +187,9 @@ MonoBehaviour:
     m_Bits: 512
   m_Launchers:
   - {fileID: 6490866743045577613}
+  _OnEnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
   m_PlayWhenStart: 0
 --- !u!50 &2443165750001921630
 Rigidbody2D:

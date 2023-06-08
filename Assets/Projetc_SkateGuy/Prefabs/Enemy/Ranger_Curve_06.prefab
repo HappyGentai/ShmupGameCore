@@ -209,6 +209,9 @@ MonoBehaviour:
     m_Bits: 512
   m_Launchers:
   - {fileID: 4406784389769093751}
+  _OnEnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
   m_CurveEndPos: {x: -18.9, y: 17.2}
   m_CurveAidPosA: {x: 0, y: 0}
   m_CurveAidPosB: {x: 0, y: 0}

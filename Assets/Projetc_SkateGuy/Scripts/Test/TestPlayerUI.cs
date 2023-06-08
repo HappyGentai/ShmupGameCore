@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using SkateGuy.GameElements;
+using UnityEngine.InputSystem;
 
 namespace SkateGuy.Test {
     public class TestPlayerUI : MonoBehaviour
@@ -24,6 +26,20 @@ namespace SkateGuy.Test {
         [SerializeField]
         private Color m_SkillWhenUsing = Color.red;
         public bool IsInitialization = false;
+
+        [SerializeField]
+        private UnityEvent OnSkillChargeDone = new UnityEvent();
+
+        [Header("Game UI")]
+        [SerializeField]
+        private GameObject m_GameClearUI = null;
+        public UnityEvent m_OnGameClear = new UnityEvent();
+        [SerializeField]
+        private GameObject m_GameOverUI = null;
+        public UnityEvent m_OnGameOver = new UnityEvent();
+        [SerializeField]
+        protected InputAction m_ReStartAction;
+        public UnityEvent OnReStart = new UnityEvent();
 
         public void Initialization()
         {
@@ -63,6 +79,10 @@ namespace SkateGuy.Test {
                 }
                 else if (m_Player.GrazeCounter >= skillData.GrazeEnergyCost)
                 {
+                    if (m_SkillImage.color != m_SkillWhenCanUse)
+                    {
+                        OnSkillChargeDone?.Invoke();
+                    }
                     m_SkillImage.color = m_SkillWhenCanUse;
                 }
                 else
@@ -73,8 +93,12 @@ namespace SkateGuy.Test {
                 {
                     m_SkillImage2.color = m_SkillWhenUsing;
                 }
-                else if (m_Player.GrazeCounter >= skillData.GrazeEnergyCost)
+                else if (m_Player.GrazeCounter >= skillData2.GrazeEnergyCost)
                 {
+                    if (m_SkillImage2.color != m_SkillWhenCanUse)
+                    {
+                        OnSkillChargeDone?.Invoke();
+                    }
                     m_SkillImage2.color = m_SkillWhenCanUse;
                 }
                 else
@@ -83,9 +107,13 @@ namespace SkateGuy.Test {
                 }
                 if (skillUsing3)
                 {
+                    if (m_SkillImage3.color != m_SkillWhenCanUse)
+                    {
+                        OnSkillChargeDone?.Invoke();
+                    }
                     m_SkillImage3.color = m_SkillWhenUsing;
                 }
-                else if (m_Player.GrazeCounter >= skillData.GrazeEnergyCost)
+                else if (m_Player.GrazeCounter >= skillData3.GrazeEnergyCost)
                 {
                     m_SkillImage3.color = m_SkillWhenCanUse;
                 }
@@ -94,7 +122,34 @@ namespace SkateGuy.Test {
                     m_SkillImage3.color = m_SkillWhenCantUse;
                 }
             });
+
+            //  Set restart input
+            m_ReStartAction.performed += (ctx) => {
+                OnReStart?.Invoke();
+            };
+
             IsInitialization = true;
+        }
+
+        public void StartUP()
+        {
+            m_GameClearUI.SetActive(false);
+            m_GameOverUI.SetActive(false);
+            m_ReStartAction.Disable();
+        }
+
+        public void GameClear()
+        {
+            m_GameClearUI.SetActive(true);
+            m_ReStartAction.Enable();
+            m_OnGameClear?.Invoke();
+        }
+
+        public void GameOver()
+        {
+            m_GameOverUI.SetActive(true);
+            m_ReStartAction.Enable();
+            m_OnGameOver?.Invoke();
         }
     }
 }

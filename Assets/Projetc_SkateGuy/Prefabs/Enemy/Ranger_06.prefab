@@ -148,6 +148,9 @@ MonoBehaviour:
     m_Bits: 512
   m_Launchers:
   - {fileID: 5042452280162142863}
+  _OnEnemyDie:
+    m_PersistentCalls:
+      m_Calls: []
   m_MoveTargetPoint: {x: 4.5, y: 2.65}
   m_FireTime: 20
   m_FleeDir: {x: -1, y: 0}
