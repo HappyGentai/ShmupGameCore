@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 15
   m_Sprite: {fileID: -1676953619, guid: 7acbc484482664b44be8a38c266d5849, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
     m_Bits: 512
   m_Launchers:
   - {fileID: 5983530593261814698}
+  m_DieEffect: {fileID: 6473510020941250192, guid: c7438ba0570680a4890fc87ab7409e6a, type: 3}
   _OnEnemyDie:
     m_PersistentCalls:
       m_Calls: []

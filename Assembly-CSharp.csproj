@@ -68,6 +68,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamFactory.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\Enemy.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\EffectTypeAnimation.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestGameCore.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponseTypeClear.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestPlayerUI.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\BasicEnemy.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeDirection.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LauncherTypeAim.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SFXEffecter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\LineLerp.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestEnums.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillGrazeCounter.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\BasicState.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyFactory.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Test\TestGameCycle.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\HitFactory.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeSinMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataPowerUp.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemySpawner.cs" />
@@ -129,6 +132,7 @@
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\EffectFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

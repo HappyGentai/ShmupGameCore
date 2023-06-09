@@ -5,14 +5,14 @@ using SkateGuy.GameElements;
 
 namespace SkateGuy.Factories
 {
-    public class BulletFactory : MonoBehaviour
+    public class BulletFactory
     {
         private static List<BulletPool> bulletPools = new List<BulletPool>();
 
         public static Bullet GetBullet(Bullet _CoreBullet)
         {
             //  Search in list
-            int poolsCount = bulletPools.Count;
+            var poolsCount = bulletPools.Count;
             for (int index = 0; index < poolsCount; ++index)
             {
                 var bulletPool = bulletPools[index];
@@ -31,7 +31,7 @@ namespace SkateGuy.Factories
 
         public static void ReleaseAll()
         {
-            int poolsCount = bulletPools.Count;
+            var poolsCount = bulletPools.Count;
             for (int index = 0; index < poolsCount; ++index)
             {
                 var bulletPool = bulletPools[index];
@@ -87,7 +87,7 @@ namespace SkateGuy.Factories
 
         public void ReleaseAll()
         {
-            int aliveBulletCount = aliveObject.Count;
+            var aliveBulletCount = aliveObject.Count;
             for (int index = 0; index < aliveBulletCount; index++)
             {
                 bulletPool.Release(aliveObject[0]);

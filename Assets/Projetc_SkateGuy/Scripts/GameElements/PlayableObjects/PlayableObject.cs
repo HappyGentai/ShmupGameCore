@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 using SkateGuy.States;
-using UnityEngine.Events;
+using SkateGuy.Effects;
+using SkateGuy.Factories;
 
 namespace SkateGuy.GameElements
 {
@@ -120,7 +122,8 @@ namespace SkateGuy.GameElements
         protected float m_GrazeCheckRadius = 2f;
         [SerializeField]
         protected LayerMask m_GrazeCheckLayer = 0;
-
+        [SerializeField]
+        protected SFXEffecter m_GrazeEffect = null;
         protected StateController StateController = null;
 
         [Header("Events")]
@@ -240,6 +243,12 @@ namespace SkateGuy.GameElements
                         if (bullet.m_BulletBelong != this.tag)
                         {
                             findTargets.Add(target);
+                            if (m_GrazeEffect != null)
+                            {
+                                var grazeEffect = EffectFactory.GetEffect(m_GrazeEffect);
+                                grazeEffect.transform.localPosition = target.transform.localPosition;
+                                grazeEffect.StartSFX();
+                            }
                         }
                     }
                 }

@@ -57,6 +57,18 @@ namespace SkateGuy.GameElements.Factory
             }
         }
 
+        public static List<Enemy> GetAliveEnemys()
+        {
+            var aliveEnemys = new List<Enemy>();
+            var poolCount = enemyPools.Count;
+            for (int index = 0; index < poolCount; ++index)
+            {
+                var enemys = enemyPools[index].AliveObject;
+                aliveEnemys.AddRange(enemys);
+            }
+            return aliveEnemys;
+        }
+
         public static void ReleaseAll()
         {
             var poolsCount = enemyPools.Count;
@@ -88,6 +100,10 @@ namespace SkateGuy.GameElements.Factory
 
         private ObjectPool<Enemy> enemyPool = null;
         private List<Enemy> aliveObject = new List<Enemy>();
+        public List<Enemy> AliveObject
+        {
+            get { return aliveObject; }
+        }
 
         public EnemyPool(Enemy _CoreEnemy)
         {

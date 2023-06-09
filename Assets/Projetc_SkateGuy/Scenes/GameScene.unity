@@ -664,102 +664,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkateGuy
       objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[0].OnSkillCast.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[1].OnSkillCast.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[2].OnSkillCast.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[0].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[1].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[2].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[0].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1396938593}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[1].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1396938593}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[2].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1396938593}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[0].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[1].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[2].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[0].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[1].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[2].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[0].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[1].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[2].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[0].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: b05dacd68f026fc4a8a3165c5094de7f, type: 3}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[1].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 3ffc260e6fef2cb4c9383eaf9add002a, type: 3}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[2].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 52e5f7f5d932f7c45a48cb197938fe30, type: 3}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[0].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[1].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_SkillTriggers.Array.data[2].OnSkillCast.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
 --- !u!1 &465282209
@@ -1033,6 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NowGameTime: 0
+  m_GameFPS: 60
   m_Player: {fileID: 864402335}
   m_BirthPoint: {x: -6.43, y: 0}
   m_PlayerUI: {fileID: 686266396}
@@ -2539,11 +2444,6 @@ MonoBehaviour:
   m_Reverse: 1
   m_LockEnter: 0
   m_LockExit: 0
---- !u!82 &1396938593 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1396938593, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-  m_PrefabInstance: {fileID: 425948026}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1492071223
 GameObject:
   m_ObjectHideFlags: 0

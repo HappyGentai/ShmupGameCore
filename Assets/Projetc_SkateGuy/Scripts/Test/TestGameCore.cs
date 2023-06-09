@@ -13,6 +13,8 @@ namespace SkateGuy.Test
         [SerializeField]
         private float m_NowGameTime = 0;
         [SerializeField]
+        private int m_GameFPS = 60;
+        [SerializeField]
         private PlayableObject m_Player = null;
         [SerializeField]
         private Vector2 m_BirthPoint = Vector2.zero;
@@ -40,6 +42,7 @@ namespace SkateGuy.Test
 
         void Start()
         {
+            Application.targetFrameRate = m_GameFPS;
             m_Player.Initialization();
             m_Player.OnPlayerDie.AddListener(GameOver);
 
@@ -108,6 +111,14 @@ namespace SkateGuy.Test
         private void GameOver()
         {
             CloseCallWave();
+            //  Stop all alive enemys
+            var aliveEnemys = EnemyFactory.GetAliveEnemys();
+            var enemyCount = aliveEnemys.Count;
+            for (int index = 0; index < enemyCount; ++index)
+            {
+                var enemy = aliveEnemys[index];
+                enemy.SleepObject();
+            }
             //  Show game over UI
             m_PlayerUI.GameOver();
         }

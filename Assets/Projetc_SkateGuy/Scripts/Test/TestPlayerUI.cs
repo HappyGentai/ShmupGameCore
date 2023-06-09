@@ -107,14 +107,14 @@ namespace SkateGuy.Test {
                 }
                 if (skillUsing3)
                 {
-                    if (m_SkillImage3.color != m_SkillWhenCanUse)
-                    {
-                        OnSkillChargeDone?.Invoke();
-                    }
                     m_SkillImage3.color = m_SkillWhenUsing;
                 }
                 else if (m_Player.GrazeCounter >= skillData3.GrazeEnergyCost)
                 {
+                    if (m_SkillImage3.color != m_SkillWhenCanUse)
+                    {
+                        OnSkillChargeDone?.Invoke();
+                    }
                     m_SkillImage3.color = m_SkillWhenCanUse;
                 }
                 else

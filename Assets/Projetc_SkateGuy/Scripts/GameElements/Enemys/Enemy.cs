@@ -1,5 +1,7 @@
 using UnityEngine;
 using SkateGuy.States;
+using SkateGuy.Effects;
+using SkateGuy.Factories;
 using UnityEngine.Events;
 
 namespace SkateGuy.GameElements
@@ -36,7 +38,6 @@ namespace SkateGuy.GameElements
                 if (m_HP <= 0)
                 {
                     Die();
-                    OnEnemyDie.Invoke();
                 }
             }
         }
@@ -55,6 +56,10 @@ namespace SkateGuy.GameElements
         protected bool isInvincible = false;
 
         protected StateController StateController = null;
+
+        [Header("DieEffect")]
+        [SerializeField]
+        protected SFXEffecter m_DieEffect = null;
 
         [Header("Events")]
         protected UnityEvent<float> _OnHPChange = new UnityEvent<float>();
@@ -98,7 +103,6 @@ namespace SkateGuy.GameElements
         public virtual void Recycle()
         {
             OnRecycle.Invoke(this);
-            OnEnemyDie.Invoke();
         }
 
         public virtual void SetInvincible(bool _isInvincible)
@@ -129,6 +133,13 @@ namespace SkateGuy.GameElements
 
         protected virtual void Die()
         {
+            if (m_DieEffect != null)
+            {
+                var dieEffect = EffectFactory.GetEffect(m_DieEffect);
+                dieEffect.transform.localPosition = this.MoveTarget.localPosition;
+                dieEffect.StartSFX();
+            }
+            OnEnemyDie.Invoke();
             Recycle();
         }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using SkateGuy.Factories;
 
 namespace SkateGuy.GameElements
 {
@@ -9,6 +10,8 @@ namespace SkateGuy.GameElements
         private CircleCollider2D m_Collider = null;
         [SerializeField]
         private LayerMask m_AbsortTarget = 0;
+        [SerializeField]
+        private LayerMask m_DamageTarget = 0;
         [SerializeField]
         private float m_CheckUpdateTime = 0.1f;
         [SerializeField]
@@ -44,19 +47,7 @@ namespace SkateGuy.GameElements
 
         protected override void OnTriggerEnter2D(Collider2D collision)
         {
-            if (m_BulletBelong == collision.tag)
-            {
-                return;
-            }
-            var damageable = collision.gameObject.GetComponent<IDamageable>();
-            if (damageable != null)
-            {
-                if (m_OnBulletHit != null)
-                {
-                    m_OnBulletHit.Invoke();
-                }
-                damageable.GetHit(m_Damage);
-            }
+            
         }
 
         private IEnumerator AbsortChecking()
@@ -76,11 +67,29 @@ namespace SkateGuy.GameElements
                 int targetCount = targets.Length;
                 for (int index = 0; index < targetCount; ++index)
                 {
-                    var recycleable = targets[index].GetComponent<IRecycleable>();
-                    if (targets[index] != this.m_Collider)
+                    var target = targets[index];
+                    var recycleable = target.GetComponent<IRecycleable>();
+                    var bullet = target.GetComponent<Bullet>();
+                    var isRecycleable = false;
+                    if (target != this.m_Collider)
                     {
-                        recycleable?.Recycle();
-                        absortCount++;
+                        if (bullet == null)
+                        {
+                            isRecycleable = RecycelCountAdd(recycleable);
+                        } else if (bullet.m_BulletBelong != this.m_BulletBelong)
+                        {
+                            isRecycleable = RecycelCountAdd(recycleable);
+                        }
+                        if (isRecycleable)
+                        {
+                            absortCount++;
+                            if (m_HitEffect != null)
+                            {
+                                var hitEffect = EffectFactory.GetEffect(m_HitEffect);
+                                hitEffect.transform.localPosition = target.transform.localPosition;
+                                hitEffect.StartSFX();
+                            }
+                        }
                     }
                 }
                 if (absortCount > m_MaxAbsortCount)
@@ -89,6 +98,37 @@ namespace SkateGuy.GameElements
                 }
                 m_Damage = originalDamage + absortCount * m_DamageUpRatePerAbsort;
                 this.transform.localScale = originalSize + (absortCount * m_SizeUpRatePerAbsort) *Vector3.one;
+
+                bool RecycelCountAdd(IRecycleable recycleable)
+                {
+                    if (recycleable != null)
+                    {
+                        recycleable.Recycle();
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
+                }
+
+                //  Search danaged target
+                var canDamageTargets = Physics2D.OverlapCircleAll(
+                    this.transform.position,
+                    m_Collider.radius * this.transform.localScale.x,
+                    m_DamageTarget);
+                int damageTargetCount = canDamageTargets.Length;
+                for (int index = 0; index < damageTargetCount; ++index)
+                {
+                    var target = canDamageTargets[index];
+                    var damageable = target.GetComponent<IDamageable>();
+                    damageable?.GetHit(m_Damage);
+                    if (damageable != null && m_HitEffect != null)
+                    {
+                        var hitEffect = EffectFactory.GetEffect(m_HitEffect);
+                        hitEffect.transform.localPosition = target.transform.localPosition;
+                        hitEffect.StartSFX();
+                    }
+                }
 
                 if (totalTime >= m_BulletLifeTime)
                 {

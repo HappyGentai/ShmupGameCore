@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using SkateGuy.Effects;
+using SkateGuy.Factories;
 
 namespace SkateGuy.GameElements
 {
@@ -41,6 +43,10 @@ namespace SkateGuy.GameElements
         protected UnityEvent m_OnBulletHit = null;
 
         public UnityAction eventWhenBulletDead = null;
+
+        [Header("HitEffect")]
+        [SerializeField]
+        protected SFXEffecter m_HitEffect = null;
 
         protected virtual void Update()
         {
@@ -84,6 +90,12 @@ namespace SkateGuy.GameElements
                     m_OnBulletHit.Invoke();
                 }
                 damageable.GetHit(m_Damage);
+                if (m_HitEffect != null)
+                {
+                    var hitEffect =  EffectFactory.GetEffect(m_HitEffect);
+                    hitEffect.transform.localPosition = this.transform.localPosition;
+                    hitEffect.StartSFX();
+                }
                 BulletDead();
             }
         }

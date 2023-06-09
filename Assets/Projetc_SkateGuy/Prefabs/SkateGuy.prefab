@@ -241,7 +241,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 9c55e6b5ccf5a1e4e9d8606363841885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   m_GrazeCheckLayer:
     serializedVersion: 2
     m_Bits: 128
+  m_GrazeEffect: {fileID: 2227986490877079153, guid: 7b99a8b7e9bbb0840836ddf5a3582ee4, type: 3}
   _OnGraze:
     m_PersistentCalls:
       m_Calls:
@@ -458,6 +459,21 @@ MonoBehaviour:
       m_Flags: 0
     m_StorgeSkill: {fileID: 11400000, guid: c6c9634cd67c151488a82cedb78b8f2b, type: 2}
     m_Caster: {fileID: 485469004478680681}
+    OnSkillCast:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1396938593}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b05dacd68f026fc4a8a3165c5094de7f, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - m_TriggerInput:
       m_Name: Trigger Input
       m_Type: 0
@@ -477,6 +493,21 @@ MonoBehaviour:
       m_Flags: 0
     m_StorgeSkill: {fileID: 11400000, guid: 4131e2507853b6348a144709cc971bc4, type: 2}
     m_Caster: {fileID: 485469004478680681}
+    OnSkillCast:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1396938593}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 3ffc260e6fef2cb4c9383eaf9add002a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - m_TriggerInput:
       m_Name: Trigger Input
       m_Type: 0
@@ -496,6 +527,21 @@ MonoBehaviour:
       m_Flags: 0
     m_StorgeSkill: {fileID: 11400000, guid: 6f23d79a4b1f54d4ba1653cd63c29e6a, type: 2}
     m_Caster: {fileID: 485469004478680681}
+    OnSkillCast:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1396938593}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 52e5f7f5d932f7c45a48cb197938fe30, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_PlayOnAwake: 0
 --- !u!82 &1396938593
 AudioSource:
