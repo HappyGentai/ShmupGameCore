@@ -53,6 +53,11 @@ namespace SkateGuy.Editor
                 var enemy = (Enemy)go;
                 enemy.transform.SetParent(enemyTeam.transform);
                 enemy.transform.localPosition = memberData.SetPosition;
+                var enemySpawnHelper = enemy.gameObject.AddComponent<EnemySpawnHelper>();
+                enemySpawnHelper.m_TargetObject = enemy;
+                enemySpawnHelper.m_DelayTime = memberData.DelaySpawnTime;
+                enemySpawnHelper.m_LogicData = memberData.LogicData;
+                enemySpawnHelper.SetLogicData(enemySpawnHelper.m_LogicData);
             }
         }
 
@@ -73,7 +78,15 @@ namespace SkateGuy.Editor
                         {
                             var enemyPrefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(enemy);
                             var setPos = enemy.transform.localPosition;
-                            var newMemberData = new EnemyTeamMemberData(enemyPrefab, setPos);
+                            var spawnHelper = enemy.gameObject.GetComponent<EnemySpawnHelper>();
+                            string logicData = "";
+                            float delayTime = 0;
+                            if (spawnHelper != null)
+                            {
+                                logicData = spawnHelper.GetLogicData();
+                                delayTime = spawnHelper.m_DelayTime;
+                            }
+                            var newMemberData = new EnemyTeamMemberData(enemyPrefab, setPos, delayTime, logicData);
                             newData.Add(newMemberData);
                         }
                     }
