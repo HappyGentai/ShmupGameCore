@@ -45,10 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MemberDatas:
-  - m_EnemyPrefab: {fileID: 3335275083912277631, guid: de1b106f1437e3a4ab86d76dbe65b695, type: 3}
+  - m_EnemyPrefab: {fileID: 2111663240086232812, guid: 57efd95b47344ad4c93b383be696888d, type: 3}
     m_SetPosition: {x: 11.57, y: 2.2}
     m_DelaySpawnTime: 0
-  - m_EnemyPrefab: {fileID: 5889270839135929582, guid: 06bd9b91cef93a64a8ea672b9a827861, type: 3}
+    m_LogicData: '{"m_MoveTargetPointX":4.5,"m_MoveTargetPointY":-2.65,"m_FireTime":2.0,"m_FleeDirX":-1.0,"m_FleeDirY":0.0}'
+  - m_EnemyPrefab: {fileID: 2111663240086232812, guid: 57efd95b47344ad4c93b383be696888d, type: 3}
     m_SetPosition: {x: 11.57, y: -2.2}
     m_DelaySpawnTime: 1.5
+    m_LogicData: '{"m_MoveTargetPointX":4.5,"m_MoveTargetPointY":2.65,"m_FireTime":2.0,"m_FleeDirX":-1.0,"m_FleeDirY":0.0}'
   m_SummonWhenStart: 0

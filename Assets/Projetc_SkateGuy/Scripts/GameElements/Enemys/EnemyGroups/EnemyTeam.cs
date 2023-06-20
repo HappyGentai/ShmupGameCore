@@ -20,6 +20,11 @@ namespace SkateGuy.GameElements.EnemyGroup
         [SerializeField]
         private bool m_SummonWhenStart = false;
         private int memberLiveCount = 0;
+        private UnityEvent<Enemy> onMemberCreate = new UnityEvent<Enemy>();
+        public UnityEvent<Enemy> OnMemberCreate
+        {
+            get { return onMemberCreate; }
+        }
         private UnityEvent onAllMemberGone = new UnityEvent();
         public UnityEvent OnAllMemberGone
         {
@@ -83,10 +88,16 @@ namespace SkateGuy.GameElements.EnemyGroup
             yield return delayTime;
             var getEnemy = EnemyFactory.GetEnemy(memberData.EnemyPrefab);
             getEnemy.MoveTarget.localPosition = memberData.SetPosition;
+            //  Check have logic or not
+            if (getEnemy is ILogicDataSetable iDataSetable)
+            {
+                iDataSetable.SetLogicData(memberData.LogicData);
+            }
             getEnemy.StartAction();
             getEnemy.CanShoot(false);
             getEnemy.SetInvincible(true);
             getEnemy.OnRecycle.AddListener(OnTeamMemberRelease);
+            OnMemberCreate?.Invoke(getEnemy);
             Summon();
         }
     }

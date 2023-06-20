@@ -136,9 +136,9 @@ namespace SkateGuy.GameElements.Factory
         {
             var newEnemy = GameObject.Instantiate<Enemy>(m_CoreEnemy);
             newEnemy.Initialization();
-            newEnemy.OnEnemyDie.AddListener(() =>
+            newEnemy.OnRecycle.AddListener((Enemy _enemy) =>
             {
-                enemyPool.Release(newEnemy);
+                enemyPool.Release(_enemy);
             });
             return newEnemy;
         }

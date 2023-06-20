@@ -449,6 +449,89 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &191773689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 191773691}
+  - component: {fileID: 191773690}
+  m_Layer: 0
+  m_Name: GameCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &191773690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191773689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7513bddc2b770d6499ff038aabbbc178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NowGameTime: 0
+  m_GameFPS: 60
+  m_Player: {fileID: 864402335}
+  m_BirthPoint: {x: -6.43, y: 0}
+  m_PlayerUI: {fileID: 686266396}
+  m_EnemyTeamDatas:
+  - m_EnemyTeam: {fileID: 8150864726307051979, guid: 6c6a6c0ae70fcc4409348f794d402743, type: 3}
+    m_WaveWaitTime: 0
+  - m_EnemyTeam: {fileID: 4459933120320819002, guid: 92432da0be8494c4b90596a077ddf928, type: 3}
+    m_WaveWaitTime: 8
+  - m_EnemyTeam: {fileID: 7241027831082023809, guid: a0c7f30f67bc26d40b141ca9f9dd028d, type: 3}
+    m_WaveWaitTime: 2
+  - m_EnemyTeam: {fileID: 8112352868063410149, guid: f5eb27f3a11c7fb4cbd90b79ba2b1b19, type: 3}
+    m_WaveWaitTime: 5
+  - m_EnemyTeam: {fileID: 8151807398199164146, guid: cea44904987fba64099cd5c4f893ed03, type: 3}
+    m_WaveWaitTime: 6
+  - m_EnemyTeam: {fileID: 5347186509532001253, guid: 9a6336437109dca4cbd7d12381da1983, type: 3}
+    m_WaveWaitTime: 3.5
+  - m_EnemyTeam: {fileID: 1991416149411529885, guid: b3197be1658a73b43bbd4c10652c3b18, type: 3}
+    m_WaveWaitTime: 5
+  - m_EnemyTeam: {fileID: 8150864726307051979, guid: 6c6a6c0ae70fcc4409348f794d402743, type: 3}
+    m_WaveWaitTime: 3
+  - m_EnemyTeam: {fileID: 4459933120320819002, guid: 92432da0be8494c4b90596a077ddf928, type: 3}
+    m_WaveWaitTime: 8
+  - m_EnemyTeam: {fileID: 9018029639229784904, guid: 52c58997f8087b248a1000f973f5d0f8, type: 3}
+    m_WaveWaitTime: 10
+  waveIndex: 9
+  m_BackGround: {fileID: 921235211}
+  m_DamageResponesType: 1
+  m_DamageResponseTypeClear:
+    m_ClearRadius: 5
+    m_ClearTarget:
+      serializedVersion: 2
+      m_Bits: 128
+    m_Debug: 0
+    m_LineColo: {r: 1, g: 0, b: 0, a: 1}
+    m_Duration: 1
+  DamageResponseTypeProtect:
+    m_ProtectDuration: 0.75
+--- !u!4 &191773691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191773689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &288084271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,89 +1090,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &602119005
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 602119007}
-  - component: {fileID: 602119006}
-  m_Layer: 0
-  m_Name: GameCore
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &602119006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602119005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7513bddc2b770d6499ff038aabbbc178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NowGameTime: 0
-  m_GameFPS: 60
-  m_Player: {fileID: 864402335}
-  m_BirthPoint: {x: -6.43, y: 0}
-  m_PlayerUI: {fileID: 686266396}
-  m_EnemyTeamDatas:
-  - m_EnemyTeam: {fileID: 8150864726307051979, guid: 6c6a6c0ae70fcc4409348f794d402743, type: 3}
-    m_WaveWaitTime: 0
-  - m_EnemyTeam: {fileID: 4459933120320819002, guid: 92432da0be8494c4b90596a077ddf928, type: 3}
-    m_WaveWaitTime: 8
-  - m_EnemyTeam: {fileID: 7241027831082023809, guid: a0c7f30f67bc26d40b141ca9f9dd028d, type: 3}
-    m_WaveWaitTime: 2
-  - m_EnemyTeam: {fileID: 8112352868063410149, guid: f5eb27f3a11c7fb4cbd90b79ba2b1b19, type: 3}
-    m_WaveWaitTime: 5
-  - m_EnemyTeam: {fileID: 8151807398199164146, guid: cea44904987fba64099cd5c4f893ed03, type: 3}
-    m_WaveWaitTime: 6
-  - m_EnemyTeam: {fileID: 5347186509532001253, guid: 9a6336437109dca4cbd7d12381da1983, type: 3}
-    m_WaveWaitTime: 3.5
-  - m_EnemyTeam: {fileID: 1991416149411529885, guid: b3197be1658a73b43bbd4c10652c3b18, type: 3}
-    m_WaveWaitTime: 5
-  - m_EnemyTeam: {fileID: 8150864726307051979, guid: 6c6a6c0ae70fcc4409348f794d402743, type: 3}
-    m_WaveWaitTime: 3
-  - m_EnemyTeam: {fileID: 4459933120320819002, guid: 92432da0be8494c4b90596a077ddf928, type: 3}
-    m_WaveWaitTime: 8
-  - m_EnemyTeam: {fileID: 9018029639229784904, guid: 52c58997f8087b248a1000f973f5d0f8, type: 3}
-    m_WaveWaitTime: 10
-  waveIndex: 9
-  m_BackGround: {fileID: 921235211}
-  m_DamageResponesType: 1
-  m_DamageResponseTypeClear:
-    m_ClearRadius: 5
-    m_ClearTarget:
-      serializedVersion: 2
-      m_Bits: 128
-    m_Debug: 0
-    m_LineColo: {r: 1, g: 0, b: 0, a: 1}
-    m_Duration: 1
-  DamageResponseTypeProtect:
-    m_ProtectDuration: 0.75
---- !u!4 &602119007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602119005}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604717837
 GameObject:
   m_ObjectHideFlags: 0

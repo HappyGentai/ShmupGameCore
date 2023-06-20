@@ -10,6 +10,7 @@ namespace SkateGuy.Editor
     public class EnemyTeamEditor : UnityEditor.Editor
     {
         EnemyTeam enemyTeam;
+        List<Enemy> summonEnemys = new List<Enemy>();
 
         #region Editor GUI 
         private float bigSpace = 50;
@@ -21,8 +22,11 @@ namespace SkateGuy.Editor
 
         private void OnEnable()
         {
-
             enemyTeam = (EnemyTeam)target;
+            enemyTeam.OnMemberCreate.AddListener((Enemy enemy) =>
+            {
+                summonEnemys.Add(enemy);
+            });
         }
 
         public override void OnInspectorGUI()
@@ -38,6 +42,19 @@ namespace SkateGuy.Editor
             if (GUILayout.Button("Save"))
             {
                 SaveTeam();
+            }
+            EditorGUILayout.EndHorizontal();
+            GUILayout.Space(bigSpace);
+            GUILayout.Label("Test Part(Play mode only)");
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Summon") && Application.isPlaying)
+            {
+                StopSummon();
+                enemyTeam.SummonMember();
+            }
+            if (GUILayout.Button("StopSummon") && Application.isPlaying)
+            {
+                StopSummon();
             }
             EditorGUILayout.EndHorizontal();
         }
@@ -99,6 +116,18 @@ namespace SkateGuy.Editor
                     DestroyImmediate(child.gameObject);
                 }
             }
+        }
+
+        private void StopSummon()
+        {
+            var summonEnemyCount = summonEnemys.Count;
+            for (int index = 0; index < summonEnemyCount; ++index)
+            {
+                var enemy = summonEnemys[index];
+                enemy.Recycle();
+            }
+            summonEnemys.Clear();
+            enemyTeam.StopSummon();
         }
     }
 }
