@@ -1,10 +1,11 @@
-using SkateGuy.States.EnemyStates;
 using UnityEngine.Events;
 using UnityEngine;
+using SkateGuy.States.EnemyStates;
+using SkateGuy.GameElements.EnemyLogicData;
 
 namespace SkateGuy.GameElements
 {
-    public class EnemyTypeSinMove : Enemy
+    public class EnemyTypeSinMove : Enemy, ILogicDataSetable
     {
         public override Transform MoveTarget
         {
@@ -46,11 +47,7 @@ namespace SkateGuy.GameElements
 
         [Header("Logic value")]
         [SerializeField]
-        private Vector2 m_MoveDirection = Vector2.zero;
-        [SerializeField]
-        private float m_SinHalfHeigh = 2;
-        [SerializeField]
-        private bool m_AttackWhenMove = false;
+        private EnemyTypeSinMoveLogicData m_LogicData = null;
 
         [Header("Option")]
         [SerializeField]
@@ -68,7 +65,7 @@ namespace SkateGuy.GameElements
         public override void StartAction()
         {
             WakeUpObject();
-            var sinMoveState = new EnemyStateSinMove(StateController, this, m_MoveDirection, m_SinHalfHeigh, m_AttackWhenMove);
+            var sinMoveState = new EnemyStateSinMove(StateController, this, m_LogicData.MoveDirection, m_LogicData.SinHalfHeigh, m_LogicData.AttackWhenMove);
             StateController.SetState(sinMoveState);
         }
 
@@ -77,14 +74,26 @@ namespace SkateGuy.GameElements
 
         }
 
+        public string GetLogicData()
+        {
+            var logicDataPack = JsonUtility.ToJson(m_LogicData);
+            return logicDataPack;
+        }
+
+        public void SetLogicData(string rawData)
+        {
+            var logicData = JsonUtility.FromJson<EnemyTypeSinMoveLogicData>(rawData);
+            m_LogicData = logicData;
+        }
+
         private void OnDrawGizmos()
         {
             var selfPos = this.transform.localPosition;
-            var endPoint = selfPos + (Vector3)m_MoveDirection * MoveSpeed; 
+            var endPoint = selfPos + (Vector3)m_LogicData.MoveDirection * MoveSpeed; 
             Gizmos.color = Color.green;
             Gizmos.DrawLine(selfPos, endPoint);
             Gizmos.color = Color.red;
-            var pV = Vector2.Perpendicular(endPoint - selfPos).normalized * m_SinHalfHeigh;
+            var pV = Vector2.Perpendicular(endPoint - selfPos).normalized * m_LogicData.SinHalfHeigh;
             Gizmos.DrawLine(endPoint, endPoint + (Vector3)pV);
         }
     }

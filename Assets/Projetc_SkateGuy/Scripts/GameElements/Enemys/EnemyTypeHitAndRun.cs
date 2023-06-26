@@ -1,9 +1,10 @@
 using UnityEngine;
-using SkateGuy.States.EnemyStates;
 using UnityEngine.Events;
+using SkateGuy.States.EnemyStates;
+using SkateGuy.GameElements.EnemyLogicData;
 
 namespace SkateGuy.GameElements {
-    public class EnemyTypeHitAndRun : Enemy
+    public class EnemyTypeHitAndRun : Enemy, ILogicDataSetable
     {
         public override Transform MoveTarget
         {
@@ -44,11 +45,7 @@ namespace SkateGuy.GameElements {
 
         [Header("Logic value")]
         [SerializeField]
-        private Vector2 m_MoveTargetPoint = Vector2.zero;
-        [SerializeField]
-        private float m_FireTime = 5;
-        [SerializeField]
-        private Vector2 m_FleeDir = Vector2.right;
+        private EnemyTypeHitAndRunLogicData m_LogicData = null;
 
         [Header("Option")]
         [SerializeField]
@@ -66,9 +63,9 @@ namespace SkateGuy.GameElements {
         public override void StartAction()
         {
             WakeUpObject();
-            var moveToPointState = new EnemyStateMoveToPoint(StateController, this, m_MoveTargetPoint);
-            var attackWithTimeState = new EnemyStateAttackWithTime(StateController, this, m_FireTime);
-            var fleeState = new EnemyStateMove(StateController, this, m_FleeDir);
+            var moveToPointState = new EnemyStateMoveToPoint(StateController, this, m_LogicData.MoveTargetPoint);
+            var attackWithTimeState = new EnemyStateAttackWithTime(StateController, this, m_LogicData.FireTime);
+            var fleeState = new EnemyStateMove(StateController, this, m_LogicData.FleeDir);
             moveToPointState.nextState = attackWithTimeState;
             attackWithTimeState.nextState = fleeState;
             StateController.SetState(moveToPointState);
@@ -77,6 +74,18 @@ namespace SkateGuy.GameElements {
         public override void ReSetData()
         {
 
+        }
+
+        public string GetLogicData()
+        {
+            var logicDataPack = JsonUtility.ToJson(m_LogicData);
+            return logicDataPack;
+        }
+
+        public void SetLogicData(string rawData)
+        {
+            var logicData = JsonUtility.FromJson<EnemyTypeHitAndRunLogicData>(rawData);
+            m_LogicData = logicData;
         }
     }
 }

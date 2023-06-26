@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using SkateGuy.Tool;
 using SkateGuy.States.EnemyStates;
+using SkateGuy.GameElements.EnemyLogicData;
 
 namespace SkateGuy.GameElements
 {
-    public class EnemyTypeCurveMove : Enemy
+    public class EnemyTypeCurveMove : Enemy, ILogicDataSetable
     {
         public override Transform MoveTarget
         {
@@ -48,15 +49,7 @@ namespace SkateGuy.GameElements
         [Header("Logic value")]
         [Tooltip("Will add current move target local position")]
         [SerializeField]
-        private Vector2 m_CurveEndPos = Vector2.zero;
-        [SerializeField]
-        private Vector2 m_CurveAidPosA = Vector2.zero;
-        [SerializeField]
-        private Vector2 m_CurveAidPosB = Vector2.zero;
-        [SerializeField]
-        private float m_SpeedScale = 1;
-        [SerializeField]
-        private bool m_FireWhenMove = false;
+        private EnemyTypeCurveMoveLogicData m_LogicData = null;
 
         [Header("Option")]
         [SerializeField]
@@ -75,10 +68,10 @@ namespace SkateGuy.GameElements
         {
             WakeUpObject();
             var startPos = MoveTarget.localPosition;
-            var endPos = (Vector2)startPos + m_CurveEndPos;
+            var endPos = (Vector2)startPos + m_LogicData.CurveEndPos;
             var curveMoveState = new EnemyStateCurveMove(StateController,
-                this, startPos, endPos, m_CurveAidPosA,
-                m_CurveAidPosB, m_SpeedScale, m_FireWhenMove);
+                this, startPos, endPos, m_LogicData.CurveAidPosA,
+                m_LogicData.CurveAidPosB, m_LogicData.SpeedScale, m_LogicData.FireWhenMove);
             var selfDestructionState = new EnemyStateSelfDestruction(StateController, this);
             curveMoveState.nextState = selfDestructionState;
             StateController.SetState(curveMoveState);
@@ -89,17 +82,29 @@ namespace SkateGuy.GameElements
             
         }
 
+        public string GetLogicData()
+        {
+            var logicDataPack = JsonUtility.ToJson(m_LogicData);
+            return logicDataPack;
+        }
+
+        public void SetLogicData(string rawData)
+        {
+            var logicData = JsonUtility.FromJson<EnemyTypeCurveMoveLogicData>(rawData);
+            m_LogicData = logicData;
+        }
+
         private void OnDrawGizmos()
         {
             var startPos = MoveTarget.localPosition;
-            var endPos = (Vector2)startPos + m_CurveEndPos;
+            var endPos = (Vector2)startPos + m_LogicData.CurveEndPos;
             Gizmos.color = new Color(1, 0, 0, 0.25f);
             Gizmos.DrawSphere(startPos, 0.25f);
             Gizmos.DrawSphere(endPos, 0.25f);
             for (int index = 1; index < 10; index++)
             {
                 Gizmos.color = new Color(0, 1, 0, 1);
-                var progressPos = LineLerp.CubicLerp((Vector2)startPos, m_CurveAidPosA, m_CurveAidPosB, endPos, index * 0.1f);
+                var progressPos = LineLerp.CubicLerp((Vector2)startPos, m_LogicData.CurveAidPosA, m_LogicData.CurveAidPosB, endPos, index * 0.1f);
                 Gizmos.DrawSphere(progressPos, 0.15f);
             }
         }

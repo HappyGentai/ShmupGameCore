@@ -23,11 +23,19 @@ namespace SkateGuy.GameElements.EnemyGroup
         {
             get { return m_DelaySpawnTime; }
         }
+        [SerializeField]
+        private string m_LogicData = "";
+        public string LogicData
+        {
+            get { return m_LogicData; }
+        }
 
-        public EnemyTeamMemberData(Enemy enemyPrefab, Vector2 setPos)
+        public EnemyTeamMemberData(Enemy enemyPrefab, Vector2 setPos, float delayTime, string logicData)
         {
             m_EnemyPrefab = enemyPrefab;
             m_SetPosition = setPos;
+            m_DelaySpawnTime = delayTime;
+            m_LogicData = logicData;
         }
     }
 }

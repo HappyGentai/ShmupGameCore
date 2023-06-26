@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IShootable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataAbsortBullet.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemySpawnHelper.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateSinMove.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Tool\TextSaveLoad.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LauncherTypeBurst.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMoveToPoint.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateAttackWithTime.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\EnemyFactory.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\JsonHelper.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateCurveMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeCurveMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamFactory.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\BasicEnemy.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeDirection.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LauncherTypeAim.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestJson.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SFXEffecter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\LineLerp.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestEnums.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamMemberData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PlayableObjects\BasicPlayer.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyLogicData\EnemyTypeSinMoveLogicData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponseTypeProtect.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Launcher.cs" />
@@ -106,6 +110,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\BasicState.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyFactory.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Test\TestGameCycle.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyLogicData\EnemyTypeHitAndRunLogicData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\HitFactory.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeSinMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataPowerUp.cs" />
@@ -115,6 +120,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\StateController.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\ShmupObserver.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyLibrary.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\ILogicDataSetable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeam.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\Launcher.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyData.cs" />
@@ -132,6 +138,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeHitAndRun.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\TriggerEvents\DamagedHint.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\InvincibleArea.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyLogicData\EnemyTypeCurveMoveLogicData.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />

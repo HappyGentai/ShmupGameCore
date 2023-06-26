@@ -48,10 +48,13 @@ MonoBehaviour:
   - m_EnemyPrefab: {fileID: 3555202200555287928, guid: e0b523a552c33594ab42020857186daa, type: 3}
     m_SetPosition: {x: 12.24, y: 0}
     m_DelaySpawnTime: 0
-  - m_EnemyPrefab: {fileID: 6419470793026718876, guid: 1e05415ad2a7ae24d90c9a699d3706e7, type: 3}
+    m_LogicData: '{"m_MoveTargetPointX":6.0,"m_MoveTargetPointY":0.0,"m_FireTime":20.0,"m_FleeDirX":-1.0,"m_FleeDirY":0.0}'
+  - m_EnemyPrefab: {fileID: 427506439687592037, guid: 2dcbcad2da1c6664c9f24d162a7dbca0, type: 3}
     m_SetPosition: {x: 11.57, y: 2.2}
     m_DelaySpawnTime: 3
+    m_LogicData: '{"m_MoveTargetPointX":4.5,"m_MoveTargetPointY":-2.65,"m_FireTime":20.0,"m_FleeDirX":-1.0,"m_FleeDirY":0.0}'
   - m_EnemyPrefab: {fileID: 427506439687592037, guid: 2dcbcad2da1c6664c9f24d162a7dbca0, type: 3}
     m_SetPosition: {x: 11.57, y: -2.2}
     m_DelaySpawnTime: 3
+    m_LogicData: '{"m_MoveTargetPointX":4.5,"m_MoveTargetPointY":2.65,"m_FireTime":20.0,"m_FleeDirX":-1.0,"m_FleeDirY":0.0}'
   m_SummonWhenStart: 0
