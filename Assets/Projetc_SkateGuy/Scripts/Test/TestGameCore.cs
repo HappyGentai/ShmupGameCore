@@ -3,8 +3,10 @@ using SkateGuy.GameElements;
 using SkateGuy.GameElements.PlayerPlus;
 using SkateGuy.GameElements.EnemyGroup;
 using SkateGuy.GameElements.Factory;
+using SkateGuy.TriggerEvents;
 using SkateGuy.Factories;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 namespace SkateGuy.Test
 {
@@ -15,7 +17,7 @@ namespace SkateGuy.Test
         [SerializeField]
         private int m_GameFPS = 60;
         [SerializeField]
-        private PlayableObject m_Player = null;
+        private BasicPlayer m_Player = null;
         [SerializeField]
         private Vector2 m_BirthPoint = Vector2.zero;
         [SerializeField]
@@ -30,6 +32,11 @@ namespace SkateGuy.Test
 
         [SerializeField]
         private StageBackGround m_BackGround = null;
+        [SerializeField]
+        private DamagedHint m_DamagedHint = null;
+
+        [SerializeField]
+        protected InputAction m_CloseAction;
 
         [Header("Player plug-in")]
         [SerializeField]
@@ -45,8 +52,12 @@ namespace SkateGuy.Test
             Application.targetFrameRate = m_GameFPS;
             m_Player.Initialization();
             m_Player.OnPlayerDie.AddListener(GameOver);
-
+            m_Player.OnHitBoxCollision.AddListener(m_DamagedHint.StartDamagedHint);
             StartGame();
+            m_CloseAction.Enable();
+            m_CloseAction.performed += (ctx) => {
+                Application.Quit();
+            };
         }
 
         protected void StartGame()

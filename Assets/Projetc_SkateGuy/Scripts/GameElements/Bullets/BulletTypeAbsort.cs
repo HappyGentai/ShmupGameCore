@@ -27,18 +27,22 @@ namespace SkateGuy.GameElements
         private float originalDamage = 0;
         private Vector3 originalSize = Vector3.zero;
 
-        public override void WakeUpBullet()
+        private void Awake()
         {
             originalDamage = m_Damage;
             originalSize = this.transform.localScale;
+        }
+
+        public override void WakeUpBullet()
+        {
+            m_Damage = originalDamage;
+            this.transform.localScale = originalSize;
             absortCheckRoutine = StartCoroutine(AbsortChecking());
         }
 
         protected override void BulletDead()
         {
             base.BulletDead();
-            m_Damage = originalDamage;
-            this.transform.localScale = originalSize;
             if (absortCheckRoutine != null)
             {
                 StopCoroutine(absortCheckRoutine);

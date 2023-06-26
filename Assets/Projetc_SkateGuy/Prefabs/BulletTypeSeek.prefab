@@ -77,6 +77,7 @@ MonoBehaviour:
   m_RotateTarget: {fileID: 4684526600749993173}
   m_MoveSpeed: 15
   m_Damage: 0.5
+  m_Penetrate: 0
   m_OnBulletHit:
     m_PersistentCalls:
       m_Calls: []

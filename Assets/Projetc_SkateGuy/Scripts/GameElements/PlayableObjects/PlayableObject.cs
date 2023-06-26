@@ -43,7 +43,7 @@ namespace SkateGuy.GameElements
         }
         [SerializeField]
         protected bool m_Invincible = false;
-        public bool Invincible
+        public virtual bool Invincible
         {
             get { return m_Invincible; }
             set

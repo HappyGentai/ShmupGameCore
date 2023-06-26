@@ -72,6 +72,23 @@ namespace SkateGuy.GameElements
             protected set { }
         }
 
+        [SerializeField]
+        private Collider2D m_HitBoxCollider = null;
+        private UnityEvent<PlayableObject, GameObject> m_OnHitBoxCollision = 
+            new UnityEvent<PlayableObject, GameObject>();
+        public UnityEvent<PlayableObject, GameObject> OnHitBoxCollision
+        {
+            get { return m_OnHitBoxCollision; }
+        }
+        public override bool Invincible {
+            get => base.Invincible;
+            set
+            {
+                base.Invincible = value;
+                m_HitBoxCollider.enabled = !value;
+            }
+        }
+
         [Header("Skills")]
         [SerializeField]
         private SkillTrigger[] m_SkillTriggers = null;
@@ -132,6 +149,11 @@ namespace SkateGuy.GameElements
             //  Do die event, can call WakeUpObject to re set data
             OnPlayerDie?.Invoke();
             this.gameObject.SetActive(false);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            OnHitBoxCollision?.Invoke(this, collision.gameObject);
         }
     }
 }

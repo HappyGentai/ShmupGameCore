@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 467894400629645499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,11 +100,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BulletBelong: 
   m_RotateTarget: {fileID: 467894400629645494}
-  m_MoveSpeed: 5
+  m_MoveSpeed: 4
   m_Damage: 1
+  m_Penetrate: 1
   m_OnBulletHit:
     m_PersistentCalls:
       m_Calls: []
+  m_HitEffect: {fileID: 0}
 --- !u!58 &7163985062267933160
 CircleCollider2D:
   m_ObjectHideFlags: 0

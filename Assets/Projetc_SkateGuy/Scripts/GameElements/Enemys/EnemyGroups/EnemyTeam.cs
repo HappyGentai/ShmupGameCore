@@ -2,6 +2,7 @@ using UnityEngine;
 using SkateGuy.GameElements.Factory;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace SkateGuy.GameElements.EnemyGroup
 {
@@ -30,6 +31,8 @@ namespace SkateGuy.GameElements.EnemyGroup
         private int summonIndex = 0;
         private Coroutine summonRoutine = null;
 
+        private List<Enemy> teamMember = new List<Enemy>();
+
         private void Start()
         {
             if (m_SummonWhenStart)
@@ -40,6 +43,18 @@ namespace SkateGuy.GameElements.EnemyGroup
 
         public void SummonMember()
         {
+            //  Clear old member event(if have)
+            var oldMemberCount = teamMember.Count;
+            for (int index = 0; index < oldMemberCount; ++index)
+            {
+                var oldMember = teamMember[index];
+                if (oldMember != null)
+                {
+                    oldMember.OnRecycle.RemoveListener(OnTeamMemberRelease);
+                }
+            }
+            teamMember.Clear();
+
             memberCount = m_MemberDatas.Length;
             memberLiveCount = memberCount;
             summonIndex = 0;
@@ -87,6 +102,7 @@ namespace SkateGuy.GameElements.EnemyGroup
             getEnemy.CanShoot(false);
             getEnemy.SetInvincible(true);
             getEnemy.OnRecycle.AddListener(OnTeamMemberRelease);
+            teamMember.Add(getEnemy);
             Summon();
         }
     }

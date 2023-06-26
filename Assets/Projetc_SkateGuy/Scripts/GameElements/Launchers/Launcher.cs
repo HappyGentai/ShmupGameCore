@@ -8,17 +8,17 @@ namespace SkateGuy.GameElements
     public class Launcher : MonoBehaviour
     {
         [SerializeField]
-        private string m_LauncherBelong = "";
+        protected string m_LauncherBelong = "";
         [SerializeField]
         protected Vector3 m_BaseFireDirection = Vector3.right;
         [SerializeField]
-        private FireSpot[] m_FireSpots = null;
+        protected FireSpot[] m_FireSpots = null;
         [SerializeField]
-        private float m_FireRecall = 0.1f;
+        protected float m_FireRecall = 0.1f;
         [SerializeField]
-        private UnityEvent m_OnFiring = null;
+        protected UnityEvent m_OnFiring = null;
 
-        private float fireCounter = 0;
+        protected float fireCounter = 0;
         private Coroutine workingRoutine = null;
 
         private bool isWorking = false;
@@ -28,7 +28,7 @@ namespace SkateGuy.GameElements
         }
 
         [SerializeField]
-        private bool launcherLock = false;
+        protected bool launcherLock = false;
         public bool LauncherLock
         {
             set
@@ -37,7 +37,7 @@ namespace SkateGuy.GameElements
             }
         }
 
-        public void AwakeLauncher()
+        public virtual void AwakeLauncher()
         {
             StopLauncher();
             fireCounter = m_FireRecall;
@@ -46,7 +46,7 @@ namespace SkateGuy.GameElements
             LauncherLock = false;
         }
 
-        public void StopLauncher()
+        public virtual void StopLauncher()
         {
             if (workingRoutine != null)
             {

@@ -57,6 +57,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataAbsortBullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateSinMove.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Tool\TextSaveLoad.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LauncherTypeBurst.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\LevelMaker.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\ShootLockArea.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\PlayableObject.cs" />
@@ -125,14 +126,16 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponse.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\StageBackGround.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestEnemySpawner.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\EffectFactory.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillTrigger.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeHitAndRun.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\TriggerEvents\DamagedHint.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\InvincibleArea.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\EffectFactory.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeRotateChase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

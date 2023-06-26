@@ -40,6 +40,9 @@ namespace SkateGuy.GameElements
         }
 
         [SerializeField]
+        protected bool m_Penetrate = false;
+
+        [SerializeField]
         protected UnityEvent m_OnBulletHit = null;
 
         public UnityAction eventWhenBulletDead = null;
@@ -96,7 +99,10 @@ namespace SkateGuy.GameElements
                     hitEffect.transform.localPosition = this.transform.localPosition;
                     hitEffect.StartSFX();
                 }
-                BulletDead();
+                if (!m_Penetrate)
+                {
+                    BulletDead();
+                }
             }
         }
     }
