@@ -87,6 +87,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SFXEffecter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\LineLerp.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestEnums.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeRotateChase.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillGrazeCounter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PlayableObjects\PlayableObject.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillPowerUp.cs" />
@@ -142,7 +143,6 @@
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeRotateChase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
