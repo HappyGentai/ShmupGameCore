@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 2443165750001921603}
   - component: {fileID: 2443165750001921628}
   - component: {fileID: 2443165750001921630}
+  - component: {fileID: 5919198510536729229}
   m_Layer: 8
   m_Name: Popcorn_00
   m_TagString: Enemy
@@ -188,6 +189,21 @@ MonoBehaviour:
   m_Launchers:
   - {fileID: 6490866743045577613}
   m_DieEffect: {fileID: 6473510020941250192, guid: c7438ba0570680a4890fc87ab7409e6a, type: 3}
+  m_OnGetDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5919198510536729229}
+        m_TargetAssemblyTypeName: SkateGuy.Tool.SimpleFlash, Assembly-CSharp
+        m_MethodName: DoFlash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _OnEnemyDie:
     m_PersistentCalls:
       m_Calls: []
@@ -213,3 +229,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5919198510536729229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443165750001921606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f83377be579540ad98fd4b0936cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FlashMaterial: {fileID: 2100000, guid: 70b852bde8614354cb80ce5cf82ff357, type: 2}
+  m_TargetRenders:
+  - {fileID: 2443165750001921600}
+  m_FlashTime: 0.05

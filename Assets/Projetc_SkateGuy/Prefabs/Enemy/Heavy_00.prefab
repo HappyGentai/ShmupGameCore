@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 305976982962139510}
   - component: {fileID: 305976982962139499}
   - component: {fileID: 6884478154795479454}
+  - component: {fileID: 3724051004432015655}
   m_Layer: 8
   m_Name: Heavy_00
   m_TagString: Enemy
@@ -210,10 +211,44 @@ MonoBehaviour:
   m_Launchers:
   - {fileID: 7957957793453566421}
   m_DieEffect: {fileID: 8499436660347739041, guid: 6016711ab8a485343be066f25f40e063, type: 3}
+  m_OnGetDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3724051004432015655}
+        m_TargetAssemblyTypeName: SkateGuy.Tool.SimpleFlash, Assembly-CSharp
+        m_MethodName: DoFlash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _OnEnemyDie:
     m_PersistentCalls:
       m_Calls: []
-  m_MoveTargetPoint: {x: 6.21, y: 1.84}
-  m_FireTime: 10
-  m_FleeDir: {x: -1, y: 0}
+  m_LogicData:
+    m_MoveTargetPointX: 0
+    m_MoveTargetPointY: 0
+    m_FireTime: 0
+    m_FleeDirX: 0
+    m_FleeDirY: 0
   m_PlayWhenStart: 0
+--- !u!114 &3724051004432015655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305976982962139502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f83377be579540ad98fd4b0936cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FlashMaterial: {fileID: 2100000, guid: 70b852bde8614354cb80ce5cf82ff357, type: 2}
+  m_TargetRenders:
+  - {fileID: 305976982962139496}
+  m_FlashTime: 0.05

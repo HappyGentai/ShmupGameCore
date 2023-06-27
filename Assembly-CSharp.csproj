@@ -100,6 +100,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponseTypeProtect.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Launcher.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\BulletFactory.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleFlash.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillAbsortBullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\Bullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IDamageable.cs" />

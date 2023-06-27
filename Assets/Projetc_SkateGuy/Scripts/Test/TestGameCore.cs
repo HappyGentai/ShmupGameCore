@@ -52,7 +52,7 @@ namespace SkateGuy.Test
             Application.targetFrameRate = m_GameFPS;
             m_Player.Initialization();
             m_Player.OnPlayerDie.AddListener(GameOver);
-            m_Player.OnHitBoxCollision.AddListener(m_DamagedHint.StartDamagedHint);
+            //m_Player.OnHitBoxCollision.AddListener(m_DamagedHint.StartDamagedHint);
             StartGame();
             m_CloseAction.Enable();
             m_CloseAction.performed += (ctx) => {
