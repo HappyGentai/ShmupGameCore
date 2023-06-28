@@ -65,7 +65,8 @@ namespace SkateGuy.GameElements
         protected UnityEvent<float> _OnHPChange = new UnityEvent<float>();
         public abstract UnityEvent<float> OnHPChange { get; protected set; }
         [SerializeField]
-        protected UnityEvent m_OnGetDamaged = new UnityEvent();
+        protected UnityEvent<float> m_OnGetDamaged = new UnityEvent<float>();
+        public virtual UnityEvent<float> OnGetDamaged { get { return m_OnGetDamaged; } protected set { } }
         [SerializeField]
         protected UnityEvent _OnEnemyDie = new UnityEvent();
         public abstract UnityEvent OnEnemyDie { get; protected set; }
@@ -129,7 +130,7 @@ namespace SkateGuy.GameElements
                 return;
             }
             HP -= dmg;
-            m_OnGetDamaged?.Invoke();
+            m_OnGetDamaged?.Invoke(dmg);
         }
 
         public abstract void ReSetData();

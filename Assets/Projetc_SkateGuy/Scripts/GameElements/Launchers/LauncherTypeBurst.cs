@@ -13,7 +13,7 @@ namespace SkateGuy.GameElements
         private bool bursting = false;
         private Coroutine burstRoutine = null;
 
-        public override void Fire()
+        public override void HoldTrigger()
         {
             if (fireCounter >= m_FireRecall && !launcherLock && !bursting)
             {

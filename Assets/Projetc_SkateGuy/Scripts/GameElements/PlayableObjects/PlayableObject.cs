@@ -174,6 +174,28 @@ namespace SkateGuy.GameElements
             m_FocusModeAction.canceled += (ctx) => {
                 isFocusMode = false;
             };
+            m_FireAction.started += (ctx) => {
+                var launcherCount = Launchers.Length;
+                for (int index = 0; index < launcherCount; ++index)
+                {
+                    var launcher = Launchers[index];
+                    if (launcher.IsWorking)
+                    {
+                        launcher.StartTrigger();
+                    }
+                }
+            };
+            m_FireAction.canceled += (ctx) => {
+                var launcherCount = Launchers.Length;
+                for (int index = 0; index < launcherCount; ++index)
+                {
+                    var launcher = Launchers[index];
+                    if (launcher.IsWorking)
+                    {
+                        launcher.ReleaseTrigger();
+                    }
+                }
+            };
             StateController = new StateController();
         }
 

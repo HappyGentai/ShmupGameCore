@@ -26,10 +26,10 @@ namespace SkateGuy.GameElements
             }
         }
 
-        public override void Fire()
+        public override void HoldTrigger()
         {
             Aim();
-            base.Fire();
+            base.HoldTrigger();
         }
     }
 }

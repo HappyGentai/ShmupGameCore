@@ -58,7 +58,7 @@ namespace SkateGuy.States.EnemyStates
                 for (int index = 0; index < launcherCount; ++index)
                 {
                     var launcher = launchers[index];
-                    launcher.Fire();
+                    launcher.HoldTrigger();
                 }
             }
             this.SetToNextState();

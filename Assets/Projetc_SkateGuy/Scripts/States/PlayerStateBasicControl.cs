@@ -67,7 +67,7 @@ namespace SkateGuy.States.PlayerStates
         private void Fire()
         {
             var Launchers = player.Launchers;
-            int launcherCount = Launchers.Length;
+            var launcherCount = Launchers.Length;
             for (int index = 0; index < launcherCount; ++index)
             {
                 var launcher = Launchers[index];
@@ -75,7 +75,7 @@ namespace SkateGuy.States.PlayerStates
                 {
                     launcher.AwakeLauncher();
                 }
-                launcher.Fire();
+                launcher.HoldTrigger();
             }
         }
 

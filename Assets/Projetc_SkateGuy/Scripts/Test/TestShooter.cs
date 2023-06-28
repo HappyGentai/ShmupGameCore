@@ -18,7 +18,7 @@ namespace SkateGuy.Test
                 {
                     launcher.AwakeLauncher();
                 }
-                launcher.Fire();
+                launcher.HoldTrigger();
             }
         }
     }

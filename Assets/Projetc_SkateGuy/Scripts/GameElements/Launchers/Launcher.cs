@@ -56,14 +56,19 @@ namespace SkateGuy.GameElements
             isWorking = false;
         }
 
-        public virtual void Fire()
+        /// <summary>
+        /// If want set first trigger event, write here
+        /// </summary>
+        public virtual void StartTrigger()
+        {
+
+        }
+
+        public virtual void HoldTrigger()
         {
             if (fireCounter >= m_FireRecall && !launcherLock)
             {
-                if (m_OnFiring != null)
-                {
-                    m_OnFiring.Invoke();
-                }
+                m_OnFiring?.Invoke();
                 fireCounter = 0;
                 int spotCount = m_FireSpots.Length;
                 var selfPos = this.transform.position;
@@ -78,6 +83,14 @@ namespace SkateGuy.GameElements
                     bullet.WakeUpBullet();
                 }
             }
+        }
+
+        /// <summary>
+        /// If want set stop trigger event, write here
+        /// </summary>
+        public virtual void ReleaseTrigger()
+        {
+
         }
 
         private IEnumerator LauncherWorking()

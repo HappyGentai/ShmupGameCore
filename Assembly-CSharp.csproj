@@ -65,6 +65,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMoveToPoint.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateAttackWithTime.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\EnemyFactory.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\Laser.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\JsonHelper.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateCurveMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeCurveMove.cs" />
@@ -144,6 +145,9 @@
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LaserLauncher.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\DPSChecker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

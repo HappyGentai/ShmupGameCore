@@ -68,7 +68,7 @@ namespace SkateGuy.Skills
             if (fireCounter >= fireCost)
             {
                 //  Shoot bullet
-                Launcher.Fire();
+                Launcher.HoldTrigger();
                 fireCounter = 0;
             }
         }
