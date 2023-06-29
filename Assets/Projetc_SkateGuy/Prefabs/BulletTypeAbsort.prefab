@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 401434024154182209}
   - component: {fileID: 5702560985215750408}
   - component: {fileID: 2606116151041112717}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: BulletTypeAbsort
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_RotateTarget: {fileID: 7521492676809950982}
   m_MoveSpeed: 2
   m_Damage: 0.2
+  m_Penetrate: 0
   m_OnBulletHit:
     m_PersistentCalls:
       m_Calls: []

@@ -151,8 +151,8 @@ MonoBehaviour:
   m_DelayChase: 1
   m_DelayTime: 0.4
   m_GraduallyAccelerate: 1
-  m_StartSpeedRate: 0.3
-  m_AddSpeedRatePerFrame: 0.015
+  m_StartSpeedRate: 0.2
+  m_AddSpeedRatePerFrame: 0.03
 --- !u!95 &7357976337618006496
 Animator:
   serializedVersion: 4

@@ -32,8 +32,8 @@ namespace SkateGuy.Test
 
         [SerializeField]
         private StageBackGround m_BackGround = null;
-        [SerializeField]
-        private DamagedHint m_DamagedHint = null;
+        //[SerializeField]
+        //private DamagedHint m_DamagedHint = null;
 
         [SerializeField]
         protected InputAction m_CloseAction;

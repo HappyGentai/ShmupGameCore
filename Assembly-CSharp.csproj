@@ -60,6 +60,7 @@
     <Compile Include="Assets\BasicShmup\Scripts\Tool\TextSaveLoad.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LauncherTypeBurst.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\LevelMaker.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LaserLauncher.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\ShootLockArea.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\PlayableObject.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMoveToPoint.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Assets\BasicShmup\Scripts\ShmupObserver.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyLibrary.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\ILogicDataSetable.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\DPSChecker.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeam.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\Launcher.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyData.cs" />
@@ -144,10 +146,8 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyLogicData\EnemyTypeCurveMoveLogicData.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LaserLauncher.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\DPSChecker.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

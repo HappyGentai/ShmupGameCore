@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SkillDataPowerUp
   m_EditorClassIdentifier: 
   m_GrazeEnergyCost: 15
-  m_FireLauncher: {fileID: 5913582842362082758, guid: 9c6ac9f13d985644ca535930e9ac621f, type: 3}
+  m_FireLauncher: {fileID: 5844594104432596672, guid: b0a2fb655ce5dd84a8d0f1d19cd58a39, type: 3}
   m_Duration: 10

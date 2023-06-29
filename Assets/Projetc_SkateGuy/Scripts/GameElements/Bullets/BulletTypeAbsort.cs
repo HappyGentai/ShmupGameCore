@@ -90,7 +90,7 @@ namespace SkateGuy.GameElements
                             if (m_HitEffect != null)
                             {
                                 var hitEffect = EffectFactory.GetEffect(m_HitEffect);
-                                hitEffect.transform.localPosition = target.transform.localPosition;
+                                hitEffect.transform.localPosition = target.ClosestPoint(this.transform.position);
                                 hitEffect.StartSFX();
                             }
                         }
@@ -129,7 +129,7 @@ namespace SkateGuy.GameElements
                     if (damageable != null && m_HitEffect != null)
                     {
                         var hitEffect = EffectFactory.GetEffect(m_HitEffect);
-                        hitEffect.transform.localPosition = target.transform.localPosition;
+                        hitEffect.transform.localPosition = target.ClosestPoint(this.transform.position);
                         hitEffect.StartSFX();
                     }
                 }

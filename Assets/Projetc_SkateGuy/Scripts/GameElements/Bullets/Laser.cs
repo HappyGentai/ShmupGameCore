@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using SkateGuy.Factories;
 
 namespace SkateGuy.GameElements
@@ -20,9 +19,6 @@ namespace SkateGuy.GameElements
         [SerializeField]
         [Range(0, 1)][Tooltip("Scale laser collider with size")]
         private float m_HitBoxScale = 0.8f;
-        [SerializeField]
-        [Range(1, 1.2f)][Tooltip("Little add laser forward hitbox")]
-        private float m_ForwardAdjustScale = 1.1f;
         [SerializeField]
         private float m_LaserMaxDistence = 10;
         [SerializeField][Tooltip("Effect target layer")]
@@ -45,17 +41,17 @@ namespace SkateGuy.GameElements
                 }
 
                 m_LaserRender.size = new Vector2(laserLength, m_LaserSize);
-                var laserOffsetX = m_LaserRender.size.x / 2 * m_ForwardAdjustScale;
+                var laserOffsetX = m_LaserRender.size.x / 2;
                 m_LaserCollider.offset = new Vector2(laserOffsetX,
                     m_LaserCollider.offset.y);
                 m_LaserCollider.size = new Vector2(
-                    m_LaserRender.size.x* m_ForwardAdjustScale,
+                    m_LaserRender.size.x,
                     m_LaserRender.size.y * m_HitBoxScale
                 );
             }
         }
         private float lengthToTarget = 0;
-        private IDamageable hitTarget = null;
+        private Transform hitTargetTransform = null;
         private Coroutine damageRoutine = null;
 
         private void OnDisable()
@@ -82,27 +78,29 @@ namespace SkateGuy.GameElements
 
         public void StopLaser()
         {
-            hitTarget = null;
+            hitTargetTransform = null;
             BulletDead();
         }
 
+        #region Clear Function
+        /*
+         *  Laser no need to use those function.
+         */
         protected override void Update()
         {
-            if (!m_Penetrate)
-            {
-                LaserHitCheck();
-            } else
-            {
-                if (LaserLength < m_LaserMaxDistence)
-                {
-                    LaserLength += Time.deltaTime * m_MoveSpeed;
-                }
-                else if (LaserLength >= m_LaserMaxDistence)
-                {
-                    LaserLength = m_LaserMaxDistence;
-                }
-            }
+            //  Do nothing
         }
+
+        public override void Recycle()
+        {
+            //  Do nothing
+        }
+
+        protected override void OnTriggerEnter2D(Collider2D collision)
+        {
+            //  Do nothing
+        }
+        #endregion
 
         private void LaserHitCheck()
         {
@@ -111,7 +109,8 @@ namespace SkateGuy.GameElements
             var searchDistence = m_LaserMaxDistence - m_LaserSize / 2;
             var hittarget = Physics2D.CircleCast(selfPos,
                 searchRadius, transform.right, searchDistence, m_TargetLayer);
-            if (hittarget.transform != null)
+            hitTargetTransform = hittarget.transform;
+            if (hitTargetTransform != null)
             {
                 var toHitPoint = (Vector3)hittarget.point - selfPos;
                 var newLengrh = Vector2.Dot(transform.right, toHitPoint.normalized)
@@ -121,7 +120,6 @@ namespace SkateGuy.GameElements
             {
                 lengthToTarget = m_LaserMaxDistence;
             }
-
             //  Set laser size
             if (LaserLength > lengthToTarget)
             {
@@ -157,7 +155,7 @@ namespace SkateGuy.GameElements
                         if (m_HitEffect != null)
                         {
                             var hitEffect = EffectFactory.GetEffect(m_HitEffect);
-                            hitEffect.transform.localPosition = chekTarget.localPosition;
+                            hitEffect.transform.position = chekTarget.position;
                             var moveDir = this.transform.right;
                             var setAngle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
                             hitEffect.transform.rotation = Quaternion.Euler(new Vector3(0, 0, setAngle));
@@ -168,13 +166,21 @@ namespace SkateGuy.GameElements
             }
         }
 
+        /// <summary>
+        /// For laser with no penetrate
+        /// </summary>
         private void DoDamage()
         {
             if (m_OnBulletHit != null)
             {
                 m_OnBulletHit.Invoke();
             }
-            hitTarget.GetHit(m_Damage);
+
+            var damageable = hitTargetTransform.GetComponent<IDamageable>();
+            if (hitTargetTransform.gameObject.activeInHierarchy)
+            {
+                damageable?.GetHit(m_Damage);
+            }
             if (m_HitEffect != null)
             {
                 var hitEffect = EffectFactory.GetEffect(m_HitEffect);
@@ -186,44 +192,54 @@ namespace SkateGuy.GameElements
             }
         }
 
-        protected override void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (m_BulletBelong == collision.tag)
-            {
-                return;
-            }
-            hitTarget = collision.gameObject.GetComponent<IDamageable>();
-        }
-
-        protected void OnTriggerExit2D(Collider2D collision)
-        {
-            if (hitTarget == null)
-            {
-                return;
-            } else
-            {
-                hitTarget = null;
-            }
-        }
-
         private IEnumerator Damaging()
         {
-            while(true)
+            var checkCounter = 0f;
+            while (true)
             {
-                if (hitTarget != null)
+                yield return null;
+                LaserHitCheck();
+
+                if (checkCounter < m_DamageCoolDown)
                 {
-                    DoDamage();
+                    checkCounter += Time.deltaTime;
                 }
-                yield return new WaitForSeconds(m_DamageCoolDown);
+                else
+                {
+                    checkCounter = 0;
+                    //  Damage check
+                    if (hitTargetTransform != null)
+                    {
+                        DoDamage();
+                    }
+                }
             }
         }
 
         private IEnumerator DamagingTypePenetrate()
         {
+            var checkCounter = 0f;
             while (true)
             {
-                LaserHitCheckTypePenetrate();
-                yield return new WaitForSeconds(m_DamageCoolDown);
+                yield return null;
+
+                if (LaserLength < m_LaserMaxDistence)
+                {
+                    LaserLength += Time.deltaTime * m_MoveSpeed;
+                }
+                else if (LaserLength >= m_LaserMaxDistence)
+                {
+                    LaserLength = m_LaserMaxDistence;
+                }
+
+                if (checkCounter < m_DamageCoolDown)
+                {
+                    checkCounter += Time.deltaTime;
+                } else
+                {
+                    checkCounter = 0;
+                    LaserHitCheckTypePenetrate();
+                }
             }
         }
 

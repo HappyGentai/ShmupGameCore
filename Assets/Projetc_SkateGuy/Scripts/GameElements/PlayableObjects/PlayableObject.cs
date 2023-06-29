@@ -268,7 +268,7 @@ namespace SkateGuy.GameElements
                             if (m_GrazeEffect != null)
                             {
                                 var grazeEffect = EffectFactory.GetEffect(m_GrazeEffect);
-                                grazeEffect.transform.localPosition = target.transform.localPosition;
+                                grazeEffect.transform.localPosition = target.ClosestPoint(this.transform.position);
                                 grazeEffect.StartSFX();
                             }
                         }

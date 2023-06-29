@@ -10,9 +10,11 @@ namespace SkateGuy.GameElements
         [SerializeField]
         private UnityEvent m_OnStopFire = new UnityEvent();
         private Laser[] lasers = null;
+        private bool fireing = false;
 
         public override void StartTrigger()
         {
+            fireing = true;
             m_OnFiring?.Invoke();
             //  Start shoot laser
             int spotCount = m_FireSpots.Length;
@@ -32,9 +34,16 @@ namespace SkateGuy.GameElements
             }
         }
 
+        /// <summary>
+        /// For some enemy logic only use hold trigger func.
+        /// </summary>
         public override void HoldTrigger()
         {
-            
+            if (!fireing)
+            {
+                StartTrigger();
+                fireing = true;
+            }
         }
 
         public override void ReleaseTrigger()
@@ -52,6 +61,7 @@ namespace SkateGuy.GameElements
                 laser.transform.parent = null;
                 laser.StopLaser();
             }
+            fireing = false;
         }
 
         public override void StopLauncher()
