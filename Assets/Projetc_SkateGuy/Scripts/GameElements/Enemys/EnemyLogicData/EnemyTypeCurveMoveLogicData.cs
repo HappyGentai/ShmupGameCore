@@ -46,16 +46,44 @@ namespace SkateGuy.GameElements.EnemyLogicData
             private set { }
         }
 
+        #region Search target and attack data
         [SerializeField]
-        private bool m_FireWhenMove = false;
-        public bool FireWhenMove
+        private LayerMask m_TargetMask= 0;
+        public LayerMask TargetMask
         {
-            get { return m_FireWhenMove; }
+            get { return m_TargetMask; }
             private set { }
         }
 
+        [SerializeField]
+        private Vector2 m_SearchDirection = Vector2.zero;
+        public Vector2 SearchDirection
+        {
+            get { return m_SearchDirection; }
+            private set { }
+        }
+
+        [SerializeField]
+        private float m_SearchLength = 2f;
+        public float SearchLength
+        {
+            get { return m_SearchLength; }
+            private set { }
+        }
+
+        [SerializeField]
+        private float m_AttackTime = 1;
+        public float AttackTime
+        {
+            get { return m_AttackTime; }
+            private set { }
+        }
+        #endregion
+
         public EnemyTypeCurveMoveLogicData(Vector2 _CurveEndPos,
-            Vector2 _CurveAidPosA, Vector2 _CurveAidPosB, float _SpeedScale, bool _FireWhenMove)
+            Vector2 _CurveAidPosA, Vector2 _CurveAidPosB, float _SpeedScale,
+            LayerMask targetMask, Vector2 searchDir, float searchLength,
+            float  attackTime)
         {
             m_CurveEndPosX = _CurveEndPos.x;
             m_CurveEndPosY = _CurveEndPos.y;
@@ -64,7 +92,10 @@ namespace SkateGuy.GameElements.EnemyLogicData
             m_CurveAidPosBX = _CurveAidPosB.x;
             m_CurveAidPosBY = _CurveAidPosB.y;
             m_SpeedScale = _SpeedScale;
-            m_FireWhenMove = _FireWhenMove;
+            m_TargetMask = targetMask;
+            m_SearchDirection = searchDir;
+            m_SearchLength = searchLength;
+            m_AttackTime = attackTime;
         }
     }
 }

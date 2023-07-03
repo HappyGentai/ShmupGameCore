@@ -72,10 +72,8 @@ namespace SkateGuy.TriggerEvents
             m_BlackEffect.enabled = true;
             spriteRenderer.sortingLayerName = m_SetSortingLayerName;
             spriteRenderer.sortingOrder = m_BlackEffect.sortingOrder + 1;
-            Time.timeScale = 0;
 
             yield return new WaitForSecondsRealtime(m_StopTime);
-            Time.timeScale = 1;
             spriteRenderer.sortingLayerName = originalSortingLayer;
             spriteRenderer.sortingOrder = originalSortingOrder;
             m_BlackEffect.enabled = false;

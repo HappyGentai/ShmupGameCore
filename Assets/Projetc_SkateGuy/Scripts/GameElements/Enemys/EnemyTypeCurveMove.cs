@@ -69,9 +69,7 @@ namespace SkateGuy.GameElements
             WakeUpObject();
             var startPos = MoveTarget.localPosition;
             var endPos = (Vector2)startPos + m_LogicData.CurveEndPos;
-            var curveMoveState = new EnemyStateCurveMove(StateController,
-                this, startPos, endPos, m_LogicData.CurveAidPosA,
-                m_LogicData.CurveAidPosB, m_LogicData.SpeedScale, m_LogicData.FireWhenMove);
+            var curveMoveState = new EnemyStateCurveMove(StateController, this, startPos, m_LogicData);
             var selfDestructionState = new EnemyStateSelfDestruction(StateController, this);
             curveMoveState.nextState = selfDestructionState;
             StateController.SetState(curveMoveState);
@@ -107,6 +105,12 @@ namespace SkateGuy.GameElements
                 var progressPos = LineLerp.CubicLerp((Vector2)startPos, m_LogicData.CurveAidPosA, m_LogicData.CurveAidPosB, endPos, index * 0.1f);
                 Gizmos.DrawSphere(progressPos, 0.15f);
             }
+
+            //  Draw search line
+            Gizmos.color = Color.blue;
+            var searchPos = startPos + (Vector3)m_LogicData.SearchDirection *
+                m_LogicData.SearchLength;
+            Gizmos.DrawLine(startPos, searchPos);
         }
     }
 }
