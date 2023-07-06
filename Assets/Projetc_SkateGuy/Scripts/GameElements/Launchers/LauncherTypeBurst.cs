@@ -42,6 +42,7 @@ namespace SkateGuy.GameElements
             {
                 StopCoroutine(burstRoutine);
             }
+            bursting = false;
         }
 
         private IEnumerator Bursting()

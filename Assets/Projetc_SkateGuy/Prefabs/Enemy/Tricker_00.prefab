@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1705445258450469522}
   - component: {fileID: 1705445258450469523}
   - component: {fileID: 1705445258450469520}
+  - component: {fileID: 8718814754577504596}
   m_Layer: 8
   m_Name: Tricker_00
   m_TagString: Enemy
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1705445258450469521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 20, y: 3.3, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1705445258576821022}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ff2aa9ebc8aee604caa5f8459ac4ae43, type: 3}
+  m_Sprite: {fileID: -1676953619, guid: 7acbc484482664b44be8a38c266d5849, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +104,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.28
 --- !u!50 &1705445258450469523
 Rigidbody2D:
   serializedVersion: 4
@@ -139,19 +140,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveTarget: {fileID: 1705445258450469524}
   m_HitBox: {fileID: 1705445258450469522}
-  m_MaxHP: 100
+  m_MaxHP: 6
   m_HP: 0
   m_MoveSpeed: 1
   m_CloseDamage: 1
   m_CloseDamageTarget:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_Launchers:
   - {fileID: 2035805710058005186}
-  m_DieEffect: {fileID: 0}
+  m_DieEffect: {fileID: 6912561470343235299, guid: b05fab34755d9d94eb6b60c91d8da536, type: 3}
   m_OnGetDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8718814754577504596}
+        m_TargetAssemblyTypeName: SkateGuy.Tool.SimpleFlash, Assembly-CSharp
+        m_MethodName: DoFlash
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _OnEnemyDie:
     m_PersistentCalls:
       m_Calls: []
@@ -169,7 +182,23 @@ MonoBehaviour:
     m_SearchDirection: {x: -1, y: 0.1}
     m_SearchLength: 20
     m_AttackTime: 2
-  m_PlayWhenStart: 1
+  m_PlayWhenStart: 0
+--- !u!114 &8718814754577504596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705445258450469521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f83377be579540ad98fd4b0936cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FlashMaterial: {fileID: 2100000, guid: 70b852bde8614354cb80ce5cf82ff357, type: 2}
+  m_TargetRenders:
+  - {fileID: 1705445258450469525}
+  m_FlashTime: 0.05
 --- !u!1 &1705445258576821020
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,14 +248,14 @@ MonoBehaviour:
   m_FireSpots:
   - m_FireBullet: {fileID: 4006189671389258621, guid: 175b5df56ff3f1c4292432e7db6d33ae, type: 3}
     m_FirePoint: {x: 0, y: 0.1}
-    m_FireAngle: 0
+    m_FireAngle: -5
   - m_FireBullet: {fileID: 4006189671389258621, guid: 175b5df56ff3f1c4292432e7db6d33ae, type: 3}
     m_FirePoint: {x: 0, y: 0}
     m_FireAngle: 0
   - m_FireBullet: {fileID: 4006189671389258621, guid: 175b5df56ff3f1c4292432e7db6d33ae, type: 3}
     m_FirePoint: {x: 0, y: -0.1}
-    m_FireAngle: 0
-  m_FireRecall: 3
+    m_FireAngle: 5
+  m_FireRecall: 10
   m_OnFiring:
     m_PersistentCalls:
       m_Calls: []

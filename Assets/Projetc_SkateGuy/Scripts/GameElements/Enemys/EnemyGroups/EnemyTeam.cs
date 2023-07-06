@@ -21,13 +21,17 @@ namespace SkateGuy.GameElements.EnemyGroup
         [SerializeField]
         private bool m_SummonWhenStart = false;
         private int memberLiveCount = 0;
+        public int MemberLiveCount
+        {
+            get { return memberLiveCount; }
+        }
         private UnityEvent<Enemy> onMemberCreate = new UnityEvent<Enemy>();
         public UnityEvent<Enemy> OnMemberCreate
         {
             get { return onMemberCreate; }
         }
-        private UnityEvent onAllMemberGone = new UnityEvent();
-        public UnityEvent OnAllMemberGone
+        private UnityEvent<EnemyTeam> onAllMemberGone = new UnityEvent<EnemyTeam>();
+        public UnityEvent<EnemyTeam> OnAllMemberGone
         {
             get { return onAllMemberGone; }
         }
@@ -93,7 +97,7 @@ namespace SkateGuy.GameElements.EnemyGroup
             if (memberLiveCount == 0)
             {
                 //  Member all dead or be recycle
-                OnAllMemberGone.Invoke();
+                OnAllMemberGone.Invoke(this);
             }
         }
 

@@ -69,6 +69,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\Laser.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\JsonHelper.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateCurveMove.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\Boss.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeCurveMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamFactory.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\RecycleArea.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeSinMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataPowerUp.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\BossStateNormalAttack.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataGrazeCounter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\StateController.cs" />

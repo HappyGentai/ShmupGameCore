@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SkateGuy.GameElements;
+using SkateGuy.GameElements.Factory;
 using SkateGuy.GameElements.EnemyGroup;
 using UnityEditor;
 
@@ -10,7 +11,12 @@ namespace SkateGuy.Editor
     public class EnemyTeamEditor : UnityEditor.Editor
     {
         EnemyTeam enemyTeam;
+        EnemyTeam nextTeam;
+        float waitTime = 0;
         List<Enemy> summonEnemys = new List<Enemy>();
+        Coroutine nextTeamCallRoutine = null;
+        Coroutine teamSummonRoutine = null;
+        Coroutine nextTeamSummonRoutine = null;
 
         #region Editor GUI 
         private float bigSpace = 50;
@@ -33,30 +39,42 @@ namespace SkateGuy.Editor
         {
             base.OnInspectorGUI();
             GUILayout.Space(bigSpace);
-            GUILayout.Label("Editor Part");
-            EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Load"))
+            if (!Application.isPlaying)
             {
-                LoadEnemyTeam();
+                GUILayout.Label("Editor Part");
+                EditorGUILayout.BeginHorizontal();
+                if (GUILayout.Button("Load"))
+                {
+                    LoadEnemyTeam();
+                }
+                if (GUILayout.Button("Save"))
+                {
+                    SaveTeam();
+                }
+                EditorGUILayout.EndHorizontal();
             }
-            if (GUILayout.Button("Save"))
+            else
             {
-                SaveTeam();
+                GUILayout.Label("Test Part");
+                EditorGUILayout.BeginHorizontal();
+                if (GUILayout.Button("Summon"))
+                {
+                    StopAllSummon();
+                    TestSummonForCurrentTeam();
+                    if (nextTeam != null)
+                    {
+                        DelayCallNextTeam();
+                    }
+                }
+                if (GUILayout.Button("StopSummon"))
+                {
+                    StopAllSummon();
+                }
+                EditorGUILayout.EndHorizontal();
+                GUILayout.Label("Next team");
+                nextTeam = (EnemyTeam)EditorGUILayout.ObjectField(nextTeam, typeof(EnemyTeam), true);
+                waitTime = EditorGUILayout.FloatField("DelayTime",waitTime);
             }
-            EditorGUILayout.EndHorizontal();
-            GUILayout.Space(bigSpace);
-            GUILayout.Label("Test Part(Play mode only)");
-            EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Summon") && Application.isPlaying)
-            {
-                StopSummon();
-                enemyTeam.SummonMember();
-            }
-            if (GUILayout.Button("StopSummon") && Application.isPlaying)
-            {
-                StopSummon();
-            }
-            EditorGUILayout.EndHorizontal();
         }
 
         private void LoadEnemyTeam()
@@ -118,7 +136,7 @@ namespace SkateGuy.Editor
             }
         }
 
-        private void StopSummon()
+        private void StopAllSummon()
         {
             var summonEnemyCount = summonEnemys.Count;
             for (int index = 0; index < summonEnemyCount; ++index)
@@ -127,7 +145,131 @@ namespace SkateGuy.Editor
                 enemy.Recycle();
             }
             summonEnemys.Clear();
-            enemyTeam.StopSummon();
+
+            StopSummonForCurrentTeam();
+            if (nextTeam != null)
+            {
+                StopSummonForNextTeam();
+                if (nextTeamCallRoutine != null)
+                {
+                    enemyTeam.StopCoroutine(nextTeamCallRoutine);
+                }
+            }
         }
+
+        private void DelayCallNextTeam()
+        {
+            nextTeam.OnMemberCreate.RemoveAllListeners();
+            nextTeam.OnMemberCreate.AddListener((Enemy enemy) =>
+            {
+                summonEnemys.Add(enemy);
+            });
+            nextTeamCallRoutine = enemyTeam.StartCoroutine(DelayCall());
+            Debug.Log("Ready call next team "+Time.time);
+        }
+
+        private System.Collections.IEnumerator DelayCall()
+        {
+            yield return new WaitForSeconds(waitTime);
+            Debug.Log("Next team start summon" + Time.time);
+            TestSummonForNextTeam();
+        }
+
+        #region For test Summon
+        private void TestSummonForCurrentTeam()
+        {
+            var memberCount = enemyTeam.MemberDatas.Length;
+            SummonForCurrentTeam(memberCount, 0);
+        }
+
+        private void SummonForCurrentTeam(int memberCount, int summonIndex)
+        {
+            if (summonIndex >= memberCount)
+            {
+                return;
+            }
+            StopSummonForCurrentTeam();
+            teamSummonRoutine = enemyTeam.StartCoroutine(SummoningForCurrentTeam(memberCount, summonIndex));
+        }
+
+        private System.Collections.IEnumerator SummoningForCurrentTeam(int memberCount, int summonIndex)
+        {
+            var memberData = enemyTeam.MemberDatas[summonIndex];
+            var delayTime = new WaitForSeconds(memberData.DelaySpawnTime);
+            yield return delayTime;
+            var getEnemy = EnemyFactory.GetEnemy(memberData.EnemyPrefab);
+            getEnemy.MoveTarget.localPosition = memberData.SetPosition;
+            //  Check have logic or not
+            if (getEnemy is ILogicDataSetable iDataSetable)
+            {
+                iDataSetable.SetLogicData(memberData.LogicData);
+            }
+            getEnemy.StartAction();
+            enemyTeam.OnMemberCreate?.Invoke(getEnemy);
+            summonIndex++;
+            SummonForCurrentTeam(memberCount, summonIndex);
+        }
+
+        private void StopSummonForCurrentTeam()
+        {
+            if (teamSummonRoutine != null)
+            {
+                enemyTeam.StopCoroutine(teamSummonRoutine);
+                teamSummonRoutine = null;
+            } else
+            {
+                return;
+            }
+        }
+        #endregion
+
+        #region For test Summon next team
+        private void TestSummonForNextTeam()
+        {
+            var memberCount = nextTeam.MemberDatas.Length;
+            SummonForNextTeam(memberCount, 0);
+        }
+
+        private void SummonForNextTeam(int memberCount, int summonIndex)
+        {
+            if (summonIndex >= memberCount)
+            {
+                return;
+            }
+            StopSummonForNextTeam();
+            nextTeamSummonRoutine = nextTeam.StartCoroutine(SummoningForNextTeam(memberCount, summonIndex));
+        }
+
+        private System.Collections.IEnumerator SummoningForNextTeam(int memberCount, int summonIndex)
+        {
+            var memberData = nextTeam.MemberDatas[summonIndex];
+            var delayTime = new WaitForSeconds(memberData.DelaySpawnTime);
+            yield return delayTime;
+            var getEnemy = EnemyFactory.GetEnemy(memberData.EnemyPrefab);
+            getEnemy.MoveTarget.localPosition = memberData.SetPosition;
+            //  Check have logic or not
+            if (getEnemy is ILogicDataSetable iDataSetable)
+            {
+                iDataSetable.SetLogicData(memberData.LogicData);
+            }
+            getEnemy.StartAction();
+            nextTeam.OnMemberCreate?.Invoke(getEnemy);
+            summonIndex++;
+            SummonForNextTeam(memberCount, summonIndex);
+        }
+
+        private void StopSummonForNextTeam()
+        {
+            if (nextTeamSummonRoutine != null)
+            {
+                nextTeam.StopCoroutine(nextTeamSummonRoutine);
+                nextTeamSummonRoutine = null;
+            }
+            else
+            {
+                return;
+            }
+        }
+        #endregion
     }
 }

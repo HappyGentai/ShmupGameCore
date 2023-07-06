@@ -28,6 +28,8 @@ namespace SkateGuy.Test
         [SerializeField]
         private int waveIndex = 0;
         private int enemyTeamCount = 0;
+        private EnemyTeam currentEnemyTeam = null;
+        private EnemyTeam lastEnemyTeam = null;
         private Coroutine waveCoroutine = null;
 
         [SerializeField]
@@ -134,7 +136,7 @@ namespace SkateGuy.Test
             m_PlayerUI.GameOver();
         }
 
-        private void GameClearCheck()
+        private void GameClearCheck(EnemyTeam clearedTeam)
         {
             enemyTeamCount--;
             if (enemyTeamCount <= 0)
@@ -145,6 +147,13 @@ namespace SkateGuy.Test
                 m_Player.Invincible = true;
                 //  Call game clear UI
                 m_PlayerUI.GameClear();
+            }
+            else if (lastEnemyTeam == clearedTeam)
+            {
+                Debug.Log("Trigger "+ waveIndex+" "+ currentEnemyTeam.name);
+                CloseCallWave();
+                currentEnemyTeam.SummonMember();
+                CallWave();
             }
         }
 
@@ -165,10 +174,12 @@ namespace SkateGuy.Test
 
         IEnumerator WaveCalling(EnemyTeamData teamData)
         {
-            yield return new WaitForSeconds(teamData.WaveWaitTime);
             var team = EnemyTeamFactory.GetEnemyTeam(teamData);
             team.OnAllMemberGone.AddListener(GameClearCheck);
-            team.SummonMember();
+            lastEnemyTeam = currentEnemyTeam;
+            currentEnemyTeam = team;
+            yield return new WaitForSeconds(teamData.WaveWaitTime);
+            currentEnemyTeam.SummonMember();
             CallWave();
         }
 

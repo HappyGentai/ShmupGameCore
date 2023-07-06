@@ -664,6 +664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkateGuy
       objectReference: {fileID: 0}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_MaxHP
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
 --- !u!1 &465282209
@@ -962,6 +966,8 @@ MonoBehaviour:
     m_WaveWaitTime: 8
   - m_EnemyTeam: {fileID: 9018029639229784904, guid: 52c58997f8087b248a1000f973f5d0f8, type: 3}
     m_WaveWaitTime: 10
+  - m_EnemyTeam: {fileID: 6746451834157038922, guid: db9f0bcca8d00f24996c46e7499876bd, type: 3}
+    m_WaveWaitTime: 10000
   waveIndex: 9
   m_BackGround: {fileID: 921235211}
   m_CloseAction:
