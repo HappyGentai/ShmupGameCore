@@ -3,27 +3,24 @@ using SkateGuy.GameElements;
 
 namespace SkateGuy.Datas
 {
-    [CreateAssetMenu(fileName = "SkillDataGrazeCounter", menuName = "SkateGuy/SkillDatas/GrazeCounter")]
-    public class SkillDataGrazeCounter : SkillData<PlayableObject>
+    [CreateAssetMenu(fileName = "SkillDataAbsortBullet", menuName = "SkateGuy/SkillDatas/AbsortBullet")]
+    public class SkillDataAbsortBullet : SkillData<BasicPlayer>
     {
         [SerializeField]
-        private Launcher m_FireLauncher = null;
+        private Bullet m_Bullet = null;
         [SerializeField]
-        private float m_Duration = 3f;
+        private string m_Belong = "";
         [SerializeField]
-        private int m_FireNeedGrazeTime = 2;
+        private Vector2 m_FireAdjustPos = Vector2.zero;
 
         protected override void SkillInitialization()
         {
-            m_Skill = new Skills.SkillGrazeCounter(CasterData, m_FireLauncher, m_Duration, m_FireNeedGrazeTime);
+            m_Skill = new Skills.SkillAbsortBullet(CasterData, m_Bullet, m_Belong, m_FireAdjustPos);
         }
 
         public override bool TryCastSkill()
         {
             if (!UseConditionCheck())
-            {
-                return false;
-            } else if (m_Skill.IsCasting)
             {
                 return false;
             }

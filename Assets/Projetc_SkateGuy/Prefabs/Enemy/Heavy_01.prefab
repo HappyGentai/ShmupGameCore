@@ -274,6 +274,7 @@ MonoBehaviour:
   - {fileID: 823320751847575550}
   - {fileID: 32839200648164189}
   m_DieEffect: {fileID: 8499436660347739041, guid: 6016711ab8a485343be066f25f40e063, type: 3}
+  m_DieDrop: {fileID: 4833571393451929929, guid: 1f16fbcaeac6a6847b5ee3458e84488c, type: 3}
   m_OnGetDamaged:
     m_PersistentCalls:
       m_Calls:

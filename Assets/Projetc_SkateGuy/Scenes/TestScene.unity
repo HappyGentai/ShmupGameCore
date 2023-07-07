@@ -328,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1353669343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,17 +358,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 3391793}
-    m_ColliderPaths:
-    - - X: -183750000
-        Y: 249550016
-      - X: -356249984
-        Y: 249550016
-      - X: -356249984
-        Y: -249550016
-      - X: -183750000
-        Y: -249550016
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: -18.375029, y: -24.955002}
@@ -413,7 +403,7 @@ Transform:
   - {fileID: 3391794}
   - {fileID: 1372129962}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372129961
 GameObject:
@@ -644,13 +634,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 485469003720688389, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_FireRecall
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 485469004478680677, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 485469004478680677, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
       propertyPath: m_LocalPosition.x
@@ -697,7 +683,7 @@ PrefabInstance:
       value: SkateGuy
       objectReference: {fileID: 0}
     - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
-      propertyPath: m_MaxEXGauge
+      propertyPath: m_MaxHP
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
@@ -900,8 +886,8 @@ MonoBehaviour:
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1436125126}
-        m_TargetAssemblyTypeName: SkateGuy.GameElements.Launcher, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SkateGuy.GameElements.LaserLauncher, Assembly-CSharp
         m_MethodName: HoldTrigger
         m_Mode: 1
         m_Arguments:
@@ -1131,10 +1117,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heavy_00
       objectReference: {fileID: 0}
+    - target: {fileID: 305976982962139502, guid: ad7272a76fd902b43b54664cbde9fdca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6884478154795479454, guid: ad7272a76fd902b43b54664cbde9fdca, type: 3}
       propertyPath: m_MaxHP
-      value: 10000
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6884478154795479454, guid: ad7272a76fd902b43b54664cbde9fdca, type: 3}
+      propertyPath: m_DieDrop
+      value: 
+      objectReference: {fileID: 4833571393451929929, guid: 1f16fbcaeac6a6847b5ee3458e84488c, type: 3}
     - target: {fileID: 6884478154795479454, guid: ad7272a76fd902b43b54664cbde9fdca, type: 3}
       propertyPath: m_MoveSpeed
       value: 5
@@ -1145,7 +1139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6884478154795479454, guid: ad7272a76fd902b43b54664cbde9fdca, type: 3}
       propertyPath: m_Launchers.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6884478154795479454, guid: ad7272a76fd902b43b54664cbde9fdca, type: 3}
       propertyPath: m_LogicData.m_FireTime

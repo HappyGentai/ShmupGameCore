@@ -15,14 +15,14 @@ namespace SkateGuy.Skills
         [SerializeField]
         private InputAction m_TriggerInput = null;
         [SerializeField]
-        private SkillData<PlayableObject> m_StorgeSkill = null;
-        public SkillData<PlayableObject> SkillData
+        private SkillData<BasicPlayer> m_StorgeSkill = null;
+        public SkillData<BasicPlayer> SkillData
         {
             get { return m_StorgeSkill; }
             private set { }
         }
         [SerializeField]
-        private PlayableObject m_Caster = null;
+        private BasicPlayer m_Caster = null;
         private bool setInputEvent = false;
         public UnityEvent OnSkillCast = new UnityEvent();
 

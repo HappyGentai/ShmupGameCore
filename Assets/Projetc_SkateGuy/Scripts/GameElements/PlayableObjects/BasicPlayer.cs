@@ -125,6 +125,9 @@ namespace SkateGuy.GameElements
             get { return m_SkillTriggers; }
             private set { }
         }
+        [Header("ExSkills")]
+        [SerializeField]
+        private SkillTrigger m_ExSkillTrigger = null;
 
         [Header("Option")]
         [SerializeField]
@@ -156,6 +159,8 @@ namespace SkateGuy.GameElements
                 var skilltrigger = m_SkillTriggers[index];
                 skilltrigger.AwakeTrigger();
             }
+            //  Wake up ExSkill trigger
+            m_ExSkillTrigger.AwakeTrigger();
             var basicPlayerControl = new PlayerStateBasicControl(StateController, this);
             StateController.SetState(basicPlayerControl);
         }
@@ -170,6 +175,8 @@ namespace SkateGuy.GameElements
                 var skilltrigger = m_SkillTriggers[index];
                 skilltrigger.SleepTrigger();
             }
+            //  Sleep up ExSkill trigger
+            m_ExSkillTrigger.SleepTrigger();
         }
 
         protected override void Die()

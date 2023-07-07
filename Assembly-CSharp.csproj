@@ -55,7 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IShootable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\PickUpObjectFactory.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataAbsortBullet.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillDataAbsortBullet.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PickUps\EXBall.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemySpawnHelper.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateSinMove.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Tool\TextSaveLoad.cs" />
@@ -75,12 +76,14 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamFactory.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\Enemy.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\ExSkillHyperMode.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\EffectTypeAnimation.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestGameCore.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponseTypeClear.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestPlayerUI.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateAdiotMove.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InvincibleArea.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\FactoryProduct.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeSeek.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IRecycleable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IRecycleable.cs" />
@@ -90,22 +93,25 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestJson.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\SFXEffecter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\LineLerp.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\ExSkillDataHyperMode.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestEnums.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeRotateChase.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillGrazeCounter.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillGrazeCounter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PlayableObjects\PlayableObject.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillPowerUp.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\GameFactory.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillPowerUp.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeAbsort.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamMemberData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeamData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PlayableObjects\BasicPlayer.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyLogicData\EnemyTypeSinMoveLogicData.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\FactoryObjectType.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponseTypeProtect.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Launcher.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\BulletFactory.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleFlash.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillAbsortBullet.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillAbsortBullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\Bullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IDamageable.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\BulletFactory.cs" />
@@ -118,10 +124,10 @@
     <Compile Include="Assets\BasicShmup\Scripts\Test\TestGameCycle.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyLogicData\EnemyTypeHitAndRunLogicData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeSinMove.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataPowerUp.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillDataPowerUp.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\BossStateNormalAttack.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillDataGrazeCounter.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillDataGrazeCounter.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\RecycleArea.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\StateController.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\ShmupObserver.cs" />
@@ -134,14 +140,14 @@
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IDamageable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SteeringBehaviors.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skill.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\Skill.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Enemy.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponse.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\StageBackGround.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestEnemySpawner.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\EffectFactory.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillTrigger.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\SkillData.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillTrigger.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillData.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyTypeHitAndRun.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PickUps\PickUpObject.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\TriggerEvents\DamagedHint.cs" />
@@ -151,10 +157,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\FactoryObjectType.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\FactoryProduct.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\GameFactory.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PickUps\EXBall.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PickUps\SupportBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

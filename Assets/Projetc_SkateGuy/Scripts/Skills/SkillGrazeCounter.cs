@@ -43,7 +43,7 @@ namespace SkateGuy.Skills
             Launcher.transform.localPosition = Vector3.zero;
         }
 
-        public override void SKillDone()
+        public override void SkillDone()
         {
             player.OnGraze.RemoveListener(OnGraze);
             player.OnPlayerSleep.RemoveListener(StopSkillFromOutSide);
@@ -76,13 +76,13 @@ namespace SkateGuy.Skills
         private void StopSkillFromOutSide()
         {
             CoroutineAgent.StopEntrustCoroutine(timeCoroutine);
-            SKillDone();
+            SkillDone();
         }
 
         IEnumerator SkillCasting()
         {
             yield return new WaitForSeconds(skilDuration);
-            SKillDone();
+            SkillDone();
         }
     }
 }

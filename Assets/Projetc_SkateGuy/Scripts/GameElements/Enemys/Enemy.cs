@@ -60,6 +60,9 @@ namespace SkateGuy.GameElements
         [Header("DieEffect")]
         [SerializeField]
         protected SFXEffecter m_DieEffect = null;
+        [Header("DieDrop")]
+        [SerializeField]
+        protected PickUpObject m_DieDrop = null;
 
         [Header("Events")]
         protected UnityEvent<float> _OnHPChange = new UnityEvent<float>();
@@ -142,6 +145,11 @@ namespace SkateGuy.GameElements
                 var dieEffect = EffectFactory.GetEffect(m_DieEffect);
                 dieEffect.transform.localPosition = this.MoveTarget.localPosition;
                 dieEffect.StartSFX();
+            }
+            if (m_DieDrop != null)
+            {
+                var dieDrop = PickUpObjectFactory.GetPickUpObject(m_DieDrop);
+                dieDrop.transform.localPosition = this.MoveTarget.localPosition;
             }
             OnEnemyDie.Invoke();
             Recycle();

@@ -225,7 +225,7 @@ MonoBehaviour:
   OnPickDoen:
     m_PersistentCalls:
       m_Calls: []
-  m_EXValue: 0.05
+  m_EXValue: 0.15
   m_CollectDistence: 0.1
   m_FlySpeed: 8
   m_ChaseRange: {x: 17.8, y: 10}

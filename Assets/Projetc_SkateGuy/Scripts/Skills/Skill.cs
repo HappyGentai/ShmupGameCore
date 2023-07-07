@@ -26,6 +26,6 @@ namespace SkateGuy.Skills
 
         public abstract void SkillEffect();
 
-        public abstract void SKillDone();
+        public abstract void SkillDone();
     }
 }

@@ -29,7 +29,7 @@ namespace SkateGuy.Skills
             fireBullet.WakeUpBullet();
         }
 
-        public override void SKillDone()
+        public override void SkillDone()
         {
 
         }

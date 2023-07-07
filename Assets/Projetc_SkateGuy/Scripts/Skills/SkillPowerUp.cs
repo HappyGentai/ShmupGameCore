@@ -48,7 +48,7 @@ namespace SkateGuy.Skills
             timeCoroutine = player.StartCoroutine(SkillCasting());
         }
 
-        public override void SKillDone()
+        public override void SkillDone()
         {
             player.OnPlayerSleep.RemoveListener(CancelSkill);
             player.Launchers = tempLaunchers.ToArray();
@@ -66,13 +66,13 @@ namespace SkateGuy.Skills
         IEnumerator SkillCasting()
         {
             yield return new WaitForSeconds(skilDuration);
-            SKillDone();
+            SkillDone();
         }
 
         private void CancelSkill()
         {
             player.StopCoroutine(timeCoroutine);
-            SKillDone();
+            SkillDone();
         }
     }
 }

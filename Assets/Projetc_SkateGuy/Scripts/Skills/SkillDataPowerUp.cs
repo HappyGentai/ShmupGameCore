@@ -4,7 +4,7 @@ using SkateGuy.GameElements;
 namespace SkateGuy.Datas
 {
     [CreateAssetMenu(fileName = "SkillDataPowerUp", menuName = "SkateGuy/SkillDatas/PowerUp")]
-    public class SkillDataPowerUp : SkillData<PlayableObject>
+    public class SkillDataPowerUp : SkillData<BasicPlayer>
     {
         [SerializeField]
         private Launcher m_FireLauncher = null;
