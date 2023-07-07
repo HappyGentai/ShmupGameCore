@@ -1,7 +1,7 @@
 
 using UnityEngine;
 using SkateGuy.GameElements;
-using SkateGuy.GameElements.Factory;
+using SkateGuy.Factories;
 
 namespace SkateGuy.Test
 {

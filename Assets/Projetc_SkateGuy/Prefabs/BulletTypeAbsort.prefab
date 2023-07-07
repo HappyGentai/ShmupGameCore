@@ -124,6 +124,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_HitEffect: {fileID: 8999694368469511186, guid: 7bed94914c2ac8a4386e78a49df19d87, type: 3}
+  m_PickUpObject: {fileID: 4401793069192193263, guid: e712bbb33c92c6f4fa660b893aed1e52, type: 3}
   m_Collider: {fileID: 401434024154182209}
   m_AbsortTarget:
     serializedVersion: 2

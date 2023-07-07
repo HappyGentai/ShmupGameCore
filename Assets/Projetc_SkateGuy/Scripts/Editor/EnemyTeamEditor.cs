@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SkateGuy.GameElements;
-using SkateGuy.GameElements.Factory;
+using SkateGuy.Factories;
 using SkateGuy.GameElements.EnemyGroup;
 using UnityEditor;
 

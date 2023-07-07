@@ -50,6 +50,9 @@ namespace SkateGuy.GameElements
         [Header("HitEffect")]
         [SerializeField]
         protected SFXEffecter m_HitEffect = null;
+        [Header("Drop")]
+        [SerializeField]
+        protected PickUpObject m_PickUpObject = null;
 
         protected virtual void Update()
         {
@@ -98,6 +101,11 @@ namespace SkateGuy.GameElements
                     var hitEffect =  EffectFactory.GetEffect(m_HitEffect);
                     hitEffect.transform.localPosition = this.transform.localPosition;
                     hitEffect.StartSFX();
+                }
+                if (m_PickUpObject != null)
+                {
+                    var drop = PickUpObjectFactory.GetPickUpObject(m_PickUpObject);
+                    drop.transform.localPosition = this.transform.localPosition;
                 }
                 if (!m_Penetrate)
                 {

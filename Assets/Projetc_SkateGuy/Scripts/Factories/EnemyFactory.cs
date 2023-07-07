@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.Events;
+using SkateGuy.GameElements;
 
-namespace SkateGuy.GameElements.Factory
+namespace SkateGuy.Factories
 {
     public class EnemyFactory
     {

@@ -1,5 +1,5 @@
 using UnityEngine;
-using SkateGuy.GameElements.Factory;
+using SkateGuy.Factories;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;

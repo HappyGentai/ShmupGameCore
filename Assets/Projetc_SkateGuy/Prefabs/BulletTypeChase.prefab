@@ -140,6 +140,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_HitEffect: {fileID: 6524433875146502140, guid: 671d9c2295811874faf451846c1699e8, type: 3}
+  m_PickUpObject: {fileID: 3604869730860236825, guid: 4032ff80f0a1e8b49b9721973f1510df, type: 3}
   m_RotateSpeed: 0.5
   m_TargetLayer:
     serializedVersion: 2

@@ -107,6 +107,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_HitEffect: {fileID: 3720881594630960752, guid: 75121d4b0333b664b93cae2385c6bda9, type: 3}
+  m_PickUpObject: {fileID: 9034963068118201530, guid: cd4672a3821648844ac31019359e9798, type: 3}
   m_DamageCoolDown: 0.2
   m_MinimaltLaserLength: 1
   m_LaserRender: {fileID: 8193460047324398179}

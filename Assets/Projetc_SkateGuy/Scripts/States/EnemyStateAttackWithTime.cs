@@ -39,7 +39,10 @@ namespace SkateGuy.States.EnemyStates
                 var launcher = launchers[index];
                 launcher.StopLauncher();
             }
-            enemy.StopCoroutine(fireCoroutine);
+            if (fireCoroutine != null)
+            {
+                enemy.StopCoroutine(fireCoroutine);
+            }
         }
 
         public override void Track()

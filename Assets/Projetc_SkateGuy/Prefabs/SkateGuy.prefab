@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MoveTarget: {fileID: 485469004478680677}
-  m_MaxHP: 10
+  m_MaxHP: 30
   m_HP: 0
   m_Invincible: 0
   m_MaxGrazeCounter: 100
@@ -593,7 +593,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_HitBoxCollider: {fileID: 485469004478680683}
+  m_MaxExGauge: 100
+  m_ExGuage: 0
+  OnExGaugeChange:
+    m_PersistentCalls:
+      m_Calls: []
   m_SkillTriggers:
   - m_TriggerInput:
       m_Name: Trigger Input

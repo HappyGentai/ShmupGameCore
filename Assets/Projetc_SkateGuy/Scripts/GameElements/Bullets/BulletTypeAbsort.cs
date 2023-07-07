@@ -93,6 +93,11 @@ namespace SkateGuy.GameElements
                                 hitEffect.transform.localPosition = target.ClosestPoint(this.transform.position);
                                 hitEffect.StartSFX();
                             }
+                            if (m_PickUpObject != null)
+                            {
+                                var drop = PickUpObjectFactory.GetPickUpObject(m_PickUpObject);
+                                drop.transform.localPosition = target.ClosestPoint(this.transform.position);
+                            }
                         }
                     }
                 }
@@ -131,6 +136,11 @@ namespace SkateGuy.GameElements
                         var hitEffect = EffectFactory.GetEffect(m_HitEffect);
                         hitEffect.transform.localPosition = target.ClosestPoint(this.transform.position);
                         hitEffect.StartSFX();
+                    }
+                    if (m_PickUpObject != null)
+                    {
+                        var drop = PickUpObjectFactory.GetPickUpObject(m_PickUpObject);
+                        drop.transform.localPosition = target.ClosestPoint(this.transform.position);
                     }
                 }
 

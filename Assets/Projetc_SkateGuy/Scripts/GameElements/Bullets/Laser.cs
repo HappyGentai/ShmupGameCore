@@ -161,6 +161,11 @@ namespace SkateGuy.GameElements
                             hitEffect.transform.rotation = Quaternion.Euler(new Vector3(0, 0, setAngle));
                             hitEffect.StartSFX();
                         }
+                        if (m_PickUpObject != null)
+                        {
+                            var drop = PickUpObjectFactory.GetPickUpObject(m_PickUpObject);
+                            drop.transform.localPosition = chekTarget.position;
+                        }
                     }
                 }
             }
@@ -189,6 +194,11 @@ namespace SkateGuy.GameElements
                 var setAngle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
                 hitEffect.transform.rotation = Quaternion.Euler(new Vector3(0, 0, setAngle));
                 hitEffect.StartSFX();
+            }
+            if (m_PickUpObject != null)
+            {
+                var drop = PickUpObjectFactory.GetPickUpObject(m_PickUpObject);
+                drop.transform.localPosition = this.transform.position + this.transform.right * LaserLength;
             }
         }
 

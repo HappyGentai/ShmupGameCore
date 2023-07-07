@@ -14,6 +14,8 @@ namespace SkateGuy.Test {
         [SerializeField]
         private Image m_GrazeCounter = null;
         [SerializeField]
+        private Image m_ExGuage = null;
+        [SerializeField]
         private Image m_SkillImage = null;
         [SerializeField]
         private Image m_SkillImage2 = null;
@@ -47,6 +49,11 @@ namespace SkateGuy.Test {
             m_PlayerHP.fillAmount = m_Player.HP / maxHP; ;
             m_Player.OnHPChange.AddListener((float currentHp) => {
                 m_PlayerHP.fillAmount = currentHp / maxHP;
+            });
+            var maxExGuage = m_Player.MaxExGauge;
+            m_ExGuage.fillAmount = m_Player.ExGuage / maxExGuage;
+            m_Player.OnExGaugeChange.AddListener((float currentExGuage) => {
+                m_ExGuage.fillAmount = currentExGuage / maxExGuage;
             });
             var skillTrigger = m_Player.SkillTriggers[0];
             var skillData = skillTrigger.SkillData;

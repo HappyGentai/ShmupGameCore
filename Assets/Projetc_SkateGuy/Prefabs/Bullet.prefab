@@ -128,7 +128,9 @@ MonoBehaviour:
   m_RotateTarget: {fileID: 381161771545259220}
   m_MoveSpeed: 30
   m_Damage: 0.5
+  m_Penetrate: 0
   m_OnBulletHit:
     m_PersistentCalls:
       m_Calls: []
   m_HitEffect: {fileID: 5708800767551971779, guid: ed5df9fa056202c4ab968e1c08c44fb6, type: 3}
+  m_PickUpObject: {fileID: 0}

@@ -72,8 +72,37 @@ namespace SkateGuy.GameElements
             protected set { }
         }
 
+        [Header("Additional Value")]
         [SerializeField]
-        private Collider2D m_HitBoxCollider = null;
+        private float m_MaxExGauge = 0;
+        public float MaxExGauge
+        {
+            get { return m_MaxExGauge;}
+            set { m_MaxExGauge = value; }
+        }
+        [SerializeField]
+        private float m_ExGuage = 0;
+        public float ExGuage
+        {
+            get { return m_ExGuage; }
+            set
+            {
+                if (value > MaxExGauge)
+                {
+                    m_ExGuage = MaxExGauge;
+                } else if (value < 0)
+                {
+                    m_ExGuage = 0;
+                } else
+                {
+                    m_ExGuage = value;
+                }
+                OnExGaugeChange?.Invoke(m_ExGuage);
+            }
+        }
+        public UnityEvent<float> OnExGaugeChange = new UnityEvent<float>();
+
+
         private UnityEvent<PlayableObject, GameObject> m_OnHitBoxCollision = 
             new UnityEvent<PlayableObject, GameObject>();
         public UnityEvent<PlayableObject, GameObject> OnHitBoxCollision
@@ -85,7 +114,6 @@ namespace SkateGuy.GameElements
             set
             {
                 base.Invincible = value;
-                m_HitBoxCollider.enabled = !value;
             }
         }
 
@@ -120,6 +148,7 @@ namespace SkateGuy.GameElements
         {
             this.gameObject.SetActive(true);
             base.WakeUpObject();
+            ExGuage = 0;
             //  Wake up skill triggers
             var skillTriggerCount = m_SkillTriggers.Length;
             for (int index = 0; index < skillTriggerCount; ++index)

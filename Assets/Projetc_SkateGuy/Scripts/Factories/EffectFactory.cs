@@ -84,7 +84,7 @@ namespace SkateGuy.Factories
             aliveObject.Remove(effect);
         }
 
-        private void OnTakeFromPool(SFXEffecter  effect)
+        private void OnTakeFromPool(SFXEffecter effect)
         {
             effect.gameObject.SetActive(true);
             aliveObject.Add(effect);

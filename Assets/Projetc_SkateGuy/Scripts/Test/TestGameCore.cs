@@ -150,7 +150,6 @@ namespace SkateGuy.Test
             }
             else if (lastEnemyTeam == clearedTeam)
             {
-                Debug.Log("Trigger "+ waveIndex+" "+ currentEnemyTeam.name);
                 CloseCallWave();
                 currentEnemyTeam.SummonMember();
                 CallWave();
