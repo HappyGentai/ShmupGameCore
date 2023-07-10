@@ -13,6 +13,7 @@ namespace SkateGuy.Skills
     public class SkillTrigger
     {
         [SerializeField]
+        private InputActionReference m_TriggerInputRef = null;
         private InputAction m_TriggerInput = null;
         [SerializeField]
         private SkillData<BasicPlayer> m_StorgeSkill = null;
@@ -28,6 +29,7 @@ namespace SkateGuy.Skills
 
         public void AwakeTrigger()
         {
+            m_TriggerInput = m_TriggerInputRef.action;
             m_TriggerInput.Enable();
             if (!setInputEvent)
             {

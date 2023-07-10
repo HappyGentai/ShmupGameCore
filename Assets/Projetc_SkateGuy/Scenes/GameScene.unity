@@ -664,6 +664,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkateGuy
       objectReference: {fileID: 0}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: inputTT
+      value: 
+      objectReference: {fileID: 4285143648215564385, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_FireActionRef
+      value: 
+      objectReference: {fileID: -5634333432547642407, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_MoverActionRef
+      value: 
+      objectReference: {fileID: 4285143648215564385, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_FocusModeActionRef
+      value: 
+      objectReference: {fileID: -3934952371081919329, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_ExSkillTrigger.m_TriggerInputRef
+      value: 
+      objectReference: {fileID: -8885842853169778716, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_SkillTriggers.Array.data[0].m_TriggerInputRef
+      value: 
+      objectReference: {fileID: 2731465035895711497, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_SkillTriggers.Array.data[1].m_TriggerInputRef
+      value: 
+      objectReference: {fileID: 692968521640329806, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+    - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_SkillTriggers.Array.data[2].m_TriggerInputRef
+      value: 
+      objectReference: {fileID: 387926724533050516, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
 --- !u!1 &465282209
@@ -1043,31 +1075,7 @@ MonoBehaviour:
     m_WaveWaitTime: 10000
   waveIndex: 9
   m_BackGround: {fileID: 921235211}
-  m_CloseAction:
-    m_Name: Close
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 807195a0-dcdf-4ef1-acfb-edac56239c9d
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: fe0ec712-28ab-4349-b5dc-25619ab56350
-      m_Path: <Gamepad>/start
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Close
-      m_Flags: 0
-    - m_Name: 
-      m_Id: b1305c6b-6dfe-4a78-bb9c-423fd4ae93d8
-      m_Path: <Keyboard>/escape
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Close
-      m_Flags: 0
-    m_Flags: 0
+  m_CloseActionRef: {fileID: -1621545127699030970, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
   m_DamageResponesType: 1
   m_DamageResponseTypeClear:
     m_ClearRadius: 5
@@ -1324,31 +1332,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_ReStartAction:
-    m_Name: Re Start
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 67bddc97-78a1-45f7-a969-44a8eb61fd96
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 21d36ba5-cde6-4a42-a7d9-4bf0cc14ed02
-      m_Path: <Keyboard>/space
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Re Start
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 28da3b9e-9921-40a7-a11a-2eea67a61fa8
-      m_Path: <Gamepad>/select
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Re Start
-      m_Flags: 0
-    m_Flags: 0
+  m_ReStartActionRef: {fileID: -8700026407183157021, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
   OnReStart:
     m_PersistentCalls:
       m_Calls: []

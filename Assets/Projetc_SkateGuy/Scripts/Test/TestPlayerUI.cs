@@ -40,6 +40,7 @@ namespace SkateGuy.Test {
         private GameObject m_GameOverUI = null;
         public UnityEvent m_OnGameOver = new UnityEvent();
         [SerializeField]
+        protected InputActionReference m_ReStartActionRef = null;
         protected InputAction m_ReStartAction;
         public UnityEvent OnReStart = new UnityEvent();
 
@@ -131,6 +132,7 @@ namespace SkateGuy.Test {
             });
 
             //  Set restart input
+            m_ReStartAction = m_ReStartActionRef.action;
             m_ReStartAction.performed += (ctx) => {
                 OnReStart?.Invoke();
             };

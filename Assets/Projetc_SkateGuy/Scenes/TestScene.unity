@@ -682,6 +682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkateGuy
       objectReference: {fileID: 0}
+    - target: {fileID: 485469004478680679, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
       propertyPath: m_MaxHP
       value: 100
@@ -1119,7 +1123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305976982962139502, guid: ad7272a76fd902b43b54664cbde9fdca, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6884478154795479454, guid: ad7272a76fd902b43b54664cbde9fdca, type: 3}
       propertyPath: m_MaxHP

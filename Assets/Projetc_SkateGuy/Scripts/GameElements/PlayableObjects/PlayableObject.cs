@@ -99,12 +99,15 @@ namespace SkateGuy.GameElements
 
         [Header("Control")]
         [SerializeField]
+        private InputActionReference m_MoverActionRef = null;
         protected InputAction m_MoveAction;
         public InputAction MoveAction { get {return m_MoveAction;} set { m_MoveAction = value; } }
         [SerializeField]
+        private InputActionReference m_FocusModeActionRef = null;
         protected InputAction m_FocusModeAction;
         public InputAction FocusModeAction { get { return m_FocusModeAction; } set { m_FocusModeAction = value; } }
         [SerializeField]
+        private InputActionReference m_FireActionRef = null;
         protected InputAction m_FireAction;
         public InputAction FireAction { get { return m_FireAction; } set { m_FireAction = value; } }
 
@@ -168,6 +171,11 @@ namespace SkateGuy.GameElements
 
         public virtual void Initialization()
         {
+            //  Set action
+            MoveAction = m_MoverActionRef.action;
+            FocusModeAction = m_FocusModeActionRef.action;
+            FireAction = m_FireActionRef.action;
+
             m_FocusModeAction.started += (ctx) => {
                 isFocusMode = true;
             };

@@ -38,6 +38,7 @@ namespace SkateGuy.Test
         //private DamagedHint m_DamagedHint = null;
 
         [SerializeField]
+        private InputActionReference m_CloseActionRef = null;
         protected InputAction m_CloseAction;
 
         [Header("Player plug-in")]
@@ -56,6 +57,7 @@ namespace SkateGuy.Test
             m_Player.OnPlayerDie.AddListener(GameOver);
             //m_Player.OnHitBoxCollision.AddListener(m_DamagedHint.StartDamagedHint);
             StartGame();
+            m_CloseAction = m_CloseActionRef.action;
             m_CloseAction.Enable();
             m_CloseAction.performed += (ctx) => {
                 Application.Quit();

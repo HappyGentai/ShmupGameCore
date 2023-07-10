@@ -118,6 +118,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\PlayerStateBasicControl.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\CoroutineAgent.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Test\TestGameLevelByLevelMaker.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PickUps\SupportBox.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateSelfDestruction.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\BasicState.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyFactory.cs" />
@@ -157,7 +158,6 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\PickUps\SupportBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
