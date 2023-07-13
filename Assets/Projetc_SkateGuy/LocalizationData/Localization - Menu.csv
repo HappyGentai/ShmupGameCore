@@ -1,0 +1,23 @@
+Key,English,TraditionalChinese
+Menu.Control_Title,Control Setting,操作設定
+Menu.Control_Keyboard,Keyboard,鍵盤
+Menu.Control_Gamepad,Gamepad,控制器
+Menu.Control_Reset,Reset,重置
+Menu.Control_ResetAll,ResetAll,全部重置
+Menu.Control_Up,Up,上
+Menu.Control_Down,Down,下
+Menu.Control_Left,Left,左
+Menu.Control_Right,Right,右
+Menu.Control_Fire,Fire,開火
+Menu.Control_FocusMode,FocusMode,低速模式
+Menu.Control_SkillA,SkillA,技能A
+Menu.Control_SkillB,SkillB,技能B
+Menu.Control_SkillC,SkillC,技能C
+Menu.Control_EXSkill,EX Skill,EX技
+Menu.Control_Duplicate,DuplicateBinding found:  {0},發現已設置按鈕: {0}
+Menu.Control_Binding,Binding {0}.,設置 {0}。
+Menu.Control_Wait,{0}Waiting for input...,{0}等待輸入...
+Menu.Audio_Title,Audio Setting,音量控制
+Menu.Audio_Main,Main,整體音量
+Menu.Audio_BGM,BGM,背景樂
+Menu.Audio_SFX,SFX,音效

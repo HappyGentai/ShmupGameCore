@@ -54,7 +54,6 @@ namespace SkateGuy.UIs
             var volume = 0f;
             m_AudioMixer.GetFloat(name, out volume);
             volume = Mathf.Pow(10, volume);
-            Debug.Log(volume);
             return volume;
         }
 
