@@ -94,6 +94,7 @@
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IRecycleable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IRecycleable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\BasicEnemy.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\Events\GameEvent.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\BulletTypeDirection.cs" />
     <Compile Include="Assets\PluginAsset\SimpleLocalization\LocalizationSync.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\LauncherTypeAim.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\ILogicDataSetable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\DPSChecker.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Enemys\EnemyGroups\EnemyTeam.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\GameEventController.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\LocalizationController.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\Launcher.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyData.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Assets\PluginAsset\SimpleLocalization\Downloader.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Bullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\Skill.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\Events\GameEventSpawnEnemy.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Enemy.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponse.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\StageBackGround.cs" />
@@ -173,6 +176,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\SimpleGameFlower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Projetc_SkateGuy\Assets\Fonts\TCList.txt" />

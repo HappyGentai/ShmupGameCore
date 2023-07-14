@@ -94,6 +94,9 @@ namespace SkateGuy.GameElements.Factory
         EnemyTeam CreatePoolItem()
         {
             var newEnemyTeam = GameObject.Instantiate<EnemyTeam>(m_CoreEnemyTeamData.EnemyTeam);
+            newEnemyTeam.OnSummonDone.AddListener(() => {
+                enemyTeamPool.Release(newEnemyTeam);
+            });
             return newEnemyTeam;
         }
 
@@ -105,7 +108,7 @@ namespace SkateGuy.GameElements.Factory
 
         void OnReturnToPool(EnemyTeam enemyTeam)
         {
-            enemyTeam.StopSummon();
+            enemyTeam.Close();
             enemyTeam.OnAllMemberGone.RemoveAllListeners();
             enemyTeam.gameObject.SetActive(false);
             aliveObject.Remove(enemyTeam);

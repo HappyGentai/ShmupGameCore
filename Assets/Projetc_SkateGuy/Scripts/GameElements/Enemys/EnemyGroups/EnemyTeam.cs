@@ -36,9 +36,20 @@ namespace SkateGuy.GameElements.EnemyGroup
             get { return onAllMemberGone; }
         }
 
+        private UnityEvent onSummonDone = new UnityEvent();
+        public UnityEvent OnSummonDone
+        {
+            get { return onSummonDone; }
+        }
+
         private int memberCount = 0;
         private int summonIndex = 0;
         private Coroutine summonRoutine = null;
+        private bool _IsWorking = false;
+        public bool IsWorking
+        {
+            get { return _IsWorking; }
+        }
 
         private List<Enemy> teamMember = new List<Enemy>();
 
@@ -52,6 +63,7 @@ namespace SkateGuy.GameElements.EnemyGroup
 
         public void SummonMember()
         {
+            _IsWorking = true;
             //  Clear old member event(if have)
             var oldMemberCount = teamMember.Count;
             for (int index = 0; index < oldMemberCount; ++index)
@@ -70,12 +82,18 @@ namespace SkateGuy.GameElements.EnemyGroup
             Summon();
         }
 
-        public void StopSummon()
+        private void StopSummon()
         {
             if (summonRoutine != null)
             {
                 StopCoroutine(summonRoutine);
             }
+        }
+
+        public void Close()
+        {
+            StopSummon();
+            _IsWorking = false;
         }
 
         private void Summon()
@@ -98,6 +116,7 @@ namespace SkateGuy.GameElements.EnemyGroup
             {
                 //  Member all dead or be recycle
                 OnAllMemberGone.Invoke(this);
+                OnSummonDone?.Invoke();
             }
         }
 

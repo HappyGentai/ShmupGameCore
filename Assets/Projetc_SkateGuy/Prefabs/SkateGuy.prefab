@@ -403,145 +403,9 @@ MonoBehaviour:
   m_BorderCheckDown: 0.3
   m_BorderCheckLeft: 0.46
   m_BorderCheckRight: 0.39
-  m_MoveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 327b5670-5ec4-45b0-82d1-d0f33d701b4e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: b5d28407-1735-4c6b-be19-aa96bddd641f
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 4691e1eb-8f22-4f2e-90ee-7f0e1215376d
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: e91d3359-12f0-4b24-a1ce-4413d187595b
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: e0a1c3c8-0d07-4b07-9117-941ea9d92f02
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: c0ac8a56-8673-4106-b4fa-8242bb68db6a
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: 2D Vector
-      m_Id: ce4de515-b9d8-492d-b514-81aab1b6c5ca
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: b6b32d03-0db4-4ee8-9cc2-7cda389b5863
-      m_Path: <Gamepad>/leftStick/up
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 79522f88-6993-486a-ba7c-1e451bcb9c69
-      m_Path: <Gamepad>/leftStick/down
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 4a0baf81-25a1-441d-980a-bb686b33b1c5
-      m_Path: <Gamepad>/leftStick/left
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: dcee66f1-8fce-46c3-ae05-46f4ee802dc3
-      m_Path: <Gamepad>/leftStick/right
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    m_Flags: 0
-  m_FocusModeAction:
-    m_Name: Focus Mode
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 4d3da99f-68ec-4ce4-83ad-c4417e8f88b7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 5d6b70e5-5a5c-423d-b312-364e5c5e9605
-      m_Path: <Keyboard>/leftShift
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Focus Mode
-      m_Flags: 0
-    - m_Name: 
-      m_Id: f9b6cc0f-c030-4b95-a1f4-b4b14d0a4c35
-      m_Path: <Gamepad>/buttonWest
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Focus Mode
-      m_Flags: 0
-    m_Flags: 0
-  m_FireAction:
-    m_Name: Fire
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 1729c900-eff7-4843-8817-1b3e514dfe4b
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 26c287e8-b60c-4473-a231-3a9e67778014
-      m_Path: <Keyboard>/z
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Fire
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 4fc15c02-248a-4510-8768-c38671c137ca
-      m_Path: <Gamepad>/buttonSouth
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Fire
-      m_Flags: 0
-    m_Flags: 0
+  m_MoverActionRef: {fileID: 4285143648215564385, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+  m_FocusModeActionRef: {fileID: -3934952371081919329, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+  m_FireActionRef: {fileID: -5634333432547642407, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
   m_Launchers:
   - {fileID: 485469003720688389}
   m_EngryAddPerGraze: 1.5
@@ -599,31 +463,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_SkillTriggers:
-  - m_TriggerInput:
-      m_Name: Trigger Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 14add3fc-f65f-470a-a986-2972880776d0
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: c8f32636-b834-44ac-8748-780fb0020731
-        m_Path: <Keyboard>/a
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Trigger Input
-        m_Flags: 0
-      - m_Name: 
-        m_Id: b13e9b62-783b-4f76-a8da-684ef4c210c6
-        m_Path: <Gamepad>/buttonNorth
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Trigger Input
-        m_Flags: 0
-      m_Flags: 0
+  - m_TriggerInputRef: {fileID: 2731465035895711497, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
     m_StorgeSkill: {fileID: 11400000, guid: c6c9634cd67c151488a82cedb78b8f2b, type: 2}
     m_Caster: {fileID: 485469004478680681}
     OnSkillCast:
@@ -641,31 +481,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - m_TriggerInput:
-      m_Name: Trigger Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 14add3fc-f65f-470a-a986-2972880776d0
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: c8f32636-b834-44ac-8748-780fb0020731
-        m_Path: <Keyboard>/s
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Trigger Input
-        m_Flags: 0
-      - m_Name: 
-        m_Id: da9c9def-c778-4c15-841c-67d94c13070b
-        m_Path: <Gamepad>/buttonEast
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Trigger Input
-        m_Flags: 0
-      m_Flags: 0
+  - m_TriggerInputRef: {fileID: 692968521640329806, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
     m_StorgeSkill: {fileID: 11400000, guid: 4131e2507853b6348a144709cc971bc4, type: 2}
     m_Caster: {fileID: 485469004478680681}
     OnSkillCast:
@@ -683,31 +499,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - m_TriggerInput:
-      m_Name: Trigger Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 14add3fc-f65f-470a-a986-2972880776d0
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: c8f32636-b834-44ac-8748-780fb0020731
-        m_Path: <Keyboard>/d
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Trigger Input
-        m_Flags: 0
-      - m_Name: 
-        m_Id: 8a6cdae2-b27b-4939-8f2f-e4c6b9554bf2
-        m_Path: <Gamepad>/rightShoulder
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Trigger Input
-        m_Flags: 0
-      m_Flags: 0
+  - m_TriggerInputRef: {fileID: 387926724533050516, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
     m_StorgeSkill: {fileID: 11400000, guid: 6f23d79a4b1f54d4ba1653cd63c29e6a, type: 2}
     m_Caster: {fileID: 485469004478680681}
     OnSkillCast:
@@ -726,31 +518,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   m_ExSkillTrigger:
-    m_TriggerInput:
-      m_Name: Trigger Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 1d16fc42-fc84-4968-9195-51492057de81
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 9751d14e-fe7a-44c9-8807-e3681805546d
-        m_Path: <Keyboard>/space
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Trigger Input
-        m_Flags: 0
-      - m_Name: 
-        m_Id: 25c9bf3a-e9d3-4d40-97ac-e8a9196b3196
-        m_Path: <Gamepad>/leftShoulder
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Trigger Input
-        m_Flags: 0
-      m_Flags: 0
+    m_TriggerInputRef: {fileID: -8885842853169778716, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
     m_StorgeSkill: {fileID: 11400000, guid: 9cd79452656e3534fa6ef79e7eb1d8e1, type: 2}
     m_Caster: {fileID: 485469004478680681}
     OnSkillCast:
