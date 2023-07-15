@@ -107,6 +107,11 @@ namespace SkateGuy.GameFlow
             if (currentEventIndex == eventCount)
             {
                 OnEventAllDone?.Invoke();
+            } else
+            {
+                currentGameEvent = m_GameEvents[currentEventIndex];
+                currentGameEvent.Launch();
+                currentEventIndex++;
             }
         }
     }

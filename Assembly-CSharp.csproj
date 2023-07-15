@@ -120,6 +120,7 @@
     <Compile Include="Assets\BasicShmup\Scripts\Launcher.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\BulletFactory.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleFlash.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\SimpleGameFlower.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillAbsortBullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\Bullet.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IDamageable.cs" />
@@ -176,7 +177,6 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\SimpleGameFlower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Projetc_SkateGuy\Assets\Fonts\TCList.txt" />

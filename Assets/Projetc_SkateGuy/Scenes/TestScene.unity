@@ -669,6 +669,7 @@ MonoBehaviour:
   m_GameEventController:
     m_GameEvents:
     - {fileID: 11400000, guid: 4a22da4c0c5d0534198631a6e8f7e28a, type: 2}
+    - {fileID: 11400000, guid: bbd1a51739b00f74f8fc2ca248cf9468, type: 2}
 --- !u!4 &1670204952
 Transform:
   m_ObjectHideFlags: 0
