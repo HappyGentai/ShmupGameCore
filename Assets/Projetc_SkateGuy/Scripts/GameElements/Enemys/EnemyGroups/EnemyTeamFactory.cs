@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using SkateGuy.GameElements.EnemyGroup;
 
-namespace SkateGuy.GameElements.Factory
+namespace SkateGuy.Factories
 {
     public class EnemyTeamFactory
     {

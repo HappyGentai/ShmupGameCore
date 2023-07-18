@@ -2,9 +2,8 @@ using UnityEngine;
 using SkateGuy.GameElements;
 using SkateGuy.GameElements.PlayerPlus;
 using SkateGuy.GameElements.EnemyGroup;
-using SkateGuy.GameElements.Factory;
-using SkateGuy.TriggerEvents;
 using SkateGuy.Factories;
+using SkateGuy.TriggerEvents;
 using System.Collections;
 using UnityEngine.InputSystem;
 

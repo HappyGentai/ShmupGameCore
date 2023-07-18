@@ -9,6 +9,15 @@ namespace SkateGuy.GameFlow
     {
         [SerializeField]
         private GameEvent[] m_GameEvents = null;
+        public GameEvent[] GameEvents
+        {
+            get { return m_GameEvents; }
+            set
+            {
+                m_GameEvents = value;
+            }
+        }
+
         private GameEvent currentGameEvent = null;
         private int currentEventIndex = 0;
 

@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IShootable.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\GameSettingUI.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\PickUpObjectFactory.cs" />
     <Compile Include="Assets\PluginAsset\SimpleLocalization\Example.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Skills\SkillDataAbsortBullet.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\PluginAsset\RebindingUIExample\Scripts\RebindActionUI.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMoveToPoint.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateAttackWithTime.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\GameController.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\EnemyFactory.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Bullets\Laser.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\JsonHelper.cs" />
@@ -84,9 +86,11 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\EffectTypeAnimation.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\BasicUI.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\AudioVolumeUI.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\GameStates\GamePlayState.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestGameCore.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\DamageResponseTypeClear.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestPlayerUI.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\GameStates\GameState.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateAdiotMove.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InvincibleArea.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Factories\FactoryProduct.cs" />
@@ -153,6 +157,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\LocalizationController.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\Launchers\Launcher.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\EnemyData.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameFlow\GameStates\MenuState.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IDamageable.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SteeringBehaviors.cs" />
     <Compile Include="Assets\PluginAsset\SimpleLocalization\Downloader.cs" />
@@ -175,8 +180,13 @@
     <Compile Include="Assets\PluginAsset\RebindingUIExample\Scripts\ResetDeviceBindings.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\InterFace\IInvincible.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\EnemyStateMove.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\MenuUI.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\GameElements\StageController.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\GamePlayUI.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\GamePauseUI.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\GameEndUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Projetc_SkateGuy\Assets\Fonts\TCList.txt" />

@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using SkateGuy.GameElements.EnemyGroup;
 using SkateGuy.Tool;
-using SkateGuy.GameElements.Factory;
+using SkateGuy.Factories;
 
 namespace SkateGuy.GameFlow.Events
 {
