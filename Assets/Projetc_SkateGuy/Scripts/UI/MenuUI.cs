@@ -1,5 +1,6 @@
 using UnityEngine;
 using SkateGuy.GameFlow;
+using UnityEngine.Events;
 
 namespace SkateGuy.UIs
 {
@@ -8,19 +9,22 @@ namespace SkateGuy.UIs
         [SerializeField]
         private GameSettingUI m_GameSettingUIPrefab = null;
         private GameSettingUI _GameSettingUI = null;
-        public GameFlow.States.GameState m_StateWhenGameStart = null;
+        public UnityEvent OnGameStart = new UnityEvent();
 
         protected override void DoInitialize()
         {
             _GameSettingUI = Instantiate<GameSettingUI>(m_GameSettingUIPrefab);
             _GameSettingUI.Initialize();
+            _GameSettingUI.OnUIClose.AddListener(() => {
+                SetSelectedGameObject(m_SelectedUIOnOpen);
+            });
             _GameSettingUI.Close();
         }
 
         #region For ui button on click event.
         public void StartGame()
         {
-            GameController.ChangeState(m_StateWhenGameStart);
+            OnGameStart?.Invoke();
         }
 
         public void OpenSettingPage()
@@ -36,7 +40,10 @@ namespace SkateGuy.UIs
 
         public override void Close()
         {
-            _GameSettingUI.Close();
+            if (_GameSettingUI.IsOpen)
+            {
+                _GameSettingUI.Close();
+            }
             base.Close();
         }
     }

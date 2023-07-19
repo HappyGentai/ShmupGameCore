@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace SkateGuy.UIs {
     public class ControlRebindingUI : BasicUI
@@ -12,22 +11,10 @@ namespace SkateGuy.UIs {
         private GameObject m_GamepadRebindPage = null;
         [SerializeField]
         private GameObject m_SelectedUIOnGamepadRebinding = null;
-        [Header("About input")]
-        [SerializeField]
-        protected InputActionReference m_CloseAction = null;
-
-        protected override void DoInitialize()
-        {
-            var cancelAction = m_CloseAction.action;
-            cancelAction.Enable();
-            cancelAction.started += (ctx) => {
-                Close();
-            };
-        }
 
         public override void Open()
         {
-            m_UIRoot.SetActive(true);
+            base.Open();
             OpenKeyboardRebindingPage();
         }
 

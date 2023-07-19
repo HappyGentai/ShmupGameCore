@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 namespace SkateGuy.UIs
 {
@@ -16,6 +19,19 @@ namespace SkateGuy.UIs
         {
             get { return _IsInitialize; }
         }
+        private bool isOpen = false;
+        public bool IsOpen
+        {
+            get { return isOpen; }
+            set
+            {
+                isOpen = value;
+            }
+        }
+
+        //  On close and open event
+        public UnityEvent OnUIOpen = new UnityEvent();
+        public UnityEvent OnUIClose = new UnityEvent();
 
         protected virtual void Start()
         {
@@ -31,6 +47,7 @@ namespace SkateGuy.UIs
             {
                 return;
             }
+
             //  Do Initialize 
             DoInitialize();
             //  When successm set _IsInitialize to true.
@@ -49,11 +66,17 @@ namespace SkateGuy.UIs
             {
                 SetSelectedGameObject(m_SelectedUIOnOpen);
             }
+            OnUIOpen?.Invoke();
+            IsOpen = true;
+
+            UIManager.AddOpenUI(this);
         }
 
         public virtual void Close()
         {
+            OnUIClose?.Invoke();
             m_UIRoot.SetActive(false);
+            IsOpen = false;
         }
 
         protected void SetSelectedGameObject(GameObject gameObject)

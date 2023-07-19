@@ -38,7 +38,7 @@ namespace SkateGuy.UIs
         protected override void DoInitialize()
         {
             var maxHP = _Player.MaxHP;
-            m_PlayerHP.fillAmount = _Player.HP / maxHP; ;
+            m_PlayerHP.fillAmount = _Player.HP / maxHP;
             _Player.OnHPChange.AddListener((float currentHp) => {
                 m_PlayerHP.fillAmount = currentHp / maxHP;
             });

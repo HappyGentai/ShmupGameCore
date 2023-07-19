@@ -1,24 +1,29 @@
 using SkateGuy.UIs;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SkateGuy.GameFlow.States
 {
     public class MenuState : GameState
     {
+        private MenuStatePackage _menuStatePackage;
         private MenuUI _menuUI = null;
+        private InputAction _CloseHotKey;
+        private bool IsInitialize = false;
 
         public MenuState(MenuStatePackage menuStatePackage)
         {
-            NextState = menuStatePackage.StateOnGameStart;
-            _menuUI = menuStatePackage.MenuUI;
+            _menuStatePackage = menuStatePackage;
         }
 
         public override void OnEnter()
         {
-            if (!_menuUI.IsInitialize)
+            if (!IsInitialize)
             {
-                _menuUI.Initialize();
+                Initialize();
             }
             _menuUI.Open();
+            _CloseHotKey.Enable();
         }
 
         public override void Track(float dt)
@@ -29,6 +34,28 @@ namespace SkateGuy.GameFlow.States
         public override void OnExit()
         {
             _menuUI.Close();
+            _CloseHotKey.Disable();
+        }
+
+        private void Initialize()
+        {
+            UIManager.Initialize();
+            _CloseHotKey = _menuStatePackage.CloseUIHotKey.action;
+            _CloseHotKey.started += (ctx) => {
+                UIManager.RemoveNewestOpenUI();
+            };
+            if (_menuUI == null)
+            {
+                _menuUI = GameObject.Instantiate<MenuUI>(_menuStatePackage.MenuUI);
+                _menuUI.OnGameStart.AddListener(() => {
+                    GoToNextState();
+                });
+            }
+            if (!_menuUI.IsInitialize)
+            {
+                _menuUI.Initialize();
+            }
+            IsInitialize = true;
         }
     }
 
@@ -36,6 +63,6 @@ namespace SkateGuy.GameFlow.States
     {
         public MenuUI MenuUI;
 
-        public GameState StateOnGameStart;
+        public InputActionReference CloseUIHotKey;
     }
 }

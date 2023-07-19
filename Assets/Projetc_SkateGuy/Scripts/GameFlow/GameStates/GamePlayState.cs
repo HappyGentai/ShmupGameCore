@@ -9,6 +9,7 @@ namespace SkateGuy.GameFlow.States
 {
     public class GamePlayState : GameState
     {
+        private GamePlayStatePackage _gamePlayStatePackage;
         private BasicPlayer _Player = null;
         private Vector2 _BirthPoint = Vector2.zero;
         private PlayerInput _PlayerInput = null;
@@ -24,70 +25,19 @@ namespace SkateGuy.GameFlow.States
         private StageController _StageController = null;
         private AudioSource _BGMPlayer = null;
         private GameEventController _GameEventController = null;
+        private bool IsInitialize = false;
 
         public GamePlayState(GamePlayStatePackage gamePlayStatePackage)
         {
-            //  Create and Initialize player UI.
-            Application.targetFrameRate = gamePlayStatePackage.FPS;
-            //  Create player
-            _Player = GameObject.Instantiate<BasicPlayer>(gamePlayStatePackage.PlayerPrefab);
-            _Player.Initialization();
-            _BirthPoint = gamePlayStatePackage.BirthPoint;
-            //  Set game over event on player die.
-            _Player.OnPlayerDie.AddListener(GameOver);
-            //  Set damage response 
-            _DamageResponse = gamePlayStatePackage.DamageResponseTypeProtect;
-            _DamageResponse.Install(_Player);
-
-            //  Set player input(From input system)
-            _PlayerInput = gamePlayStatePackage.PlayerInput;
-            _GamePlayActionMap = gamePlayStatePackage.GamePlayActionMap;
-            _GameUIActionMap = gamePlayStatePackage.GameUIActionMap;
-
-            //  Create UIs
-            _GamePlayUI = GameObject.Instantiate<GamePlayUI>(gamePlayStatePackage.GamePlayUI);
-            _GamePauseUI = GameObject.Instantiate<GamePauseUI>(gamePlayStatePackage.GamePauseUI);
-            _GameEndUI = GameObject.Instantiate<GameEndUI>(gamePlayStatePackage.GameEndUI);
-            _GamePlayUI.Initialize();
-            _GamePauseUI.Initialize();
-            _GameEndUI.Initialize();
-            //  Set ui event
-            _GamePauseUI.OnRestartGame.AddListener(ReStart);
-            _GameEndUI.OnRestartGame.AddListener(ReStart);
-            _GamePauseUI.OnBackToTitle.AddListener(BackToTitle);
-            _GameEndUI.OnBackToTitle.AddListener(BackToTitle);
-
-            //  Set pause action and event
-            _PauseAction = gamePlayStatePackage.PauseAction.action;
-            _PauseAction.performed += (ctx) => {
-                isPause = !isPause;
-                if (isPause)
-                {
-                    Pause();
-                    _GamePauseUI.Open();
-
-                } else {
-                    Continue();
-                    _GamePauseUI.Close();
-                }
-            };
-
-            //  Create stage controller
-            _StageController = GameObject.Instantiate<StageController>(gamePlayStatePackage.StageController);
-
-            _BGMPlayer = gamePlayStatePackage.BGMPlayer;
-
-            _GameEventController = gamePlayStatePackage.GetGameEventController;
-            _GameEventController.Initialize();
-            //  Set win event when all game event work done.
-            _GameEventController.OnEventAllDone.AddListener(Win);
-
-            NextState = gamePlayStatePackage.StateOnBackToMenu;
+            _gamePlayStatePackage = gamePlayStatePackage;
         }
 
         public override void OnEnter()
         {
-            Debug.Log("Now you in game play state.");
+            if (!IsInitialize)
+            {
+                Initialize();
+            }
             StartGame();
         }
 
@@ -151,6 +101,7 @@ namespace SkateGuy.GameFlow.States
 
         private void StartGame()
         {
+            Continue();
             //  UI set
             _GamePlayUI.Open();
             _GamePauseUI.Close();
@@ -168,24 +119,91 @@ namespace SkateGuy.GameFlow.States
 
             //  Player set
             _Player.WakeUpObject();
+            //  Set Player UI
+            if (!_GamePlayUI.IsInitialize)
+            {
+                _GamePlayUI.SetPlayer(_Player);
+                _GamePlayUI.Initialize();
+            }
             _Player.MoveTarget.localPosition = _BirthPoint;
 
             //  Game event set
-            _GameEventController.GameEvents = _StageController.GameEvents;
             _GameEventController.Reset();
             _GameEventController.StartFlow();
         }
 
         private void ReStart()
         {
-            Continue();
             _GameEventController.CloseGameEvent();
             StartGame();
         }
 
         private void BackToTitle()
         {
+            Debug.Log("Back");
             GoToNextState();
+        }
+
+        private void Initialize()
+        {
+            //  Create and Initialize player UI.
+            Application.targetFrameRate = _gamePlayStatePackage.FPS;
+            //  Create player
+            _Player = GameObject.Instantiate<BasicPlayer>(_gamePlayStatePackage.PlayerPrefab);
+            _Player.Initialization();
+            _BirthPoint = _gamePlayStatePackage.BirthPoint;
+            //  Set game over event on player die.
+            _Player.OnPlayerDie.AddListener(GameOver);
+            //  Set damage response 
+            _DamageResponse = _gamePlayStatePackage.DamageResponseTypeProtect;
+            _DamageResponse.Install(_Player);
+
+            //  Set player input(From input system)
+            _PlayerInput = _gamePlayStatePackage.PlayerInput;
+            _GamePlayActionMap = _gamePlayStatePackage.GamePlayActionMap;
+            _GameUIActionMap = _gamePlayStatePackage.GameUIActionMap;
+
+            //  Create UIs
+            _GamePlayUI = GameObject.Instantiate<GamePlayUI>(_gamePlayStatePackage.GamePlayUI);
+            _GamePauseUI = GameObject.Instantiate<GamePauseUI>(_gamePlayStatePackage.GamePauseUI);
+            _GameEndUI = GameObject.Instantiate<GameEndUI>(_gamePlayStatePackage.GameEndUI);
+            _GamePauseUI.Initialize();
+            _GameEndUI.Initialize();
+            //  Set ui event
+            _GamePauseUI.OnRestartGame.AddListener(ReStart);
+            _GameEndUI.OnRestartGame.AddListener(ReStart);
+            _GamePauseUI.OnBackToTitle.AddListener(BackToTitle);
+            _GameEndUI.OnBackToTitle.AddListener(BackToTitle);
+
+            //  Set pause action and event
+            _PauseAction = _gamePlayStatePackage.PauseAction.action;
+            _PauseAction.performed += (ctx) => {
+                isPause = !isPause;
+
+                if (isPause)
+                {
+                    Pause();
+                    _GamePauseUI.Open();
+
+                }
+                else
+                {
+                    Continue();
+                    UIManager.RemoveNewestOpenUI();
+                }
+            };
+
+            //  Create stage controller
+            _StageController = GameObject.Instantiate<StageController>(_gamePlayStatePackage.StageController);
+
+            _BGMPlayer = _gamePlayStatePackage.BGMPlayer;
+
+            _GameEventController = _gamePlayStatePackage.GameEventController;
+            _GameEventController.GameEvents = _StageController.GameEvents;
+            _GameEventController.Initialize();
+            //  Set win event when all game event work done.
+            _GameEventController.OnEventAllDone.AddListener(Win);
+            IsInitialize = true;
         }
     }
 
@@ -215,9 +233,7 @@ namespace SkateGuy.GameFlow.States
 
         public AudioSource BGMPlayer;
 
-        public GameEventController GetGameEventController;
-
-        public GameState StateOnBackToMenu;
+        public GameEventController GameEventController;
 
         public int FPS;
     }

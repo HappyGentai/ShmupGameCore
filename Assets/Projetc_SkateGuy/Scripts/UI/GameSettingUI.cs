@@ -17,6 +17,12 @@ namespace SkateGuy.UIs
             _AudioVolumeUI = Instantiate<AudioVolumeUI>(m_AudioVolumeUIPrefab);
             _ControlRebindingUI.Initialize();
             _AudioVolumeUI.Initialize();
+            _ControlRebindingUI.OnUIClose.AddListener(() => {
+                SetSelectedGameObject(m_SelectedUIOnOpen);
+            });
+            _AudioVolumeUI.OnUIClose.AddListener(() => {
+                SetSelectedGameObject(m_SelectedUIOnOpen);
+            });
             _ControlRebindingUI.Close();
             _AudioVolumeUI.Close();
         }
@@ -36,8 +42,14 @@ namespace SkateGuy.UIs
         public override void Close()
         {
             // optional, save setting from audio and control setting UI.
-            _ControlRebindingUI.Close();
-            _AudioVolumeUI.Close();
+            if (_ControlRebindingUI.IsOpen)
+            {
+                _ControlRebindingUI.Close();
+            }
+            if (_AudioVolumeUI.IsOpen)
+            {
+                _AudioVolumeUI.Close();
+            }
             base.Close();
         }
     }

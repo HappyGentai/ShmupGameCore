@@ -1,13 +1,14 @@
 using UnityEngine;
 using SkateGuy.GameFlow.States;
+using UnityEngine.InputSystem;
 
 namespace SkateGuy.GameFlow
 {
     public class GameController : MonoBehaviour
     {
-        private static GameController _inti = null;
+        protected static GameController _inti = null;
 
-        private GameState _CurrentState = null;
+        protected GameState _CurrentState = null;
 
         private void Awake()
         {
