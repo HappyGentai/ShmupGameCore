@@ -38,6 +38,7 @@ namespace SkateGuy.GameFlow.States
             {
                 Initialize();
             }
+            _PlayerInput.DeactivateInput();
             StartGame();
         }
 
@@ -90,13 +91,15 @@ namespace SkateGuy.GameFlow.States
         private void Pause()
         {
             Time.timeScale = 0;
-            _PlayerInput.SwitchCurrentActionMap(_GameUIActionMap);
+            //_PlayerInput.SwitchCurrentActionMap(_GameUIActionMap);
+            _PlayerInput.DeactivateInput();
         }
 
         private void Continue()
         {
             Time.timeScale = 1;
-            _PlayerInput.SwitchCurrentActionMap(_GamePlayActionMap);
+            //_PlayerInput.SwitchCurrentActionMap(_GamePlayActionMap);
+            _PlayerInput.ActivateInput();
         }
 
         private void StartGame()
@@ -130,6 +133,8 @@ namespace SkateGuy.GameFlow.States
             //  Game event set
             _GameEventController.Reset();
             _GameEventController.StartFlow();
+
+            _PlayerInput.ActivateInput();
         }
 
         private void ReStart()

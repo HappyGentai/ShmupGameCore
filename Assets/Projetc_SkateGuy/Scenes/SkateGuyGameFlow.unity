@@ -157,7 +157,7 @@ MonoBehaviour:
   m_CloseUIHotKey: {fileID: -8136113228192233558, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
   m_GamePlayUIPrefab: {fileID: 3958655218100239566, guid: 75bb5f0852c7c304f890c17d3fb4c2ba, type: 3}
   m_GamePauseUIPrefab: {fileID: 2685903237757066600, guid: d19a9d3e76c69b948b927659c169795c, type: 3}
-  m_PauseAction: {fileID: -7309977102701349755, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
+  m_PauseAction: {fileID: -7489679945238328589, guid: 1e66758587a16564aa8dae9d3a992c0e, type: 3}
   m_GameEndUI: {fileID: 358515104060834827, guid: 6324918cd13a8804fa7b232f8aae7ef4, type: 3}
   m_BasicPlayerPrefab: {fileID: 485469004478680681, guid: f01bcbfdf05d5494482ac0d38366aa48, type: 3}
   m_BirthPoint: {x: -5.7, y: 0.21}
@@ -168,8 +168,6 @@ MonoBehaviour:
     m_ProtectDuration: 0.75
   m_StageController: {fileID: 207924618668050034, guid: c68cd0e885c95e54a9f824d8d5966079, type: 3}
   m_BGMPlayer: {fileID: 979111838}
-  m_GameEventController:
-    m_GameEvents: []
   m_GameFPS: 60
 --- !u!4 &102358813
 Transform:
