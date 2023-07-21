@@ -189,6 +189,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\MenuUI.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\DuplicateCharCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Projetc_SkateGuy\Assets\Fonts\TCList.txt" />

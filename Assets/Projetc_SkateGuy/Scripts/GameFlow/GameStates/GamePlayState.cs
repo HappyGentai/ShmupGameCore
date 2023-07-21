@@ -145,7 +145,6 @@ namespace SkateGuy.GameFlow.States
 
         private void BackToTitle()
         {
-            Debug.Log("Back");
             GoToNextState();
         }
 

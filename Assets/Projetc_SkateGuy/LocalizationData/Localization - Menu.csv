@@ -14,6 +14,7 @@ Menu.Control_SkillA,SkillA,技能A
 Menu.Control_SkillB,SkillB,技能B
 Menu.Control_SkillC,SkillC,技能C
 Menu.Control_EXSkill,EX Skill,EX技
+Menu.Control_Pause,Pause,暫停
 Menu.Control_Duplicate,DuplicateBinding found:  {0},發現已設置按鈕: {0}
 Menu.Control_Binding,Binding {0}.,設置 {0}。
 Menu.Control_Wait,{0}Waiting for input...,{0}等待輸入...
@@ -21,3 +22,13 @@ Menu.Audio_Title,Audio Setting,音量控制
 Menu.Audio_Main,Main,整體音量
 Menu.Audio_BGM,BGM,背景樂
 Menu.Audio_SFX,SFX,音效
+Menu.GameEnd_Win,WIN,勝利
+Menu.GameEnd_Lose,Lose,失敗
+Menu.System_Restart,Restart,重來
+Menu.System_BackToTitle,BackToTitle,回到標題
+Menu.System_Close,Close,關閉
+Menu.Setting_Title,Setting,設定
+Menu.Setting_TC,TraditionalChinese,繁體中文
+Menu.Setting_EN,English,英文
+Menu.StartNenu_Start,Start,開始
+Menu.StartNenu_Quit,Quit,離開
