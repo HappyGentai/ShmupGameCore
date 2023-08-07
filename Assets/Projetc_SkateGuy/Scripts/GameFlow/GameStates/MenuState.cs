@@ -42,7 +42,7 @@ namespace SkateGuy.GameFlow.States
             UIManager.Initialize();
             _CloseHotKey = _menuStatePackage.CloseUIHotKey.action;
             _CloseHotKey.started += (ctx) => {
-                UIManager.RemoveNewestOpenUI();
+                UIManager.RemoveNewestOpenUI(CommandCallingFrom.OTHERSIDE);
             };
             if (_menuUI == null)
             {

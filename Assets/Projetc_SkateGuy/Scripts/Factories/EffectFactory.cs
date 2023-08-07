@@ -26,6 +26,26 @@ namespace SkateGuy.Factories
             effectPools.Add(newEffectPool);
             return newEffectPool.GetEffect();
         }
+
+        public static void ReleaseAll()
+        {
+            var poolsCount = effectPools.Count;
+            for (int index = 0; index < poolsCount; ++index)
+            {
+                var effectPool = effectPools[index];
+                effectPool.ReleaseAll();
+            }
+        }
+
+        public static void DisposeAll()
+        {
+            var poolsCount = effectPools.Count;
+            for (int index = 0; index < poolsCount; ++index)
+            {
+                var effectPool = effectPools[index];
+                effectPool.Dispose();
+            }
+        }
     }
 
     public class EffectPool

@@ -204,17 +204,6 @@
                 },
                 {
                     "name": "",
-                    "id": "85676151-b4d9-4cf6-b2b3-5fdf61b6b433",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "FIRE",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "1fa52a0f-b8ad-4186-959e-a50e5261f5a3",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -226,12 +215,12 @@
                 },
                 {
                     "name": "",
-                    "id": "1d100329-927e-49ca-bd65-e1eeff1a8a26",
-                    "path": "<Keyboard>/a",
+                    "id": "d9807361-71e7-4599-bd7b-8e41ddde641c",
+                    "path": "<Keyboard>/#(Z)",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "SKILLA",
+                    "action": "FIRE",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -248,12 +237,12 @@
                 },
                 {
                     "name": "",
-                    "id": "9ae738ae-4927-479b-83c2-06309d93211a",
-                    "path": "<Keyboard>/s",
+                    "id": "82381a84-cc92-4c49-9193-340dc90fedce",
+                    "path": "<Keyboard>/#(A)",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "SKILLB",
+                    "action": "SKILLA",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -270,12 +259,12 @@
                 },
                 {
                     "name": "",
-                    "id": "af92498f-8312-48c9-8730-f0bb0af379e0",
-                    "path": "<Keyboard>/d",
+                    "id": "d8c4924e-c185-4699-a063-6a19332711a0",
+                    "path": "<Keyboard>/#(S)",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "SKILLC",
+                    "action": "SKILLB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -286,6 +275,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "SKILLC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e0f5d89-f7f1-4fb4-a70c-95d2045d052e",
+                    "path": "<Keyboard>/#(D)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
                     "action": "SKILLC",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -641,22 +641,22 @@
                 },
                 {
                     "name": "",
-                    "id": "cb9d51a0-85d9-4ca4-891c-8b4a0847b730",
-                    "path": "<Keyboard>/z",
+                    "id": "71e27fc2-ff88-4cf1-9f92-c9ea2573190f",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Gamepad",
                     "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "71e27fc2-ff88-4cf1-9f92-c9ea2573190f",
-                    "path": "<Gamepad>/buttonSouth",
+                    "id": "b91630b1-c75c-4a12-8e5d-c51f1b06e1c8",
+                    "path": "<Keyboard>/#(Z)",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Keyboard",
                     "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using System.Collections.Generic;
 
 namespace SkateGuy.UIs
 {
@@ -12,6 +10,8 @@ namespace SkateGuy.UIs
         protected GameObject m_UIRoot = null;
         [SerializeField]
         protected GameObject m_SelectedUIOnOpen = null;
+        [SerializeField]
+        protected CanvasGroup m_CanvasGroup = null;
         [SerializeField]
         private bool m_AutoInitializeOnStart = false;
         protected bool _IsInitialize = false;
@@ -26,6 +26,19 @@ namespace SkateGuy.UIs
             set
             {
                 isOpen = value;
+            }
+        }
+
+        private bool _UIInteractive = true;
+        public bool UIInteractive
+        {
+            get { return _UIInteractive; }
+            set
+            {
+                if (m_CanvasGroup != null)
+                {
+                    m_CanvasGroup.interactable = value;
+                }
             }
         }
 
@@ -62,6 +75,9 @@ namespace SkateGuy.UIs
         public virtual void Open()
         {
             m_UIRoot.SetActive(true);
+
+            UIInteractive = true;
+
             if (m_SelectedUIOnOpen != null)
             {
                 SetSelectedGameObject(m_SelectedUIOnOpen);
@@ -77,6 +93,7 @@ namespace SkateGuy.UIs
             OnUIClose?.Invoke();
             m_UIRoot.SetActive(false);
             IsOpen = false;
+            UIManager.RemoveNewestOpenUI(CommandCallingFrom.BASICUI);
         }
 
         protected void SetSelectedGameObject(GameObject gameObject)

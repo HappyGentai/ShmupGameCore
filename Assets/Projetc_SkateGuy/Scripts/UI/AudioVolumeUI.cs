@@ -36,24 +36,39 @@ namespace SkateGuy.UIs
 
         public void SetMainVolume(float value)
         {
-            m_AudioMixer.SetFloat(m_MainName, Mathf.Log10(value) * 20);
+            if (!IsOpen)
+            {
+                return;
+            }
+            //m_AudioMixer.SetFloat(m_MainName, Mathf.Log10(value) * 20);
+            m_AudioMixer.SetFloat(m_MainName, value);
         }
 
         public void SetBGMVolume(float value)
         {
-            m_AudioMixer.SetFloat(m_BGMName, Mathf.Log10(value) * 20);
+            if (!IsOpen)
+            {
+                return;
+            }
+            //m_AudioMixer.SetFloat(m_BGMName, Mathf.Log10(value) * 20);
+            m_AudioMixer.SetFloat(m_BGMName, value);
         }
 
         public void SetSFXVolume(float value)
         {
-            m_AudioMixer.SetFloat(m_SFXName, Mathf.Log10(value) * 20);
+            if (!IsOpen)
+            {
+                return;
+            }
+            //m_AudioMixer.SetFloat(m_SFXName, Mathf.Log10(value) * 20);
+            m_AudioMixer.SetFloat(m_SFXName, value);
         }
 
         private float GetVolumeValue(string name)
         {
             var volume = 0f;
             m_AudioMixer.GetFloat(name, out volume);
-            volume = Mathf.Pow(10, volume);
+            //volume = Mathf.Pow(10, volume);
             return volume;
         }
 

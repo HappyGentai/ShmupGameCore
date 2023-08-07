@@ -62,6 +62,8 @@ namespace SkateGuy.GameFlow.States
 
         private void Win()
         {
+            _PauseAction.Disable();
+
             _GameEventController.CloseGameEvent();
             _Player.SleepObject();
             _Player.Invincible = true;
@@ -70,6 +72,8 @@ namespace SkateGuy.GameFlow.States
 
         private void GameOver()
         {
+            _PauseAction.Disable();
+
             _GameEventController.CloseGameEvent();
             //  Stop all alive enemys
             var aliveEnemys = EnemyFactory.GetAliveEnemys();
@@ -145,6 +149,7 @@ namespace SkateGuy.GameFlow.States
 
         private void BackToTitle()
         {
+            _Player.SleepObject();
             GoToNextState();
         }
 
@@ -193,7 +198,7 @@ namespace SkateGuy.GameFlow.States
                 else
                 {
                     Continue();
-                    UIManager.RemoveNewestOpenUI();
+                    UIManager.RemoveNewestOpenUI(CommandCallingFrom.OTHERSIDE);
                 }
             };
 

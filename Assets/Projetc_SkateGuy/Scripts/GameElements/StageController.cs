@@ -47,6 +47,10 @@ namespace SkateGuy.GameElements {
             EnemyFactory.ReleaseAll();
             //  Recycle all old team
             EnemyTeamFactory.ReleaseAll();
+            //  Recycle all old pick up object
+            PickUpObjectFactory.ReleaseAll();
+            //  Recycle all old effect
+            EffectFactory.ReleaseAll();
         }
     }
 }

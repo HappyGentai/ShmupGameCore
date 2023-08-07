@@ -132,6 +132,7 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\GameEndUI.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Interfaces\IDamageable.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\BulletFactory.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\DuplicateCharCheck.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\LocalizedTextForTextMeshPro.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\States\PlayerStateBasicControl.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\CoroutineAgent.cs" />
@@ -189,7 +190,6 @@
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\UI\MenuUI.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\SimpleInput.cs" />
     <Compile Include="Assets\Projetc_SkateGuy\Scripts\Test\TestShooter.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Tool\DuplicateCharCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Projetc_SkateGuy\Assets\Fonts\TCList.txt" />
