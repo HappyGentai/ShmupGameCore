@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MoveTarget: {fileID: 485469004478680677}
-  m_MaxHP: 30
+  m_MaxHP: 10
   m_HP: 0
   m_Invincible: 0
   m_MaxGrazeCounter: 100

@@ -180,7 +180,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_00
+      name: Bullets_Enemy_01
       rect:
         serializedVersion: 2
         x: 162
@@ -201,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_01
+      name: Bullets_Enemy_02
       rect:
         serializedVersion: 2
         x: 212
@@ -251,7 +251,7 @@ TextureImporter:
         width: 42
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,7 +272,7 @@ TextureImporter:
         width: 42
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -280,6 +280,48 @@ TextureImporter:
       bones: []
       spriteID: 99ca768b5a2354746acc841f2a5aa266
       internalID: 1424135340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullets_Enemy_03
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 18
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63197a18393ed654db854a4f2d5d1238
+      internalID: -432451018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullets_Enemy_04
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 18
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c51d2f239e697cc4d8482298c64ca515
+      internalID: 1616878960
       vertices: []
       indices: 
       edges: []
@@ -299,11 +341,13 @@ TextureImporter:
       Player_04: -456308360
       Player_Missile00: 1424135340
       Player_Missile02: -816667381
-      Enemy_01: -665698276
+      Bullets_Enemy_04: 1616878960
       Bullets_Enemy_00: 1913706682
-      Enemy_00: 944107703
+      Bullets_Enemy_02: -665698276
       Player_Missile01: 929258179
+      Bullets_Enemy_01: 944107703
       Player_00: 1767680877
+      Bullets_Enemy_03: -432451018
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

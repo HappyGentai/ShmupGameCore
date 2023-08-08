@@ -89,6 +89,7 @@ AudioMixerController:
     - 518ee42a3f153a14cb2601a0488953c0
     - 9e844c98fd705fc4286eb65133a6db91
     - 187a07911e4b9c94d8f45e3c3d416103
+    - cba9bc5361dc0dc49866e956c210e668
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -144,6 +145,7 @@ AudioMixerSnapshotController:
     c4c07d354d391e04f926f25ddb2f3149: 0.5
     d4e8ddd9b878cc1478e3d23d038a6e4f: -27.5
     ce13336cd66ea784a9711f555496eb23: 20000
+    207f13fefb0d05d43be13f58a8fc44f4: 4.648096
   m_TransitionOverrides: {}
 --- !u!243 &2855632910771727684
 AudioMixerGroupController:
@@ -156,6 +158,7 @@ AudioMixerGroupController:
   m_GroupID: 9e844c98fd705fc4286eb65133a6db91
   m_Children:
   - {fileID: 7172787387260947903}
+  - {fileID: 3225219548572088384}
   m_Volume: b7994f8037b97714d991774daaf8c65e
   m_Pitch: a14963a3a6694da4b8000e03d525dc2d
   m_Send: 00000000000000000000000000000000
@@ -165,6 +168,39 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &3225219548572088384
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Laser
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: cba9bc5361dc0dc49866e956c210e668
+  m_Children: []
+  m_Volume: 207f13fefb0d05d43be13f58a8fc44f4
+  m_Pitch: 4d5b1408aebe7ef43bec411efa0a1e66
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 3457215490700585733}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &3457215490700585733
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 3829feb0358d37f46b94f1badc836c78
+  m_EffectName: Attenuation
+  m_MixLevel: b86c1a3429dc00549a8fe4e60940db38
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &7172787387260947903
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

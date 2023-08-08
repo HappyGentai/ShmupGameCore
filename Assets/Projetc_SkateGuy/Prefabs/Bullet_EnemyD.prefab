@@ -123,6 +123,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_HitEffect: {fileID: 0}
+  m_PickUpObject: {fileID: 0}
   m_MaxSeekForce: 0.5
   m_TargetLayer:
     serializedVersion: 2
