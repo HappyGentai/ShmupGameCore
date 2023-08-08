@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe6187bf28d73544b8e7ed6995e25f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StartLanguage: 1
+  m_StartLanguage: 0
   m_LocalizationFiles:
   - {fileID: 4900000, guid: 163715dd1e862d44f91bb14975631ae1, type: 3}
 --- !u!4 &619699293

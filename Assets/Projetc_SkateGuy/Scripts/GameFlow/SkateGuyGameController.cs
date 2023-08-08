@@ -46,6 +46,9 @@ namespace SkateGuy.GameFlow
 
         public void Start()
         {
+            //  Hide Cursor
+            Cursor.visible = false;
+
             //  Set first state and work
             var menuStagePackage = new MenuStatePackage();
             menuStagePackage.MenuUI = m_MenuUIPrefab;
