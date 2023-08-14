@@ -28,17 +28,27 @@ namespace SkateGuy.UIs
             }
         }
 
+        public override void Open()
+        {
+            base.Open();
+        }
+
+        public override void Close()
+        {
+            base.Close();
+        }
+
         #region Function for ui button
         public void RestartGame()
         {
             OnRestartGame?.Invoke();
-            this.Close();
+            //this.Close();
         }
 
         public void BackToTitle()
         {
             OnBackToTitle?.Invoke();
-            this.Close();
+            //this.Close();
         }
         #endregion
     }

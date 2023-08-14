@@ -182,8 +182,8 @@ namespace SkateGuy.GameElements
         protected override void Die()
         {
             base.Die();
-            //  Do die event, can call WakeUpObject to re set data
-            OnPlayerDie?.Invoke();
+            ////  Do die event, can call WakeUpObject to re set data
+            //OnPlayerDie?.Invoke();
             this.gameObject.SetActive(false);
         }
 
