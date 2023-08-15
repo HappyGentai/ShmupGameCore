@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.GameElements;
-using SkateGuy.Factories;
+using GrazerCore.GameElements;
+using GrazerCore.Factories;
 
-namespace SkateGuy.Skills
+namespace GrazerCore.Skills
 {
     public class SkillAbsortBullet : Skill
     {

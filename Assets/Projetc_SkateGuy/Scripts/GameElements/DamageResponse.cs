@@ -1,4 +1,4 @@
-namespace SkateGuy.GameElements.PlayerPlus
+namespace GrazerCore.GameElements.PlayerPlus
 {
     /// <summary>
     /// Will trigger when Class-PlayableObject damaged.

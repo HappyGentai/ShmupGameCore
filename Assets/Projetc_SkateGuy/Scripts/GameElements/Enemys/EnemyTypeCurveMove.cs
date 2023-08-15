@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
-using SkateGuy.Tool;
-using SkateGuy.States.EnemyStates;
-using SkateGuy.GameElements.EnemyLogicData;
+using GrazerCore.Tool;
+using GrazerCore.States.EnemyStates;
+using GrazerCore.GameElements.EnemyLogicData;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class EnemyTypeCurveMove : Enemy, ILogicDataSetable
     {

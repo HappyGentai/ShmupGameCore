@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.States.EnemyStates;
+using GrazerCore.States.EnemyStates;
 using UnityEngine.Events;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class Boss : Enemy
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Datas
+namespace GrazerCore.Datas
 {
     [CreateAssetMenu(fileName = "SkillDataAbsortBullet", menuName = "SkateGuy/SkillDatas/AbsortBullet")]
     public class SkillDataAbsortBullet : SkillData<BasicPlayer>

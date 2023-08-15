@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
-using SkateGuy.Datas;
-using SkateGuy.GameElements;
+using GrazerCore.Datas;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Skills
+namespace GrazerCore.Skills
 {
     /// <summary>
     /// Use to cast skill

@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using SkateGuy.Factories;
+using GrazerCore.Factories;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class BulletTypeAbsort : Bullet
     {

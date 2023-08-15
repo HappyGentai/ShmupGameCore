@@ -1,11 +1,11 @@
 using UnityEngine;
-using SkateGuy.GameElements;
-using SkateGuy.GameElements.PlayerPlus;
-using SkateGuy.UIs;
-using SkateGuy.Factories;
+using GrazerCore.GameElements;
+using GrazerCore.GameElements.PlayerPlus;
+using GrazerCore.UIs;
+using GrazerCore.Factories;
 using UnityEngine.InputSystem;
 
-namespace SkateGuy.GameFlow.States
+namespace GrazerCore.GameFlow.States
 {
     public class GamePlayState : GameState
     {

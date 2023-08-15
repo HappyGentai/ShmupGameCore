@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
-using SkateGuy.States;
-using SkateGuy.Effects;
-using SkateGuy.Factories;
+using GrazerCore.States;
+using GrazerCore.Effects;
+using GrazerCore.Factories;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public abstract class PlayableObject : MonoBehaviour, IDamageable
     {

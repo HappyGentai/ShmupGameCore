@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 using UnityEngine.InputSystem;
 
-namespace SkateGuy.Test {
+namespace GrazerCore.Test {
     public class TestPlayerUI : MonoBehaviour
     {
         [SerializeField]

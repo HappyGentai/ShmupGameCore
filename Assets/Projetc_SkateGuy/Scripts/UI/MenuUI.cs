@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.GameFlow;
+using GrazerCore.GameFlow;
 using UnityEngine.Events;
 
-namespace SkateGuy.UIs
+namespace GrazerCore.UIs
 {
     public class MenuUI : BasicUI
     {

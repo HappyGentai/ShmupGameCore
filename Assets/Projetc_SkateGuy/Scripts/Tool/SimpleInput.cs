@@ -2,7 +2,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SkateGuy.Tool
+namespace GrazerCore.Tool
 {
     public class SimpleInput : MonoBehaviour
     {

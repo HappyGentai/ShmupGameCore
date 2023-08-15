@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
-using SkateGuy.Effects;
-using SkateGuy.Factories;
+using GrazerCore.Effects;
+using GrazerCore.Factories;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class Bullet : MonoBehaviour, IRecycleable
     {

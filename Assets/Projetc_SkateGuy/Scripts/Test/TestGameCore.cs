@@ -1,13 +1,13 @@
 using UnityEngine;
-using SkateGuy.GameElements;
-using SkateGuy.GameElements.PlayerPlus;
-using SkateGuy.GameElements.EnemyGroup;
-using SkateGuy.Factories;
-using SkateGuy.TriggerEvents;
+using GrazerCore.GameElements;
+using GrazerCore.GameElements.PlayerPlus;
+using GrazerCore.GameElements.EnemyGroup;
+using GrazerCore.Factories;
+using GrazerCore.TriggerEvents;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-namespace SkateGuy.Test
+namespace GrazerCore.Test
 {
     public class TestGameCore : MonoBehaviour
     {

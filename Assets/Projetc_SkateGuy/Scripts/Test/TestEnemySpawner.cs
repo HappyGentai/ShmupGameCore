@@ -1,9 +1,9 @@
 
 using UnityEngine;
-using SkateGuy.GameElements;
-using SkateGuy.Factories;
+using GrazerCore.GameElements;
+using GrazerCore.Factories;
 
-namespace SkateGuy.Test
+namespace GrazerCore.Test
 {
     public class TestEnemySpawner : MonoBehaviour
     {

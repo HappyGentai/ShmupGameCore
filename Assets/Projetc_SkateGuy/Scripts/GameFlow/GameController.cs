@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.GameFlow.States;
+using GrazerCore.GameFlow.States;
 using UnityEngine.InputSystem;
 
-namespace SkateGuy.GameFlow
+namespace GrazerCore.GameFlow
 {
     public class GameController : MonoBehaviour
     {

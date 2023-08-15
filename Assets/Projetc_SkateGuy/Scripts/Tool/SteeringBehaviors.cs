@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SkateGuy.Tool
+namespace GrazerCore.Tool
 {
     public class SteeringBehaviors
     {

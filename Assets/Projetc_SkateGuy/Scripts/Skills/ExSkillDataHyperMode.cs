@@ -1,7 +1,7 @@
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Datas
+namespace GrazerCore.Datas
 {
     [CreateAssetMenu(fileName = "ExSkillDataHyperMode", menuName = "SkateGuy/ExSkillDatas/HyperMode")]
     public class ExSkillDataHyperMode : SkillData<BasicPlayer>

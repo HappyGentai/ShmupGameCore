@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.Skills;
+using GrazerCore.Skills;
 using UnityEngine.Events;
 
-namespace SkateGuy.Datas
+namespace GrazerCore.Datas
 {
     public abstract class SkillData<T> : ScriptableObject
     {

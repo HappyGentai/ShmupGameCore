@@ -1,10 +1,10 @@
 using UnityEngine;
-using SkateGuy.GameFlow.States;
-using SkateGuy.UIs;
-using SkateGuy.GameElements;
-using SkateGuy.GameElements.PlayerPlus;
+using GrazerCore.GameFlow.States;
+using GrazerCore.UIs;
+using GrazerCore.GameElements;
+using GrazerCore.GameElements.PlayerPlus;
 
-namespace SkateGuy.GameFlow
+namespace GrazerCore.GameFlow
 {
     public class SkateGuyGameController : GameController
     {

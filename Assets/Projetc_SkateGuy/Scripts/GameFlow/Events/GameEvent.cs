@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SkateGuy.GameFlow.Events
+namespace GrazerCore.GameFlow.Events
 {
     public abstract class GameEvent : ScriptableObject
     {

@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using SkateGuy.GameElements;
-using SkateGuy.Tool;
+using GrazerCore.GameElements;
+using GrazerCore.Tool;
 
-namespace SkateGuy.Skills
+namespace GrazerCore.Skills
 {
     /// <summary>
     /// When cast will cancel enemy bullet in range and heal player,

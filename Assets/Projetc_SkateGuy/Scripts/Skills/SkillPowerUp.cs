@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Skills
+namespace GrazerCore.Skills
 {
     public class SkillPowerUp : Skill
     {

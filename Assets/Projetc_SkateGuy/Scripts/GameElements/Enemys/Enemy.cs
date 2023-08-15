@@ -1,10 +1,10 @@
 using UnityEngine;
-using SkateGuy.States;
-using SkateGuy.Effects;
-using SkateGuy.Factories;
+using GrazerCore.States;
+using GrazerCore.Effects;
+using GrazerCore.Factories;
 using UnityEngine.Events;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public abstract class Enemy : MonoBehaviour, IRecycleable, IDamageable, IInvincible, IShootable
     {

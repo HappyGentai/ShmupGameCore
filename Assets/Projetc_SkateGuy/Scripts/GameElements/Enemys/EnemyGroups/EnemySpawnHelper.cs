@@ -1,7 +1,7 @@
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Editor
+namespace GrazerCore.Editor
 {
     public class EnemySpawnHelper : MonoBehaviour
     {

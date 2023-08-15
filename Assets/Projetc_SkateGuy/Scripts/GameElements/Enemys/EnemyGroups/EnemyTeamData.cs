@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SkateGuy.GameElements.EnemyGroup
+namespace GrazerCore.GameElements.EnemyGroup
 {
     [System.Serializable]
     public class EnemyTeamData

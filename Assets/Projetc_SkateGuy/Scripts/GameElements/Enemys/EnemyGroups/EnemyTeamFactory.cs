@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
-using SkateGuy.GameElements.EnemyGroup;
+using GrazerCore.GameElements.EnemyGroup;
 
-namespace SkateGuy.Factories
+namespace GrazerCore.Factories
 {
     public class EnemyTeamFactory
     {

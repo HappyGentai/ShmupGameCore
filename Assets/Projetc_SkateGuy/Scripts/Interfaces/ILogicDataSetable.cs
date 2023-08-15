@@ -1,4 +1,4 @@
-namespace SkateGuy
+namespace GrazerCore
 {
     /// <summary>
     /// Used to get target class data or set data let target class deal it.

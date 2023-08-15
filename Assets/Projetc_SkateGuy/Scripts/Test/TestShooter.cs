@@ -1,7 +1,7 @@
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Test
+namespace GrazerCore.Test
 {
     public class TestShooter : MonoBehaviour
     {

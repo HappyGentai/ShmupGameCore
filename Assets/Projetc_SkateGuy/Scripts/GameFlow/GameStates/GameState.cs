@@ -1,4 +1,4 @@
-namespace SkateGuy.GameFlow.States
+namespace GrazerCore.GameFlow.States
 {
     public abstract class GameState
     {

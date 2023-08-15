@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SkateGuy.Tool {
+namespace GrazerCore.Tool {
     public class LineLerp
     {
         public static Vector3 Quadraticlerp(Vector3 p1, Vector3 p2, Vector3 p3, float t)

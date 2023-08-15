@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace SkateGuy.GameElements.PlayerPlus
+namespace GrazerCore.GameElements.PlayerPlus
 {
     [System.Serializable]
     public class DamageResponseTypeProtect : DamageResponse

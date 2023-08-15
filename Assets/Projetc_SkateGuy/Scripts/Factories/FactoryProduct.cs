@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SkateGuy.Factories
+namespace GrazerCore.Factories
 {
     public struct FactoryProduct
     {

@@ -3,7 +3,7 @@ using TMPro;
 using Assets.SimpleLocalization;
 using UnityEngine.Events;
 
-namespace SkateGuy.UIs
+namespace GrazerCore.UIs
 {
     public class GameEndUI : BasicUI
     {

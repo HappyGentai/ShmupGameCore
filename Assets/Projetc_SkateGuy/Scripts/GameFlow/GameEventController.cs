@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.GameFlow.Events;
+using GrazerCore.GameFlow.Events;
 using UnityEngine.Events;
 
-namespace SkateGuy.GameFlow
+namespace GrazerCore.GameFlow
 {
     [System.Serializable]
     public class GameEventController

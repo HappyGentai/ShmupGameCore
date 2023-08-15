@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.TriggerEvents
+namespace GrazerCore.TriggerEvents
 {
     public class DamagedHint : MonoBehaviour
     {

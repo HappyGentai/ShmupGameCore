@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 using UnityEngine.Pool;
 
-namespace SkateGuy.Factories
+namespace GrazerCore.Factories
 {
     public class PickUpObjectFactory
     {
@@ -61,6 +61,8 @@ namespace SkateGuy.Factories
         private ObjectPool<PickUpObject> pickUpObjectPool = null;
         private List<PickUpObject> aliveObject = new List<PickUpObject>();
 
+        private GameObject storagePlace = null;
+
         public PickUpObjectPool(PickUpObject _CorePickUpObject)
         {
             m_CorePickUpObject = _CorePickUpObject;
@@ -97,6 +99,12 @@ namespace SkateGuy.Factories
             {
                 pickUpObjectPool.Release(newPickUpObject);
             });
+            if (storagePlace == null)
+            {
+                storagePlace = new GameObject("PickUpPoolItem_"+ m_CorePickUpObject.name);
+                storagePlace.transform.localPosition = Vector3.zero;
+            }
+            newPickUpObject.transform.parent = storagePlace.transform;
             return newPickUpObject;
         }
 

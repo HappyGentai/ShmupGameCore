@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using Assets.SimpleLocalization;
 
-namespace SkateGuy.Tool
+namespace GrazerCore.Tool
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class LocalizedTextForTextMeshPro : MonoBehaviour

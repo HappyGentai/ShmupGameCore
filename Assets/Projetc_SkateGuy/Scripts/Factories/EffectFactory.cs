@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SkateGuy.Effects;
+using GrazerCore.Effects;
 using UnityEngine.Pool;
 
-namespace SkateGuy.Factories
+namespace GrazerCore.Factories
 {
     public class EffectFactory
     {
@@ -58,7 +58,9 @@ namespace SkateGuy.Factories
 
         private ObjectPool<SFXEffecter> effectPool = null;
         private List<SFXEffecter> aliveObject = new List<SFXEffecter>();
-        
+
+        private GameObject storagePlace = null;
+
         public EffectPool(SFXEffecter _CoreEffect)
         {
             m_CoreEffect = _CoreEffect;
@@ -94,6 +96,12 @@ namespace SkateGuy.Factories
             newEffect.OnEffectDone.AddListener(() => {
                 effectPool.Release(newEffect);
             });
+            if (storagePlace == null)
+            {
+                storagePlace = new GameObject("EffectPoolItem_" + m_CoreEffect.name);
+                storagePlace.transform.localPosition = Vector3.zero;
+            }
+            newEffect.transform.parent = storagePlace.transform;
             return newEffect;
         }
 

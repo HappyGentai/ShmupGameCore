@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-namespace SkateGuy.UIs
+namespace GrazerCore.UIs
 {
     public class BasicUI : MonoBehaviour
     {

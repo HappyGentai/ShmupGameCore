@@ -1,9 +1,9 @@
 using UnityEngine;
 using Newtonsoft.Json;
-using SkateGuy.GameElements.EnemyLogicData;
+using GrazerCore.GameElements.EnemyLogicData;
 using System;
 
-namespace SkateGuy.Test
+namespace GrazerCore.Test
 {
     public class TestJson : MonoBehaviour
     {

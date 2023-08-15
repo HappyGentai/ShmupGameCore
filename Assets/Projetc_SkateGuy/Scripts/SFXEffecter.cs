@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SkateGuy.Effects
+namespace GrazerCore.Effects
 {
     public abstract class SFXEffecter : MonoBehaviour
     {

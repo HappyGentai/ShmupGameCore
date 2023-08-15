@@ -1,7 +1,7 @@
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Tool
+namespace GrazerCore.Tool
 {
     public class DPSChecker : MonoBehaviour
     {

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using SkateGuy.GameElements;
-using SkateGuy.Factories;
-using SkateGuy.GameElements.EnemyGroup;
+using GrazerCore.GameElements;
+using GrazerCore.Factories;
+using GrazerCore.GameElements.EnemyGroup;
 using UnityEditor;
 
-namespace SkateGuy.Editor
+namespace GrazerCore.Editor
 {
     [CustomEditor(typeof(EnemyTeam))]
     public class EnemyTeamEditor : UnityEditor.Editor

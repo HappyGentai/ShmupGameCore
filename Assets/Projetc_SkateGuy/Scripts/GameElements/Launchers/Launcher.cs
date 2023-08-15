@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using SkateGuy.Factories;
+using GrazerCore.Factories;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class Launcher : MonoBehaviour
     {

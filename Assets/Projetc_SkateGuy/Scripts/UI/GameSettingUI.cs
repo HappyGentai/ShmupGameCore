@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
-using SkateGuy.Tool;
+using GrazerCore.Tool;
 
-namespace SkateGuy.UIs
+namespace GrazerCore.UIs
 {
     public class GameSettingUI : BasicUI
     {

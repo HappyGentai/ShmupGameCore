@@ -1,7 +1,7 @@
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.States.EnemyStates
+namespace GrazerCore.States.EnemyStates
 {
     public class EnemyStateAdiotMove: BasicState
     {

@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 using UnityEngine.InputSystem;
 
-namespace SkateGuy.States.PlayerStates
+namespace GrazerCore.States.PlayerStates
 {
     public class PlayerStateBasicControl: BasicState
     {

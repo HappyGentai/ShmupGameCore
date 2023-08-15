@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class EXBall : PickUpObject
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class BulletTypeRotateChase : Bullet
     {

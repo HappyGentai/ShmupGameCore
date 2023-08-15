@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.GameElements;
-using SkateGuy.Effects;
+using GrazerCore.GameElements;
+using GrazerCore.Effects;
 
-namespace SkateGuy.Factories
+namespace GrazerCore.Factories
 {
     public class GameFactory : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-namespace SkateGuy
+namespace GrazerCore
 {
     public interface IRecycleable
     {

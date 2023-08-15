@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Factories
+namespace GrazerCore.Factories
 {
     public class BulletFactory
     {
@@ -64,6 +64,8 @@ namespace SkateGuy.Factories
         private ObjectPool<Bullet> bulletPool = null;
         private List<Bullet> aliveObject = new List<Bullet>();
 
+        private GameObject storagePlace = null;
+
         public BulletPool(Bullet _CoreBullet)
         {
             m_CoreBullet = _CoreBullet;
@@ -102,6 +104,12 @@ namespace SkateGuy.Factories
             {
                 bulletPool.Release(newBullet);
             };
+            if (storagePlace == null)
+            {
+                storagePlace = new GameObject("PickUpPoolItem_" + m_CoreBullet.name);
+                storagePlace.transform.localPosition = Vector3.zero;
+            }
+            newBullet.transform.parent = storagePlace.transform;
             return newBullet;
         }
 

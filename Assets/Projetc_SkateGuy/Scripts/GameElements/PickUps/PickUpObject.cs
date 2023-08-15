@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public abstract class PickUpObject : MonoBehaviour, IRecycleable
     {

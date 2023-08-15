@@ -1,4 +1,4 @@
-namespace SkateGuy.States
+namespace GrazerCore.States
 {
     public class StateController
     {

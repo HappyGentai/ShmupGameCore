@@ -1,8 +1,8 @@
-using SkateGuy.UIs;
+using GrazerCore.UIs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SkateGuy.GameFlow.States
+namespace GrazerCore.GameFlow.States
 {
     public class MenuState : GameState
     {

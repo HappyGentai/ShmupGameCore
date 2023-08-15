@@ -1,6 +1,6 @@
 using UnityEngine.Events;
 
-namespace SkateGuy.UIs
+namespace GrazerCore.UIs
 {
     public class GamePauseUI : BasicUI
     {

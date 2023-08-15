@@ -1,9 +1,9 @@
 using UnityEngine;
-using SkateGuy.States.PlayerStates;
+using GrazerCore.States.PlayerStates;
 using UnityEngine.Events;
-using SkateGuy.Skills;
+using GrazerCore.Skills;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class BasicPlayer : PlayableObject
     {

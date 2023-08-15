@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-namespace SkateGuy.UIs
+namespace GrazerCore.UIs
 {
     public class AudioVolumeUI : BasicUI
     {

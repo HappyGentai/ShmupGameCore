@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SkateGuy.GameFlow
+namespace GrazerCore.GameFlow
 {
     public class SimpleGameFlower : MonoBehaviour
     {

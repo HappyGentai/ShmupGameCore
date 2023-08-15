@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SkateGuy.Fields
+namespace GrazerCore.Fields
 {
     public class ShootLockArea : MonoBehaviour
     {

@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.UIs
+namespace GrazerCore.UIs
 {
     public class GamePlayUI : BasicUI
     {

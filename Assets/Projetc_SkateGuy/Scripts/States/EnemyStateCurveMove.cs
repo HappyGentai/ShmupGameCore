@@ -1,9 +1,9 @@
 using UnityEngine;
-using SkateGuy.GameElements;
-using SkateGuy.Tool;
-using SkateGuy.GameElements.EnemyLogicData;
+using GrazerCore.GameElements;
+using GrazerCore.Tool;
+using GrazerCore.GameElements.EnemyLogicData;
 
-namespace SkateGuy.States.EnemyStates
+namespace GrazerCore.States.EnemyStates
 {
     public class EnemyStateCurveMove : BasicState
     {

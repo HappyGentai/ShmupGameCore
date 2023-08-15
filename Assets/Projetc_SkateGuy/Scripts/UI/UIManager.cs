@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SkateGuy.UIs
+namespace GrazerCore.UIs
 {
     public class UIManager
     {

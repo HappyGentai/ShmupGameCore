@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.GameFlow.Events;
-using SkateGuy.Factories;
+using GrazerCore.GameFlow.Events;
+using GrazerCore.Factories;
 
-namespace SkateGuy.GameElements {
+namespace GrazerCore.GameElements {
     public class StageController : MonoBehaviour
     {
         [SerializeField]

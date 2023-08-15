@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.Events;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Factories
+namespace GrazerCore.Factories
 {
     public class EnemyFactory
     {
@@ -106,6 +106,8 @@ namespace SkateGuy.Factories
             get { return aliveObject; }
         }
 
+        private GameObject storagePlace = null;
+
         public EnemyPool(Enemy _CoreEnemy)
         {
             m_CoreEnemy = _CoreEnemy;
@@ -141,6 +143,12 @@ namespace SkateGuy.Factories
             {
                 enemyPool.Release(_enemy);
             });
+            if (storagePlace == null)
+            {
+                storagePlace = new GameObject("EnemyPoolItem_" + m_CoreEnemy.name);
+                storagePlace.transform.localPosition = Vector3.zero;
+            }
+            newEnemy.transform.parent = storagePlace.transform;
             return newEnemy;
         }
 

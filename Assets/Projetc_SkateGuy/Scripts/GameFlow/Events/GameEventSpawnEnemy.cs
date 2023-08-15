@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using SkateGuy.GameElements.EnemyGroup;
-using SkateGuy.Tool;
-using SkateGuy.Factories;
+using GrazerCore.GameElements.EnemyGroup;
+using GrazerCore.Tool;
+using GrazerCore.Factories;
 
-namespace SkateGuy.GameFlow.Events
+namespace GrazerCore.GameFlow.Events
 {
     [CreateAssetMenu(fileName = "GameEventSpawnEnemy", menuName = "SkateGuy/GameEvent/GameEventSpawnEnemy")]
     public class GameEventSpawnEnemy : GameEvent

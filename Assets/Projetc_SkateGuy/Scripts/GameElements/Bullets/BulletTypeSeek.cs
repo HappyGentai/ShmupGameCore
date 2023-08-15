@@ -1,8 +1,8 @@
 using UnityEngine;
-using SkateGuy.Tool;
+using GrazerCore.Tool;
 using System.Collections;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class BulletTypeSeek : Bullet
     {

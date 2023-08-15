@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SkateGuy.GameElements.EnemyLogicData
+namespace GrazerCore.GameElements.EnemyLogicData
 {
     [System.Serializable]
     public class EnemyTypeSinMoveLogicData

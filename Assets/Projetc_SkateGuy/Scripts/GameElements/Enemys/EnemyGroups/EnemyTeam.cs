@@ -1,10 +1,10 @@
 using UnityEngine;
-using SkateGuy.Factories;
+using GrazerCore.Factories;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SkateGuy.GameElements.EnemyGroup
+namespace GrazerCore.GameElements.EnemyGroup
 {
     public class EnemyTeam : MonoBehaviour
     {

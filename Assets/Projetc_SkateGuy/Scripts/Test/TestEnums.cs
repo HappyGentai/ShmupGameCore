@@ -1,4 +1,4 @@
-namespace SkateGuy.Test
+namespace GrazerCore.Test
 {
     public enum DamageResponesType {
         ClearBullet,

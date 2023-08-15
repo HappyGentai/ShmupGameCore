@@ -1,7 +1,7 @@
 using UnityEngine;
 using Assets.SimpleLocalization;
 
-namespace SkateGuy.Tool
+namespace GrazerCore.Tool
 {
     public class LocalizationController : MonoBehaviour
     {

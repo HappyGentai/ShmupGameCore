@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace SkateGuy.GameElements
+namespace GrazerCore.GameElements
 {
     public class StageBackGround : MonoBehaviour
     {

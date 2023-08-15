@@ -1,4 +1,4 @@
-namespace SkateGuy.Factories
+namespace GrazerCore.Factories
 {
     public enum FactoryObjectType
     {

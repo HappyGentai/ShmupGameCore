@@ -1,6 +1,6 @@
 using UnityEngine.Events;
 
-namespace SkateGuy.Skills
+namespace GrazerCore.Skills
 {
     public abstract class Skill
     {

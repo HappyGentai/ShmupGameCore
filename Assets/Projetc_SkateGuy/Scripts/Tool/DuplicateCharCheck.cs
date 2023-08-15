@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SkateGuy.Tool
+namespace GrazerCore.Tool
 {
     public class DuplicateCharCheck : MonoBehaviour
     {

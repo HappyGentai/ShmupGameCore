@@ -1,7 +1,7 @@
 using UnityEngine;
-using SkateGuy.GameElements;
+using GrazerCore.GameElements;
 
-namespace SkateGuy.Datas
+namespace GrazerCore.Datas
 {
     [CreateAssetMenu(fileName = "SkillDataGrazeCounter", menuName = "SkateGuy/SkillDatas/GrazeCounter")]
     public class SkillDataGrazeCounter : SkillData<BasicPlayer>

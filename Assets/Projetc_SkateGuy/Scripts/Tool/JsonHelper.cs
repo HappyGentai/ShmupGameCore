@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace SkateGuy.Tool
+namespace GrazerCore.Tool
 {
     public class JsonHelper
     {
