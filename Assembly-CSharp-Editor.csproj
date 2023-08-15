@@ -56,7 +56,7 @@
     <Compile Include="Assets\PluginAsset\RebindingUIExample\Scripts\Editor\RebindActionUIEditor.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Editor\LevelMakerEditor.cs" />
     <Compile Include="Assets\PluginAsset\SimpleLocalization\Editor\LocalizationSyncEditor.cs" />
-    <Compile Include="Assets\Projetc_SkateGuy\Scripts\Editor\EnemyTeamEditor.cs" />
+    <Compile Include="Assets\Projetc_SkateGuy\GrazerCore\Scripts\Editor\EnemyTeamEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
