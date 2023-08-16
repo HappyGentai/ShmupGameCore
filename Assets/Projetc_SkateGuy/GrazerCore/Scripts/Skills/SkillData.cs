@@ -1,8 +1,7 @@
 using UnityEngine;
-using Gental14.GrazerCore.Skills;
 using UnityEngine.Events;
 
-namespace Gental14.GrazerCore.Datas
+namespace GrazerCore.Skills.Datas
 {
     public abstract class SkillData<T> : ScriptableObject
     {

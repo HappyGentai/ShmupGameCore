@@ -1,4 +1,4 @@
-namespace Gental14.GrazerCore.Factories
+namespace GrazerCore.Factories
 {
     public enum FactoryObjectType
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gental14.GrazerCore.Factories
+namespace GrazerCore.Factories
 {
     public struct FactoryProduct
     {

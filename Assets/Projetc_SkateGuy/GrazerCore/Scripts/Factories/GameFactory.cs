@@ -1,8 +1,8 @@
 using UnityEngine;
-using Gental14.GrazerCore.GameElements;
-using Gental14.GrazerCore.Effects;
+using GrazerCore.GameElements;
+using GrazerCore.Effects;
 
-namespace Gental14.GrazerCore.Factories
+namespace GrazerCore.Factories
 {
     public class GameFactory : MonoBehaviour
     {

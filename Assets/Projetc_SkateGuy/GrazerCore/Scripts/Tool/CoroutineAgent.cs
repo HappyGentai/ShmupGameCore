@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Gental14.GrazerCore.Tool
+namespace GrazerCore.Tool
 {
     public class CoroutineAgent : MonoBehaviour
     {

@@ -1,8 +1,8 @@
 using UnityEngine;
-using Gental14.GrazerCore.GameFlow.Events;
-using Gental14.GrazerCore.Factories;
+using GrazerCore.GameFlow.Events;
+using GrazerCore.Factories;
 
-namespace Gental14.GrazerCore.GameElements {
+namespace GrazerCore.GameElements {
     public class StageController : MonoBehaviour
     {
         [SerializeField]

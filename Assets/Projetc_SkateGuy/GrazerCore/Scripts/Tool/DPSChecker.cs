@@ -1,7 +1,7 @@
 using UnityEngine;
-using Gental14.GrazerCore.GameElements;
+using GrazerCore.GameElements;
 
-namespace Gental14.GrazerCore.Tool
+namespace GrazerCore.Tool
 {
     public class DPSChecker : MonoBehaviour
     {

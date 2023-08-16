@@ -1,6 +1,6 @@
 using UnityEngine.Events;
 
-namespace Gental14.GrazerCore.Skills
+namespace GrazerCore.Skills
 {
     public abstract class Skill
     {

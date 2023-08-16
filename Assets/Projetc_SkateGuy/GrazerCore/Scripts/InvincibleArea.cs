@@ -1,6 +1,7 @@
 using UnityEngine;
+using GrazerCore.Interfaces;
 
-namespace Gental14.GrazerCore.Fields
+namespace GrazerCore.Fields
 {
     /// <summary>
     /// Any object which have collider(2D) enter this area will set value-Invincible to true

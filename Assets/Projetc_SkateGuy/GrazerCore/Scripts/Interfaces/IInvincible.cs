@@ -1,4 +1,4 @@
-namespace Gental14.GrazerCore
+namespace GrazerCore.Interfaces
 {
     public interface IInvincible
     {

@@ -53,6 +53,7 @@
     <UnityVersion>2021.3.9f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Projetc_SkateGuy\GrazerCore\Scripts\Editor\EnemySpawnHelper.cs" />
     <Compile Include="Assets\PluginAsset\RebindingUIExample\Scripts\Editor\RebindActionUIEditor.cs" />
     <Compile Include="Assets\BasicShmup\Scripts\Editor\LevelMakerEditor.cs" />
     <Compile Include="Assets\PluginAsset\SimpleLocalization\Editor\LocalizationSyncEditor.cs" />

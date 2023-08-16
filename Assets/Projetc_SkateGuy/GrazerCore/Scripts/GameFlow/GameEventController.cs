@@ -1,8 +1,8 @@
 using UnityEngine;
-using Gental14.GrazerCore.GameFlow.Events;
+using GrazerCore.GameFlow.Events;
 using UnityEngine.Events;
 
-namespace Gental14.GrazerCore.GameFlow
+namespace GrazerCore.GameFlow
 {
     [System.Serializable]
     public class GameEventController

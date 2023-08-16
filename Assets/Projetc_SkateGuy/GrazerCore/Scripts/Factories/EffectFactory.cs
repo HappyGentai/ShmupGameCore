@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Gental14.GrazerCore.Effects;
+using GrazerCore.Effects;
 using UnityEngine.Pool;
 
-namespace Gental14.GrazerCore.Factories
+namespace GrazerCore.Factories
 {
     public class EffectFactory
     {

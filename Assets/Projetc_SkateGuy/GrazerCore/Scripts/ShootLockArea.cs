@@ -1,6 +1,7 @@
 using UnityEngine;
+using GrazerCore.Interfaces;
 
-namespace Gental14.GrazerCore.Fields
+namespace GrazerCore.Fields
 {
     public class ShootLockArea : MonoBehaviour
     {

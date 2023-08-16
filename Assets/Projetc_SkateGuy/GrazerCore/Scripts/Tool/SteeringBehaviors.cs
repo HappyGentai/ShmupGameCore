@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gental14.GrazerCore.Tool
+namespace GrazerCore.Tool
 {
     public class SteeringBehaviors
     {

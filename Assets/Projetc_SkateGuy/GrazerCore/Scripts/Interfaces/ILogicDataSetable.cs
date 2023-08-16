@@ -1,4 +1,4 @@
-namespace Gental14.GrazerCore
+namespace GrazerCore.Interfaces
 {
     /// <summary>
     /// Used to get target class data or set data let target class deal it.

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Gental14.GrazerCore.Effects
+namespace GrazerCore.Effects
 {
     public abstract class SFXEffecter : MonoBehaviour
     {

@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Gental14.GrazerCore.GameElements;
-using Gental14.GrazerCore.Factories;
-using Gental14.GrazerCore.GameElements.EnemyGroup;
+using GrazerCore.GameElements;
+using GrazerCore.Factories;
+using GrazerCore.GameElements.EnemyGroup;
 using UnityEditor;
+using GrazerCore.Interfaces;
 
-namespace Gental14.GrazerCore.Editor
+namespace GrazerCore.Editor
 {
     [CustomEditor(typeof(EnemyTeam))]
     public class EnemyTeamEditor : UnityEditor.Editor

@@ -1,8 +1,7 @@
 using UnityEngine;
-using Gental14.GrazerCore.GameFlow.States;
-using UnityEngine.InputSystem;
+using GrazerCore.GameFlow.States;
 
-namespace Gental14.GrazerCore.GameFlow
+namespace GrazerCore.GameFlow
 {
     public class GameController : MonoBehaviour
     {

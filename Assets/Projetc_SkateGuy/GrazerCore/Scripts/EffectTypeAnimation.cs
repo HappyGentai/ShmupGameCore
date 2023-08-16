@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Gental14.GrazerCore.Effects
+namespace GrazerCore.Effects
 {
     public class EffectTypeAnimation : SFXEffecter
     {

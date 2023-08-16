@@ -2,7 +2,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Gental14.GrazerCore.Tool
+namespace GrazerCore.Tool
 {
     public class SimpleInput : MonoBehaviour
     {

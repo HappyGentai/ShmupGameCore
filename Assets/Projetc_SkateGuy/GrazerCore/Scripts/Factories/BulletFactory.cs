@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
-using Gental14.GrazerCore.GameElements;
+using GrazerCore.GameElements;
 
-namespace Gental14.GrazerCore.Factories
+namespace GrazerCore.Factories
 {
     public class BulletFactory
     {

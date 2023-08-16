@@ -1,4 +1,4 @@
-namespace Gental14.GrazerCore.GameElements.PlayerPlus
+namespace GrazerCore.GameElements
 {
     /// <summary>
     /// Will trigger when Class-PlayableObject damaged.
