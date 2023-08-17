@@ -70,11 +70,6 @@ namespace GrazerCore.GameElements
             StateController.SetState(sinMoveState);
         }
 
-        public override void ReSetData()
-        {
-
-        }
-
         public string GetLogicData()
         {
             var logicDataPack = JsonUtility.ToJson(m_LogicData);

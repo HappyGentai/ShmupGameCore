@@ -44,7 +44,15 @@ namespace GrazerCore.GameElements
         }
         [SerializeField]
         protected float m_MoveSpeed = 1f;
-        public abstract float MoveSpeed { get; protected set; }
+        public virtual float MoveSpeed {
+            get {
+                return m_MoveSpeed;
+            }
+            protected set
+            {
+                m_MoveSpeed = value;
+            }
+         }
         [SerializeField]
         protected float m_CloseDamage = 1;
         [SerializeField]
@@ -52,7 +60,14 @@ namespace GrazerCore.GameElements
         [Header("Launcher")]
         [SerializeField]
         protected Launcher[] m_Launchers = null;
-        public abstract Launcher[] Launchers { get; set; }
+        public virtual Launcher[] Launchers
+        {
+            get { return m_Launchers; }
+            set
+            {
+                m_Launchers = value;
+            }
+        }
 
         protected bool isInvincible = false;
 
@@ -67,13 +82,20 @@ namespace GrazerCore.GameElements
 
         [Header("Events")]
         protected UnityEvent<float> _OnHPChange = new UnityEvent<float>();
-        public abstract UnityEvent<float> OnHPChange { get; protected set; }
+        public virtual UnityEvent<float> OnHPChange
+        {
+            get { return _OnHPChange; }
+            protected set
+            {
+                _OnHPChange = value;
+            }
+        }
         [SerializeField]
         protected UnityEvent<float> m_OnGetDamaged = new UnityEvent<float>();
         public virtual UnityEvent<float> OnGetDamaged { get { return m_OnGetDamaged; } protected set { } }
         [SerializeField]
         protected UnityEvent _OnEnemyDie = new UnityEvent();
-        public abstract UnityEvent OnEnemyDie { get; protected set; }
+        public virtual UnityEvent OnEnemyDie { get { return _OnEnemyDie; } protected set { } }
         protected UnityEvent<Enemy> onRecycle = new UnityEvent<Enemy>();
         public  UnityEvent<Enemy> OnRecycle
         {
@@ -136,8 +158,6 @@ namespace GrazerCore.GameElements
             HP -= dmg;
             m_OnGetDamaged?.Invoke(dmg);
         }
-
-        public abstract void ReSetData();
 
         protected virtual void Die()
         {

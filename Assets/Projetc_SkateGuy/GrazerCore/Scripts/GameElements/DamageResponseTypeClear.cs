@@ -1,7 +1,7 @@
 using UnityEngine;
 using GrazerCore.Interfaces;
 
-namespace GrazerCore.GameElements.PlayerPlus
+namespace GrazerCore.GameElements
 {
     [System.Serializable]
     public class DamageResponseTypeClear : DamageResponse

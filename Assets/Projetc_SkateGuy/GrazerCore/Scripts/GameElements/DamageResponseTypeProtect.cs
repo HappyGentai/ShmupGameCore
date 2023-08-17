@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace GrazerCore.GameElements.PlayerPlus
+namespace GrazerCore.GameElements
 {
     [System.Serializable]
     public class DamageResponseTypeProtect : DamageResponse

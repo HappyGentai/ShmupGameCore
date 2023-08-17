@@ -76,11 +76,6 @@ namespace GrazerCore.GameElements
             StateController.SetState(curveMoveState);
         }
 
-        public override void ReSetData()
-        {
-            
-        }
-
         public string GetLogicData()
         {
             var logicDataPack = JsonUtility.ToJson(m_LogicData);

@@ -163,7 +163,6 @@ namespace GrazerCore.Factories
         private void OnTakeFromPool(Enemy enemy)
         {
             enemy.gameObject.SetActive(true);
-            enemy.ReSetData();
             aliveObject.Add(enemy);
         }
 

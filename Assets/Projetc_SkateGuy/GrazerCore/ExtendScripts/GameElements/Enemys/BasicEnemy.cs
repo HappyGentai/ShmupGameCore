@@ -59,10 +59,5 @@ namespace GrazerCore.GameElements
             var adiotEnemyState = new EnemyStateAdiotMove(StateController, this, Vector2.left);
             StateController.SetState(adiotEnemyState);
         }
-
-        public override void ReSetData()
-        {
-
-        }
     }
 }

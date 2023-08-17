@@ -94,10 +94,5 @@ namespace GrazerCore.GameElements
             bossAttackC.nextState = bossAttackA;
             StateController.SetState(moveToPointState);
         }
-
-        public override void ReSetData()
-        {
-
-        }
     }
 }
